@@ -3,7 +3,6 @@ import { KOL_ICON } from './defaults/icon';
 
 // Presse- und Informationsamt der Bundesregierung
 export const BPA = KoliBri.createTheme('bpa', {
-	'KOL-ICON': KOL_ICON,
 	GLOBAL:
 		':host {--primary: #007a89;--secondary: #0b4d59;--normal: #f2f3f4;--danger: #bc0000;--danger-light: rgba(188, 0, 0, 0.1);--ghost: white;--font-family: BundesSans Web, Calibri, Verdana, Arial, Helvetica, sans-serif;--font-size: 16px;--error: var(--danger);--dark-red: #780f2d;--dark-green: #005c45;--red-orange: #c44931;--visited: #5f316e;--secondary-blue: #004b76;--default-letter: #202020;--default-border: #576164;--default-border-hover: var(--secondary);--border-default: #bec5c9;--background-light-grey: #f2f3f4;--kolibri-color-spin-1: blue;--kolibri-color-spin-2: red;--kolibri-color-spin-3: green;--spacing: 0.25em;}:host {font-family: var(--font-family);font-size: var(--font-size);}:host * {box-sizing: border-box;letter-spacing: inherit;font-family: inherit;word-spacing: inherit;hyphens: auto;word-break: break-word;}:host div {background-color: white;}:host button {cursor: pointer;}.hidden {visibility: hidden;height: 0;}',
 	'KOL-BUTTON':
@@ -56,4 +55,5 @@ export const BPA = KoliBri.createTheme('bpa', {
 		'nav {background-color: white;}ul {list-style: none;margin: 0px;padding: 0px;}nav.horizontal ul {display: flex;flex-wrap: wrap;}li {margin-left: 1rem;margin-right: 0.5rem;}li.list-none {list-style-type: none !important;margin-left: 0;}',
 	'KOL-TOAST':
 		':host > div {display: fixed;top: 0;left: 0;width: 100%;height: 0;z-index: 50;}:host > div > kol-alert {display: block;padding: 1em;margin: auto;max-width: 750px;}',
+	'KOL-ICON': KOL_ICON,
 });

@@ -3,7 +3,6 @@ import { KOL_ICON } from './defaults/icon';
 
 // IT-Verbund Schleswig-Holstein (ITVSH)
 export const ITVSH = KoliBri.createTheme('itvsh', {
-	'KOL-ICON': KOL_ICON,
 	GLOBAL:
 		':host {--primary-blue: rgb(0, 48, 100);--primary-blue-dark: rgb(0, 30, 73);--primary-red: rgb(212, 0, 75);--secondary-01: rgb(30, 174, 156);--secondary-02: rgb(0, 162, 171);--secondary-03: rgb(0, 160, 201);--secondary-04: rgb(0, 140, 207);--secondary-05: rgb(58, 120, 184);--secondary-06: rgb(122, 111, 172);--secondary-07: rgb(181, 92, 156);--secondary-08: rgb(214, 47, 135);--feature-black: rgb(0, 0, 0);--feature-white: rgb(255, 255, 255);--feature-grey: rgb(164, 173, 182);--feature-sand: rgb(187, 179, 171);--font-family-avenir: "Avenir Next Pro", "Arial";--font-family-celeste: "Celeste", "Times";}',
 	'KOL-BUTTON':
@@ -12,4 +11,5 @@ export const ITVSH = KoliBri.createTheme('itvsh', {
 		':host {display: inline-block;}span {align-items: center;border-radius: 0.3125rem;display: flex;line-height: 1.25rem;gap: 0.5rem;padding: 0.25rem 0.75rem;}',
 	'KOL-ACCORDION':
 		':host > *,:host kol-heading button {font-family: var(--font-family-avenir);}:host > * {border: 1px solid;border-left: 0;border-right: 0;width: 100%;}:host kol-heading button {background-color: transparent;border: 0;cursor: pointer;padding: 0.5rem 3rem 0.5rem 0;text-align: left;width: 100%;}:host kol-heading button kol-icon {min-width: 3rem;display: inherit;text-align: center;}:host [part="header"],:host [part="content"] {padding: 0 3rem;}:host > div > kol-heading > button kol-icon::part(icon) {font-weight: 900;color: var(--secondary);}:host > div > kol-heading > button kol-icon::part(close)::before {font-family: "Font Awesome 6 Free";content: "\\f077";}:host > div > kol-heading > button kol-icon::part(open)::before {font-family: "Font Awesome 6 Free";content: "\\f078";}',
+	'KOL-ICON': KOL_ICON,
 });
