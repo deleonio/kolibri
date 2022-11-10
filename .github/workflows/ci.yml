@@ -14,6 +14,16 @@ jobs:
     name: Check quality gates
     steps:
       - uses: actions/checkout@v3
+
+      # - uses: pnpm/action-setup@v2.2.4
+      #   with:
+      #     run_install: false
+      #     version: 7
+      # - uses: actions/setup-node@v3
+      #   with:
+      #     cache: pnpm
+      #     node-version: 16
+
       # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -37,6 +47,7 @@ jobs:
           key: ${{ runner.os }}-pnpm-store # -${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store
+
       - name: Install
         run: pnpm i
       # - name: Unused
