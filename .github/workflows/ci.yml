@@ -3,6 +3,8 @@ name: CI-Pipeline
 on:
   pull_request:
     branches: [main]
+  # pull_request_target:
+  #   types: [opened, closed, synchronize]
   push:
   workflow_dispatch:
 
@@ -11,52 +13,26 @@ jobs:
     runs-on: ubuntu-latest
     name: Check quality gates
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
-      - name: Install Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        id: pnpm-install
+      - uses: pnpm/action-setup@v2.2.4
         with:
           version: 7
-          run_install: false
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
       - name: Install
         run: pnpm i
-
       - name: Unused
         run: npx lerna exec --stream -- ts-prune src -e
-
       - name: Format
         if: always()
-        run: npx lerna run format
-
+        run: |
+          npx lerna run format
       - name: Lint
-        run: npx lerna run lint
-
+        run: |
+          npx lerna run lint
       - name: Test
-        run: npx lerna run test
-        # working-directory: packages/library
-
+        run: |
+          npx lerna run test
       - name: 'Pack'
         run: npx lerna exec --stream -- npm pack
