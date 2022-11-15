@@ -74,7 +74,7 @@ export const getSpanWcHtml = (
 
 export const getSpanHtml = (props: Props): string => {
 	return `
-<kol-span${reflectAttrs(props, {}, ['_iconOnly', '_label'])}>
+<kol-span>
 	<mock:shadow-root>
 		${getSpanWcHtml(props, {}, ``, true)}
 	</mock:shadow-root>
