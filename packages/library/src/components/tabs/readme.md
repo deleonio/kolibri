@@ -89,6 +89,8 @@ Ausgewählte Tabs werden beim Anspringen mit der **Tab-Taste** mit einem deutlic
 
 Nach Anspringen eines Tabs kann mit Hilfe der **Tab-Taste** vom Header in den Inhaltsbereich der Registerkarte gewechselt werden.
 
+Unabhängig davon ob die Tab-Schalter oben, rechts, unten oder links angeordnet sind, bleibt die Tastatursteuerung gleich. Hintergrund ist, dass das Layout bei der Nutzung eines Screenreaders keine Rolle spielt. Eine unterschiedliche Pfeil-Tastensteuerung aufgrund der Layout-Anordnung würde daher nicht dem üblichen Bedienkonzept des W3C entsprechen.
+
 ### Tastatursteuerung
 
 Bei der Umsetzung der Tastatursteuerung wurde sich an den Beispielen des W3C's orientiert.
