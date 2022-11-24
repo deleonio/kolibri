@@ -1,14 +1,3 @@
 {
-  "editor.formatOnSave": true,
-  "mochaExplorer.env": {
-    "NODE_ENV": "test"
-  },
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.renderWhitespace": "all",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "git.enableSmartCommit": true,
-  "[sass]": {
-    "editor.defaultFormatter": "syler.sass-indented"
-  }
+	"html.customData": ["./node_modules/@public-ui/components/vscode-custom-data.json"]
 }
