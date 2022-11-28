@@ -19,7 +19,21 @@
 		}
 	],
 	"sideEffects": false,
-	"description": "Das Angular-Modul ist der Framework-Adapter für die Komponenten-Bibliothek.",
+	"description": "Angular (v10) framework adapter for the accessible web component library KoliBri (@public-ui).",
+	"keywords": [
+		"accessibility",
+		"accessible components",
+		"angular",
+		"bitv",
+		"components",
+		"component framework",
+		"component library",
+		"design system",
+		"style guide",
+		"ui framework",
+		"ui library",
+		"web components"
+	],
 	"scripts": {
 		"clean": "lerna exec --stream -- git clean -f -d -X && git clean -f -d -X",
 		"build:cjs": "tsc -m commonjs --outDir cjs",
