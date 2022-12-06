@@ -46,7 +46,7 @@
 		"@public-ui/core": "1.1.13"
 	},
 	"devDependencies": {
-		"@types/node": "18.11.10",
+		"@types/node": "18.11.11",
 		"typescript": "4.9.3",
 		"unbuild": "1.0.1"
 	},
