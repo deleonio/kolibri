@@ -71,7 +71,7 @@
 		"postpack": "mv package.bak.json package.json"
 	},
 	"dependencies": {
-		"@public-ui/schema": "1.2.0-rc.0"
+		"@public-ui/schema": "1.2.0-rc.5"
 	},
 	"devDependencies": {
 		"@public-ui/core": "1.2.0",
