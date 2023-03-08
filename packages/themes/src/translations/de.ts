@@ -1,4 +1,4 @@
-import { KoliBri } from '@public-ui/schema';
+import { KoliBri } from '@public-ui/components';
 
 export const DE = KoliBri.createTranslation('de', {
 	'kol-alert-error-label': 'Fehler',
