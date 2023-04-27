@@ -172,7 +172,7 @@ export class KolInputCheckbox implements ComponentApi {
 	/**
 	 * Gibt an, welchen Type das Input haben soll.
 	 */
-	@Prop() public _variant?: InputCheckboxVariant = 'default';
+	@Prop() public _variant?: InputCheckboxVariant; // TODO: = 'default'; in v2 setzen
 
 	@State() public state: States = {
 		_checked: false,

@@ -69,7 +69,8 @@ export const BMF = KoliBri.createTheme('bmf', {
 	*[tabindex]:focus,
 	a:focus,
 	button:focus,
-	kol-input .input:focus-within,
+	kol-input:not(.checkbox, .radio) .input:focus-within,
+	kol-input:is(.checkbox, .radio) input:focus,
 	summary:focus {
 		cursor: pointer;
 		outline-color: var(--color-ocean);

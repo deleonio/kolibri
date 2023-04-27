@@ -7,7 +7,7 @@ import { PropChecked, PropIndeterminate } from '../../types/props';
 
 export type InputCheckboxVariant =
 	| 'button'
-	| 'checkbox' // deprecated: removed in v2
+	| 'checkbox' //deprecated
 	| 'default'
 	| 'switch';
 
