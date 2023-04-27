@@ -1272,7 +1272,7 @@ export const ITZBund = KoliBri.createTheme('itzbund', {
 		justify-items: left;
 		width: 100%;
 	}
-	kol-input.checkbox {
+	kol-input.default {
 		grid-template-columns: calc(6 * 2 * var(--spacing)) auto;
 	}
 	kol-input.switch {
@@ -1311,13 +1311,13 @@ export const ITZBund = KoliBri.createTheme('itzbund', {
 		background-color: var(--color-petrol);
 		border-color: var(--color-petrol);
 	}
-	.checkbox input[type="checkbox"] {
+	.default input[type="checkbox"] {
 		/* border-radius: 0.25em; */
 		height: calc(6 * 2 * var(--spacing));
 		min-width: calc(6 * 2 * var(--spacing));
 		width: calc(6 * 2 * var(--spacing));
 	}
-	.checkbox input[type="checkbox"]:before {
+	.default input[type="checkbox"]:before {
 		/* border-radius: 0.25em; */
 		background-color: transparent;
 		display: block;
@@ -1325,7 +1325,7 @@ export const ITZBund = KoliBri.createTheme('itzbund', {
 		position: relative;
 		width: calc(6 * 2 * var(--spacing));
 	}
-	.checkbox input[type="checkbox"]:checked:before {
+	.default input[type="checkbox"]:checked:before {
 		border-right-width: 3px;
 		border-bottom-width: 3px;
 		left: calc(1.5 * 2 * var(--spacing) - 2px);
@@ -1339,7 +1339,7 @@ export const ITZBund = KoliBri.createTheme('itzbund', {
 		height: calc(3 * 2 * var(--spacing));
 		width: calc(1.5 * 2 * var(--spacing));
 	}
-	.checkbox input[type="checkbox"]:indeterminate:before {
+	.default input[type="checkbox"]:indeterminate:before {
 		background-color: var(--kolibri-color-normal);
 		height: 0.375rem;
 		top: 0.45rem;
@@ -1384,7 +1384,7 @@ export const ITZBund = KoliBri.createTheme('itzbund', {
 	.disabled {
 		opacity: 0.33;
 	}
-	.checkbox kol-icon,
+	.default kol-icon,
 	.switch kol-icon {
 		display: none;
 	}
