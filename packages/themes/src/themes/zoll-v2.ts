@@ -1346,10 +1346,11 @@ export const ZOLLv2 = KoliBri.createTheme('zoll-v2', {
 	.entry kol-button-wc:first-child,
 	.entry kol-link-wc,
 	.entry kol-span-wc {
+		color: black;
 		flex-grow: 1;
 	} /* custom. */
 	nav {
-		background-color: var(--color-blue);
+		background-color: #f2f2f2;
 	}
 	ul {
 		list-style: none;
@@ -1357,9 +1358,11 @@ export const ZOLLv2 = KoliBri.createTheme('zoll-v2', {
 		padding: 0;
 	}
 	.expand-button button {
-		background-color: var(--color-blue-130);
 		margin: auto;
 		height: 100%;
+	}
+	:is(a, button):focus {
+		outline: none;
 	}
 	kol-span-wc {
 		border-color: transparent;
@@ -1370,13 +1373,6 @@ export const ZOLLv2 = KoliBri.createTheme('zoll-v2', {
 		justify-items: start;
 		padding: 1rem;
 		height: 100%;
-	}
-	li > ul,
-	li + li {
-		border-color: var(--color-blue-75);
-		border-style: solid;
-		border-width: 0;
-		border-top-width: 2px;
 	}
 	a {
 		text-decoration: none;
