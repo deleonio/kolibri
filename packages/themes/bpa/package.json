@@ -48,7 +48,7 @@
 		"prepack": "unbuild"
 	},
 	"devDependencies": {
-		"@public-ui/schema": "1.5.2-rc.2",
+		"@public-ui/schema": "1.5.3",
 		"@types/node": "ts4.9",
 		"eslint": "8.41.0",
 		"typescript": "5.0.4",
