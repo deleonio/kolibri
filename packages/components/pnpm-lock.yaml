@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@a11y-ui/core':
     specifier: 1.0.3
@@ -12,8 +8,8 @@ dependencies:
     specifier: 1.4.1
     version: 1.4.1
   '@public-ui/schema':
-    specifier: 1.6.0-rc.3
-    version: 1.6.0-rc.3
+    specifier: 1.6.0-rc.4
+    version: 1.6.0-rc.4
   i18next:
     specifier: 22.5.1
     version: 22.5.1
@@ -110,8 +106,8 @@ devDependencies:
     specifier: 10.3.0
     version: 10.3.0(typescript@5.0.4)
   mathjs:
-    specifier: 11.8.1
-    version: 11.8.1
+    specifier: 11.8.2
+    version: 11.8.2
   postcss:
     specifier: 8.4.24
     version: 8.4.24
@@ -1751,8 +1747,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@public-ui/schema@1.6.0-rc.3:
-    resolution: {integrity: sha512-xbhbKuQrUyjHMrKoYyCwvhZt45Dhcu8cr3oAaIKLJvMN/MndMRhR0YobSPyKaWYJb5g59VYkr4XhqUZ6PrI0xw==}
+  /@public-ui/schema@1.6.0-rc.4:
+    resolution: {integrity: sha512-lm4mFKoWf+Cb+iC5CXPz/XqD3MZNrk1XUOrErUEHu5EYnfgVPOoQX4wyYBziUpufssN+FlmFhE7XmBGeyaLOIw==}
     dependencies:
       '@a11y-ui/core': 1.0.3
     dev: false
@@ -5833,8 +5829,8 @@ packages:
     resolution: {integrity: sha512-q9JtQJKjpsVxCRVgQ+WapguSbKC3SQ5HEzFGPAJMStgh3QjCawp00UKv3MTTAArTmGmmPUvllHZoNbZ3gs0I+Q==}
     dev: true
 
-  /mathjs@11.8.1:
-    resolution: {integrity: sha512-SHW5fqQXTHd4VqkKEtjQV16d/3fLUfna0VeW8Zd//dNWWLxHarEvXIqSs3vWCSPYc86l1r6yPcKvez8ZVLsoTg==}
+  /mathjs@11.8.2:
+    resolution: {integrity: sha512-ZePu0oDbM0vuFExikIMY/9syjo/jbgNbX6ti+iMdaALDuxciMCsXIslGDBEn7QCpCWYBiVCYmc0lsmk5bwHBdQ==}
     engines: {node: '>= 14'}
     hasBin: true
     dependencies:
@@ -8489,3 +8485,7 @@ packages:
     dependencies:
       '@stencil/core': 3.4.0
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
