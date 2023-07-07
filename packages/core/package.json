@@ -52,7 +52,7 @@
 		"prepack": "unbuild"
 	},
 	"dependencies": {
-		"@public-ui/components": "1.6.0-rc.4"
+		"@public-ui/components": "1.6.0-rc.10"
 	},
 	"devDependencies": {
 		"@a11y-ui/core": "1.0.3",
