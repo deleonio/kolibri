@@ -1,9 +1,10 @@
 import { Generic } from '@a11y-ui/core';
+
 import { Stringified } from '../../types/common';
-import { InputTypeOnDefault, InputTypeOnOff, Option } from '../../types/input/types';
-import { InputRequiredProps } from '../input/types';
 import { KoliBriHorizontalIcon } from '../../types/icon';
-import { PropLabel } from '../../types/props';
+import { InputTypeOnDefault, InputTypeOnOff, Option } from '../../types/input/types';
+import { PropLabelWithExpertSlot } from '../../types/props/label';
+import { InputRequiredProps } from '../input/types';
 
 type RequiredProps = InputRequiredProps;
 type OptionalProps = {
@@ -21,6 +22,7 @@ type OptionalProps = {
 	name: string;
 	on: InputTypeOnDefault;
 	step: number;
+	syncValueBySelector: string;
 	tabIndex: number;
 	touched: boolean;
 	value: number;
@@ -31,7 +33,7 @@ type RequiredStates = {
 	autoComplete: InputTypeOnOff;
 	id: string;
 	list: Option<number>[];
-} & PropLabel;
+} & PropLabelWithExpertSlot;
 type OptionalStates = {
 	accessKey: string;
 	alert: boolean;

@@ -1,34 +1,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { Component, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
 
-import { Generic } from '@a11y-ui/core';
-import { AriaLabel } from '../../types/aria-label';
 import { KoliBriModalEventCallbacks } from '../../types/modal';
+import { LabelPropType, validateLabel } from '../../types/props/label';
 import { featureHint } from '../../utils/a11y.tipps';
 import { getKoliBri } from '../../utils/dev.utils';
 import { setState, watchString, watchValidator } from '../../utils/prop.validators';
 import { ModalService } from './service';
+import { KoliBriModalAPI, KoliBriModalStates } from './types';
 
 /**
  * https://en.wikipedia.org/wiki/Modal_window
+ * @deprecated use the native <dialog> instead
  */
-
-type RequiredProps = AriaLabel;
-type OptionalProps = {
-	activeElement: HTMLElement | null;
-	on: KoliBriModalEventCallbacks;
-	width: string;
-};
-// type Props = Generic.Element.Members<RequiredProps, OptionalProps>;
-
-type RequiredStates = AriaLabel & {
-	activeElement: HTMLElement | null;
-	width: string;
-};
-type OptionalStates = {
-	on: KoliBriModalEventCallbacks;
-};
-type States = Generic.Element.Members<RequiredStates, OptionalStates>;
 
 /**
  * @slot - Der Inhalt des Modals.
@@ -40,7 +24,7 @@ type States = Generic.Element.Members<RequiredStates, OptionalStates>;
 	},
 	shadow: true,
 })
-export class KolModal implements Generic.Element.ComponentApi<RequiredProps, OptionalProps, RequiredStates, OptionalStates> {
+export class KolModal implements KoliBriModalAPI {
 	private hostElement?: HTMLElement;
 
 	public componentDidRender(): void {
@@ -79,7 +63,7 @@ export class KolModal implements Generic.Element.ComponentApi<RequiredProps, Opt
 							style={{
 								width: this.state._width,
 							}}
-							aria-label={this.state._ariaLabel}
+							aria-label={this.state._label}
 							aria-modal="true"
 							role="dialog"
 							onKeyDown={this.onKeyDown}
@@ -105,8 +89,15 @@ export class KolModal implements Generic.Element.ComponentApi<RequiredProps, Opt
 
 	/**
 	 * Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).
+	 *
+	 *  @deprecated use _label instead
 	 */
-	@Prop() public _ariaLabel!: string;
+	@Prop() public _ariaLabel?: string;
+
+	/**
+	 * Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).
+	 */
+	@Prop() public _label?: LabelPropType; // TODO: required in v2
 
 	/**
 	 * Gibt die EventCallback-Function für das Schließen des Modals an.
@@ -118,9 +109,9 @@ export class KolModal implements Generic.Element.ComponentApi<RequiredProps, Opt
 	 */
 	@Prop() public _width?: string = '100%';
 
-	@State() public state: States = {
+	@State() public state: KoliBriModalStates = {
 		_activeElement: null,
-		_ariaLabel: '…',
+		_label: '…', // ⚠ required
 		_width: '100%',
 	};
 
@@ -131,11 +122,17 @@ export class KolModal implements Generic.Element.ComponentApi<RequiredProps, Opt
 		});
 	}
 
+	/**
+	 * @deprecated
+	 */
 	@Watch('_ariaLabel')
 	public validateAriaLabel(value?: string): void {
-		watchString(this, '_ariaLabel', value, {
-			required: true,
-		});
+		this.validateLabel(value);
+	}
+
+	@Watch('_label')
+	public validateLabel(value?: LabelPropType): void {
+		validateLabel(this, value);
 	}
 
 	@Watch('_on')
@@ -159,7 +156,7 @@ export class KolModal implements Generic.Element.ComponentApi<RequiredProps, Opt
 
 	public componentWillLoad(): void {
 		this.validateActiveElement(this._activeElement);
-		this.validateAriaLabel(this._ariaLabel);
+		this.validateLabel(this._label || this._ariaLabel);
 		this.validateOn(this._on);
 		this.validateWidth(this._width);
 	}

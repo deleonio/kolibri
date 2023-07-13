@@ -1,8 +1,9 @@
 import { Component, Element, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
-import { Stringified } from '../../types/common';
 
+import { Stringified } from '../../types/common';
 import { InputTypeOnDefault } from '../../types/input/types';
-import { validateChecked, validateIndeterminate } from '../../types/props';
+import { Align } from '../../types/props/align';
+import { LabelWithExpertSlotPropType } from '../../types/props/label';
 import { nonce } from '../../utils/dev.utils';
 import { propagateFocus } from '../../utils/reuse';
 import { getRenderStates } from '../input/controller';
@@ -30,14 +31,15 @@ export class KolInputCheckbox implements ComponentApi {
 
 	public render(): JSX.Element {
 		const { ariaDescribedBy } = getRenderStates(this.state);
-		const showExpertSlot = this.state._label === ''; // _label="" or _label
-		const showDefaultSlot = this.state._label === '…'; // deprecated: default slot will be removed in v2.0.0
+		const hasExpertSlot = this.state._label === false; // _label="" or _label
+
 		return (
 			<Host>
 				<kol-input
 					class={{
 						checkbox: true,
 						[this.state._variant]: true,
+						'hide-label': !!this.state._hideLabel,
 					}}
 					data-role={this.state._variant === 'button' ? 'button' : undefined}
 					onKeyPress={this.state._variant === 'button' ? this.onChange : undefined}
@@ -52,7 +54,8 @@ export class KolInputCheckbox implements ComponentApi {
 					_touched={this.state._touched}
 					onClick={() => this.ref?.focus()}
 				>
-					<span slot="label">{showExpertSlot ? <slot name="expert"></slot> : showDefaultSlot ? <slot></slot> : this.state._label}</span>
+					{/*  TODO: der folgende Slot ohne Name muss später entfernt werden */}
+					<span slot="label">{hasExpertSlot ? <slot></slot> : this.state._label}</span>
 					<div slot="input">
 						<kol-icon
 							onClick={this.onChange}
@@ -76,7 +79,18 @@ export class KolInputCheckbox implements ComponentApi {
 							value={typeof this.state._value === 'string' ? this.state._value : ''}
 							{...this.controller.onFacade}
 							onChange={this.onChange}
-						></input>
+						/>
+						<kol-tooltip
+							/**
+							 * Dieses Aria-Hidden verhindert das doppelte Vorlesen des Labels,
+							 * verhindert aber nicht das Aria-Labelledby vorgelesen wird.
+							 */
+							aria-hidden="true"
+							hidden={hasExpertSlot || !this.state._hideLabel}
+							_align={this._tooltipAlign}
+							_id={`${this.state._id}-tooltip`}
+							_label={typeof this.state._label === 'string' ? this.state._label : ''}
+						></kol-tooltip>
 					</div>
 				</kol-input>
 			</Host>
@@ -103,7 +117,7 @@ export class KolInputCheckbox implements ComponentApi {
 	/**
 	 * Deaktiviert das interaktive Element in der Komponente und erlaubt keine Interaktion mehr damit.
 	 */
-	@Prop({ reflect: true }) public _disabled?: boolean;
+	@Prop() public _disabled?: boolean;
 
 	/**
 	 * Gibt den Text für eine Fehlermeldung an.
@@ -113,7 +127,7 @@ export class KolInputCheckbox implements ComponentApi {
 	/**
 	 * Blendet die Beschriftung (Label) aus und zeigt sie stattdessen mittels eines Tooltips an.
 	 */
-	@Prop({ reflect: true }) public _hideLabel?: boolean;
+	@Prop() public _hideLabel?: boolean;
 
 	/**
 	 * Gibt den Hinweistext an.
@@ -138,7 +152,7 @@ export class KolInputCheckbox implements ComponentApi {
 	/**
 	 * Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).
 	 */
-	@Prop() public _label!: string;
+	@Prop() public _label!: LabelWithExpertSlotPropType;
 
 	/**
 	 * Gibt den technischen Namen des Eingabefeldes an.
@@ -153,12 +167,23 @@ export class KolInputCheckbox implements ComponentApi {
 	/**
 	 * Macht das Eingabeelement zu einem Pflichtfeld.
 	 */
-	@Prop({ reflect: true }) public _required?: boolean;
+	@Prop() public _required?: boolean;
+
+	/**
+	 * Selector for synchronizing the value with another input element.
+	 * @internal
+	 */
+	@Prop() public _syncValueBySelector?: string;
 
 	/**
 	 * Gibt an, welchen Tab-Index das primäre Element in der Komponente hat. (https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex)
 	 */
 	@Prop() public _tabIndex?: number;
+
+	/**
+	 * Gibt an, ob der Tooltip bevorzugt entweder oben, rechts, unten oder links angezeigt werden soll.
+	 */
+	@Prop() public _tooltipAlign?: Align = 'top';
 
 	/**
 	 * Gibt an, ob dieses Eingabefeld von Nutzer:innen einmal besucht/berührt wurde.
@@ -191,7 +216,7 @@ export class KolInputCheckbox implements ComponentApi {
 		},
 		_id: nonce(), // ⚠ required
 		_indeterminate: false,
-		_label: '…', // ⚠ required
+		_label: false, // ⚠ required
 		_variant: 'default',
 	};
 
@@ -211,7 +236,7 @@ export class KolInputCheckbox implements ComponentApi {
 
 	@Watch('_checked')
 	public validateChecked(value?: boolean): void {
-		validateChecked(this, value);
+		this.controller.validateChecked(value);
 	}
 
 	@Watch('_disabled')
@@ -246,11 +271,11 @@ export class KolInputCheckbox implements ComponentApi {
 
 	@Watch('_indeterminate')
 	public validateIndeterminate(value?: boolean): void {
-		validateIndeterminate(this, value);
+		this.controller.validateIndeterminate(value);
 	}
 
 	@Watch('_label')
-	public validateLabel(value?: string): void {
+	public validateLabel(value?: LabelWithExpertSlotPropType): void {
 		this.controller.validateLabel(value);
 	}
 
@@ -267,6 +292,11 @@ export class KolInputCheckbox implements ComponentApi {
 	@Watch('_required')
 	public validateRequired(value?: boolean): void {
 		this.controller.validateRequired(value);
+	}
+
+	@Watch('_syncValueBySelector')
+	public validateSyncValueBySelector(value?: string): void {
+		this.controller.validateSyncValueBySelector(value);
 	}
 
 	@Watch('_tabIndex')

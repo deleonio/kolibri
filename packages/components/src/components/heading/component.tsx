@@ -1,27 +1,10 @@
 import { Component, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
 
-import { Generic } from '@a11y-ui/core';
 import { HeadingLevel } from '../../types/heading-level';
+import { LabelWithExpertSlotPropType, validateLabelWithExpertSlot } from '../../types/props/label';
 import { watchString } from '../../utils/prop.validators';
+import { KoliBriHeadingAPI, KoliBriHeadingStates } from './types';
 import { watchHeadingLevel } from './validation';
-
-type RequiredProps = {
-	label: string;
-};
-type OptionalProps = {
-	secondaryHeadline: string;
-	level: HeadingLevel;
-};
-export type Props = Generic.Element.Members<RequiredProps, OptionalProps>;
-
-type RequiredStates = {
-	label: string;
-	level: HeadingLevel;
-};
-type OptionalStates = {
-	secondaryHeadline: string;
-};
-export type States = Generic.Element.Members<RequiredStates, OptionalStates>;
 
 /**
  * @slot - Inhalt der Überschrift.
@@ -30,11 +13,11 @@ export type States = Generic.Element.Members<RequiredStates, OptionalStates>;
 	tag: 'kol-heading-wc',
 	shadow: false,
 })
-export class KolHeadingWc implements Generic.Element.ComponentApi<RequiredProps, OptionalProps, RequiredStates, OptionalStates> {
+export class KolHeadingWc implements KoliBriHeadingAPI {
 	/**
 	 * Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).
 	 */
-	@Prop() public _label!: string;
+	@Prop() public _label!: LabelWithExpertSlotPropType;
 
 	/**
 	 * Gibt an, welchen H-Level von 1 bis 6 die Überschrift hat. Oder bei 0, ob es keine Überschrift ist und als fett gedruckter Text angezeigt werden soll.
@@ -46,14 +29,14 @@ export class KolHeadingWc implements Generic.Element.ComponentApi<RequiredProps,
 	 */
 	@Prop() public _secondaryHeadline?: string;
 
-	@State() public state: States = {
-		_label: '…', // ⚠ required
+	@State() public state: KoliBriHeadingStates = {
+		_label: false, // ⚠ required
 		_level: 1,
 	};
 
 	@Watch('_label')
-	public validateLabel(value?: string): void {
-		watchString(this, '_label', value);
+	public validateLabel(value?: LabelWithExpertSlotPropType): void {
+		validateLabelWithExpertSlot(this, value);
 	}
 
 	@Watch('_level')
@@ -72,7 +55,7 @@ export class KolHeadingWc implements Generic.Element.ComponentApi<RequiredProps,
 		this.validateSecondaryHeadline(this._secondaryHeadline);
 	}
 
-	private readonly renderHeadline = (headline: string, level?: number): JSX.Element => {
+	private readonly renderHeadline = (headline: LabelWithExpertSlotPropType, level?: number): JSX.Element => {
 		switch (level) {
 			case 1:
 				return (

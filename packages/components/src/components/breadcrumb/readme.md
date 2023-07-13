@@ -50,7 +50,7 @@ Beispiel für ein JSON-Objekt, das an das Attribut **`_links`** übergeben wird:
 ]
 ```
 
-<kol-breadcrumb _links='[{"_label":"Startseite","_href":"#/","_icon":"codicon codicon-home","_icon-only": "true"},{"_label":"1. Unterseite","_href":"#/1_unterseite"},{"_label":"2. Unterseite","_href":"#/2_unterseite"}]'></kol-breadcrumb>
+<kol-breadcrumb _links='[{"_label":"Startseite","_href":"#/","_icon":"codicon codicon-home","hide-label": "true"},{"_label":"1. Unterseite","_href":"#/1_unterseite"},{"_label":"2. Unterseite","_href":"#/2_unterseite"}]'></kol-breadcrumb>
 
 ### Best practices
 
@@ -68,7 +68,7 @@ Eine Breadcrumb-Navigation ist auf einer großen Mehrzahl der aktuellen Webseite
 
 ## Barrierefreiheit
 
-Achten Sie im Sinne der optimalen Barrierefreiheit darauf, das Attribut `_aria-label` korrekt auszuzeichnen. Beachten Sie diesen Hinweis insbesondere dann, wenn Sie die Option `_icon-only` verwenden und so auf einen beschreibenden Text im Link verzichten würden.
+Achten Sie im Sinne der optimalen Barrierefreiheit darauf, das Attribut `_label` korrekt auszuzeichnen. Beachten Sie diesen Hinweis insbesondere dann, wenn Sie die Option `_hide-label` verwenden und so auf einen beschreibenden Text im Link verzichten würden.
 
 Beachten Sie, dass auch das letzte Element in der Breadcrumb-Komponente per Tab-Taste angesprungen werden kann, obwohl dort kein Link hinterlegt ist. Hierdurch kann auch dieses Element von Screenreader erreicht und vorgelesen werden.
 
@@ -87,10 +87,11 @@ Beachten Sie, dass auch das letzte Element in der Breadcrumb-Komponente per Tab-
 
 ## Properties
 
-| Property                  | Attribute     | Description                                                                                                                 | Type                    | Default     |
-| ------------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ----------- |
-| `_ariaLabel` _(required)_ | `_aria-label` | Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.). | `string`                | `undefined` |
-| `_links` _(required)_     | `_links`      | Gibt die Liste der darzustellenden Button, Links oder Texte an.                                                             | `LinkProps[] \| string` | `undefined` |
+| Property              | Attribute     | Description                                                                                                                                                                                              | Type                              | Default     |
+| --------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- | ----------- |
+| `_ariaLabel`          | `_aria-label` | <span style="color:red">**[DEPRECATED]**</span> use \_label instead<br/><br/>Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.). | `string \| undefined`             | `undefined` |
+| `_label`              | `_label`      | Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).                                                                              | `string \| undefined`             | `undefined` |
+| `_links` _(required)_ | `_links`      | Gibt die Liste der darzustellenden Button, Links oder Texte an.                                                                                                                                          | `BreadcrumbLinkProps[] \| string` | `undefined` |
 
 ## Dependencies
 

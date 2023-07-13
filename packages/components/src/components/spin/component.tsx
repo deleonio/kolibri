@@ -1,18 +1,9 @@
-import { Component, Fragment, Host, JSX, Prop, State, Watch, h } from '@stencil/core';
+import { Component, Fragment, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
 
-import { Generic } from '@a11y-ui/core';
 import { translate } from '../../i18n';
-import { PropSpinVariant, SpinVariant, validateSpinVariant } from '../../types/props/variant/spin';
+import { SpinVariant, validateSpinVariant } from '../../types/props/variant/spin';
 import { watchBoolean } from '../../utils/prop.validators';
-import { PropShow } from '../../types/props';
-
-type RequiredProps = unknown;
-type OptionalProps = PropSpinVariant & PropShow;
-export type Props = Generic.Element.Members<RequiredProps, OptionalProps>;
-
-type RequiredStates = PropSpinVariant;
-type OptionalStates = PropShow;
-type States = Generic.Element.Members<RequiredStates, OptionalStates>;
+import { KoliBriSpinAPI, KoliBriSpinStates } from './types';
 
 function renderSpin(variant: SpinVariant): JSX.Element {
 	switch (variant) {
@@ -39,7 +30,7 @@ function renderSpin(variant: SpinVariant): JSX.Element {
 	},
 	shadow: true,
 })
-export class KolSpin implements Generic.Element.ComponentApi<RequiredProps, OptionalProps, RequiredStates, OptionalStates> {
+export class KolSpin implements KoliBriSpinAPI {
 	private showToggled = false;
 
 	public render(): JSX.Element {
@@ -69,14 +60,14 @@ export class KolSpin implements Generic.Element.ComponentApi<RequiredProps, Opti
 	/**
 	 * Gibt an, ob die Komponente entweder ein- oder ausgeblendet ist.
 	 */
-	@Prop({ reflect: true }) public _show?: boolean = false;
+	@Prop() public _show?: boolean = false;
 
 	/**
 	 * Gibt an, welche Variante der Darstellung genutzt werden soll.
 	 */
 	@Prop() public _variant?: SpinVariant = 'dot';
 
-	@State() public state: States = {
+	@State() public state: KoliBriSpinStates = {
 		_variant: 'dot',
 	};
 

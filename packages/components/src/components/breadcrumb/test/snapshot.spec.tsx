@@ -1,12 +1,13 @@
-import { h } from '@stencil/core';
-import { newSpecPage, SpecPage } from '@stencil/core/testing';
 import { executeTests } from 'stencil-awesome-test';
 
+import { h } from '@stencil/core';
+import { newSpecPage, SpecPage } from '@stencil/core/testing';
+
 import { COMPONENTS } from '../../component-list';
-import { Props } from '../component';
+import { KoliBriBreadcrumbProps } from '../types';
 import { getBreadcrumbHtml } from './html.mock';
 
-executeTests<Props>(
+executeTests<KoliBriBreadcrumbProps>(
 	'Breadcrumb',
 	async (props): Promise<SpecPage> => {
 		const page = await newSpecPage({
@@ -16,7 +17,7 @@ executeTests<Props>(
 		return page;
 	},
 	{
-		_ariaLabel: ['Aria-Label'],
+		_label: ['Aria-Label'],
 		_links: [[], [{ _label: 'Label' }]],
 	},
 	getBreadcrumbHtml,

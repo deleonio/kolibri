@@ -1,9 +1,12 @@
 import { Generic } from '@a11y-ui/core';
+
 import { Stringified } from '../../types/common';
 import { AnyIconFontClass } from '../../types/icon';
 import { InputTypeOnDefault } from '../../types/input/types';
+import { PropChecked } from '../../types/props/checked';
+import { PropIndeterminate } from '../../types/props/indeterminate';
+import { PropLabelWithExpertSlot } from '../../types/props/label';
 import { InputRequiredProps } from '../input/types';
-import { PropChecked, PropIndeterminate, PropLabel } from '../../types/props';
 
 export type InputCheckboxVariant =
 	| 'button'
@@ -37,6 +40,7 @@ type OptionalProps = {
 	name: string;
 	on: InputTypeOnDefault;
 	required: boolean;
+	syncValueBySelector: string;
 	touched: boolean;
 	tabIndex: number;
 	/**
@@ -55,7 +59,7 @@ type RequiredStates = {
 	variant: InputCheckboxVariant;
 } & PropChecked &
 	PropIndeterminate &
-	PropLabel;
+	PropLabelWithExpertSlot;
 type OptionalStates = {
 	alert: boolean;
 	accessKey: string;

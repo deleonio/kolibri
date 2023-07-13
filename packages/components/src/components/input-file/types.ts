@@ -1,10 +1,11 @@
 import { Generic } from '@a11y-ui/core';
+
 import { ButtonProps } from '../../types/button-link';
 import { Stringified } from '../../types/common';
-import { InputTypeOnDefault } from '../../types/input/types';
-import { InputRequiredProps } from '../input/types';
 import { KoliBriHorizontalIcon } from '../../types/icon';
-import { PropLabel } from '../../types/props';
+import { InputTypeOnDefault } from '../../types/input/types';
+import { PropLabelWithExpertSlot } from '../../types/props/label';
+import { InputRequiredProps } from '../input/types';
 
 type RequiredProps = InputRequiredProps;
 type OptionalProps = {
@@ -21,6 +22,7 @@ type OptionalProps = {
 	on: InputTypeOnDefault;
 	required: boolean;
 	smartButton: ButtonProps;
+	syncValueBySelector: string;
 	touched: boolean;
 	tabIndex: number;
 	value: string;
@@ -29,7 +31,7 @@ export type Props = Generic.Element.Members<RequiredProps, OptionalProps>;
 
 type RequiredStates = {
 	id: string;
-} & PropLabel;
+} & PropLabelWithExpertSlot;
 type OptionalStates = {
 	accept: string;
 	alert: boolean;

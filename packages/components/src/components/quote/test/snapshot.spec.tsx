@@ -1,12 +1,13 @@
+import { executeTests } from 'stencil-awesome-test';
+
 import { h } from '@stencil/core';
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 
 import { COMPONENTS } from '../../component-list';
-import { executeTests } from 'stencil-awesome-test';
-import { Props } from '../types';
+import { KoliBriQuoteProps } from '../types';
 import { getQuoteHtml } from './html.mock';
 
-executeTests<Props>(
+executeTests<KoliBriQuoteProps>(
 	'Quote',
 	async (props): Promise<SpecPage> => {
 		const page = await newSpecPage({

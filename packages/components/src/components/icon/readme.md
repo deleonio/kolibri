@@ -1,6 +1,6 @@
 # Icon
 
-Mit Hilfe der **Icon**-Komponente können Icons aus eingebundenen Icon-Fonts an beliebigen Positionen dargestellt werden. Die Ausgabe des Icon kann über das Attribut **`_icon`** gesteuert werden und erfolgt durch das Attribut **`_aria-label`** barrierefrei. Die Ausgabe erfolgt standardmäßig als _`inline`_-Element.
+Mit Hilfe der **Icon**-Komponente können Icons aus eingebundenen Icon-Fonts an beliebigen Positionen dargestellt werden. Die Ausgabe des Icon kann über das Attribut **`_icon`** gesteuert werden und erfolgt durch das Attribut **`_label`** barrierefrei. Die Ausgabe erfolgt standardmäßig als _`inline`_-Element.
 
 Aktuell werden die Icons von <kol-link _href="https://microsoft.github.io/vscode-codicons/dist/codicon.html" _label="Codicons"></kol-link> unterstützt.
 
@@ -13,12 +13,12 @@ Die Komponente **Icon** wird über das HTML-Tag `kol-icon` erzeugt.
 ### Code
 
 ```html
-<kol-icon _aria-label="Zu Hause" _icon="codicon codicon-home"></kol-icon>
+<kol-icon _label="Zu Hause" _icon="codicon codicon-home"></kol-icon>
 ```
 
 ### Beispiel
 
-<kol-icon _aria-label="Zu Hause" _icon="codicon codicon-home"></kol-icon>
+<kol-icon _label="Zu Hause" _icon="codicon codicon-home"></kol-icon>
 
 ### Icon
 
@@ -48,11 +48,12 @@ Mittels der Auszeichnung `aria-label` muss ein Kontext-relevantes Icon beschrift
 
 ## Properties
 
-| Property                  | Attribute     | Description                                                                                                                                                                                                                           | Type                  | Default     |
-| ------------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
-| `_ariaLabel` _(required)_ | `_aria-label` | Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).                                                                                                           | `string`              | `undefined` |
-| `_icon` _(required)_      | `_icon`       | Setzt die Iconklasse (z.B.: `_icon="codicon codicon-home`).                                                                                                                                                                           | `string`              | `undefined` |
-| `_part`                   | `_part`       | <span style="color:red">**[DEPRECATED]**</span> Das Styling sollte stets über CSS erfolgen.<br/><br/>Gibt den Identifier für den CSS-Part an, um das Icon von Außen ändern zu können. (https://meowni.ca/posts/part-theme-explainer/) | `string \| undefined` | `undefined` |
+| Property             | Attribute     | Description                                                                                                                                                                                                                           | Type                  | Default     |
+| -------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| `_ariaLabel`         | `_aria-label` | <span style="color:red">**[DEPRECATED]**</span> use \_label instead<br/><br/>Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).                              | `string \| undefined` | `undefined` |
+| `_icon` _(required)_ | `_icon`       | Setzt die Iconklasse (z.B.: `_icon="codicon codicon-home`).                                                                                                                                                                           | `string`              | `undefined` |
+| `_label`             | `_label`      | Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).                                                                                                           | `string \| undefined` | `undefined` |
+| `_part`              | `_part`       | <span style="color:red">**[DEPRECATED]**</span> Das Styling sollte stets über CSS erfolgen.<br/><br/>Gibt den Identifier für den CSS-Part an, um das Icon von Außen ändern zu können. (https://meowni.ca/posts/part-theme-explainer/) | `string \| undefined` | `undefined` |
 
 ## Shadow Parts
 

@@ -1,20 +1,11 @@
-import { MiddlewareData, Placement, arrow, computePosition, flip, offset, shift } from '@floating-ui/dom';
+import { arrow, computePosition, flip, MiddlewareData, offset, Placement, shift } from '@floating-ui/dom';
 import { Component, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
 
-import { Generic } from '@a11y-ui/core';
+import { Align, validateAlign } from '../../types/props/align';
+import { validateShow } from '../../types/props/show';
 import { getDocument } from '../../utils/dev.utils';
 import { processEnv } from '../../utils/reuse';
-import { Align, PropAlign, PropShow, validateAlign, validateShow } from '../../types/props';
-
-type RequiredProps = unknown;
-type OptionalProps = PropAlign & PropShow;
-export type Props = Generic.Element.Members<RequiredProps, OptionalProps>;
-
-type RequiredStates = PropAlign & PropShow & { visible: boolean };
-type OptionalStates = unknown;
-export type States = Generic.Element.Members<RequiredStates, OptionalStates>;
-
-type API = Generic.Element.ComponentApi<RequiredProps, OptionalProps, RequiredStates, OptionalStates>;
+import { KoliBriPopoverAPI, KoliBriPopoverStates } from './types';
 
 /**
  * @slot - Der Inhalt des Popover.
@@ -24,7 +15,7 @@ type API = Generic.Element.ComponentApi<RequiredProps, OptionalProps, RequiredSt
 	styleUrl: './style.css',
 	shadow: false,
 })
-export class KolPopover implements API {
+export class KolPopover implements KoliBriPopoverAPI {
 	private arrowElement?: HTMLDivElement;
 	private popoverElement?: HTMLDivElement;
 	private triggerElement?: HTMLElement | null;
@@ -164,7 +155,7 @@ export class KolPopover implements API {
 	 */
 	@Prop({ mutable: true, reflect: true }) public _show?: boolean = false;
 
-	@State() public state: States = {
+	@State() public state: KoliBriPopoverStates = {
 		_align: 'top',
 		_show: false,
 		_visible: false,

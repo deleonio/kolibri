@@ -1,68 +1,18 @@
-import { Component, Element, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
-import { Events } from '../../enums/events';
-import { KoliBriIconProp } from '../../types/icon';
-
 import { Generic } from '@a11y-ui/core';
-import { EventCallback, EventValueOrEventCallback } from '../../types/callbacks';
-import { Stringified } from '../../types/common';
-import { Align, PropHideLabel } from '../../types/props';
-import { a11yHintLabelingLandmarks, devHint, featureHint, uiUxHintMillerscheZahl } from '../../utils/a11y.tipps';
-import { koliBriQuerySelector, setState, watchJsonArrayString, watchNumber, watchString } from '../../utils/prop.validators';
-import { validateAlignment } from '../../utils/validators/alignment';
+import { Component, Element, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
+
 import { translate } from '../../i18n';
 import { KoliBriButtonCallbacks } from '../../types/button-link';
+import { Stringified } from '../../types/common';
+import { Align } from '../../types/props/align';
+import { LabelPropType, validateLabel } from '../../types/props/label';
+import { devHint, featureHint, uiUxHintMillerscheZahl } from '../../utils/a11y.tipps';
 import { Log } from '../../utils/dev.utils';
+import { koliBriQuerySelector, setState, watchJsonArrayString, watchNumber } from '../../utils/prop.validators';
+import { validateAlignment } from '../../utils/validators/alignment';
+import { KoliBriTabsAPI, KoliBriTabsCallbacks, KoliBriTabsStates, TabButtonProps } from './types';
 
 // https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-2/tabs.html
-
-export type KoliBriTabsCallbacks = /* {
-	onClose?: true | EventOrEventValueCallback<Event, number>;
-} & */ {
-	onCreate?:
-		| EventCallback<Event>
-		| {
-				label: string;
-				callback: EventCallback<Event>;
-		  };
-} & {
-	[Events.onSelect]?: EventValueOrEventCallback<CustomEvent | KeyboardEvent | MouseEvent | PointerEvent, number>;
-};
-
-type RequiredTabButtonProps = {
-	label: string;
-};
-type OptionalTabButtonProps = {
-	disabled: boolean;
-	icon: Stringified<KoliBriIconProp>;
-	/**
-	 * @deprecated use _hide-label
-	 */
-	iconOnly: boolean;
-	tooltipAlign: Align;
-} & PropHideLabel;
-export type TabButtonProps = Generic.Element.Members<RequiredTabButtonProps, OptionalTabButtonProps>;
-
-type RequiredProps = {
-	ariaLabel: string;
-	tabs: Stringified<TabButtonProps[]>;
-};
-type OptionalProps = {
-	on: KoliBriTabsCallbacks;
-	tabsAlign: Align;
-	selected: number;
-};
-// type Props = Generic.Element.Members<RequiredProps, OptionalProps>;
-
-type RequiredStates = {
-	ariaLabel: string;
-	tabsAlign: Align;
-	selected: number;
-	tabs: TabButtonProps[];
-};
-type OptionalStates = {
-	on: KoliBriTabsCallbacks;
-};
-type States = Generic.Element.Members<RequiredStates, OptionalStates>;
 
 @Component({
 	tag: 'kol-tabs',
@@ -71,7 +21,7 @@ type States = Generic.Element.Members<RequiredStates, OptionalStates>;
 	},
 	shadow: true,
 })
-export class KolTabs implements Generic.Element.ComponentApi<RequiredProps, OptionalProps, RequiredStates, OptionalStates> {
+export class KolTabs implements KoliBriTabsAPI {
 	@Element() private readonly host?: HTMLKolTabsElement;
 	private tabPanelsElement?: HTMLElement;
 	private onCreateLabel = `${translate('kol-new')} …`;
@@ -135,13 +85,13 @@ export class KolTabs implements Generic.Element.ComponentApi<RequiredProps, Opti
 
 	private renderButtonGroup() {
 		return (
-			<kol-button-group-wc role="tablist" aria-label={this.state._ariaLabel} onKeyDown={this.onKeyDown}>
+			<kol-button-group-wc role="tablist" aria-label={this.state._label} onKeyDown={this.onKeyDown}>
 				{this.state._tabs.map((button: TabButtonProps, index: number) => (
 					<kol-button-wc
 						_disabled={button._disabled}
 						_icon={button._icon}
 						_hideLabel={button._hideLabel || button._iconOnly}
-						_label={button._label && button._label} // TODO: ariaLabel-Konzept prüfen
+						_label={button._label} // TODO: ariaLabel-Konzept prüfen
 						_on={this.callbacks as KoliBriButtonCallbacks<unknown>}
 						_tabIndex={this.state._selected === index ? 0 : -1}
 						_tooltipAlign={button._tooltipAlign}
@@ -193,8 +143,15 @@ export class KolTabs implements Generic.Element.ComponentApi<RequiredProps, Opti
 
 	/**
 	 * Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).
+	 *
+	 *  @deprecated use _label instead
 	 */
-	@Prop() public _ariaLabel!: string;
+	@Prop() public _ariaLabel?: string;
+
+	/**
+	 * Setzt die sichtbare oder semantische Beschriftung der Komponente (z.B. Aria-Label, Label, Headline, Caption, Summary usw.).
+	 */
+	@Prop() public _label?: LabelPropType; // TODO: required in v2
 
 	/**
 	 * Gibt die Liste der Callback-Funktionen an, die auf Events aufgerufen werden sollen.
@@ -216,8 +173,8 @@ export class KolTabs implements Generic.Element.ComponentApi<RequiredProps, Opti
 	 */
 	@Prop() public _tabsAlign?: Align = 'top';
 
-	@State() public state: States = {
-		_ariaLabel: '…',
+	@State() public state: KoliBriTabsStates = {
+		_label: '…', // ⚠ required
 		_selected: 0,
 		_tabs: [],
 		_tabsAlign: 'top',
@@ -270,12 +227,17 @@ export class KolTabs implements Generic.Element.ComponentApi<RequiredProps, Opti
 		}
 	};
 
+	/**
+	 * @deprecated
+	 */
 	@Watch('_ariaLabel')
 	public validateAriaLabel(value?: string): void {
-		watchString(this, '_ariaLabel', value, {
-			required: true,
-		});
-		a11yHintLabelingLandmarks(value);
+		this.validateLabel(value);
+	}
+
+	@Watch('_label')
+	public validateLabel(value?: LabelPropType): void {
+		validateLabel(this, value);
 	}
 
 	@Watch('_on')
@@ -353,7 +315,7 @@ export class KolTabs implements Generic.Element.ComponentApi<RequiredProps, Opti
 	}
 
 	public componentWillLoad(): void {
-		this.validateAriaLabel(this._ariaLabel);
+		this.validateLabel(this._label || this._ariaLabel);
 		this.validateOn(this._on);
 		this.validateSelected(this._selected);
 		this.validateTabs(this._tabs);

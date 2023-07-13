@@ -1,4 +1,6 @@
 import { Generic } from '@a11y-ui/core';
+
+import { validateTouched } from '../../types/props/touched';
 import { getExperimalMode } from '../../utils/dev.utils';
 import { watchBoolean } from '../../utils/prop.validators';
 import { Props, Watches } from './types';
@@ -21,6 +23,7 @@ export class ControlledInputController implements Watches {
 	protected readonly host?: HTMLElement;
 
 	public readonly formAssociated?: HTMLInputElement;
+	public syncToOwnInput?: HTMLInputElement;
 
 	public constructor(component: Generic.Element.Component & Props, name: string, host?: HTMLElement) {
 		this.component = component;
@@ -52,18 +55,29 @@ export class ControlledInputController implements Watches {
 
 	public readonly setFormAssociatedValue = (value: string | null = null) => {
 		syncElementAttribute('value', this.formAssociated, value as string);
+		syncElementAttribute('value', this.syncToOwnInput, value as string);
 	};
 
 	public validateAlert(value?: boolean): void {
 		watchBoolean(this.component, '_alert', value);
 	}
 
+	public validateSyncValueBySelector(value?: string): void {
+		if (EXPERIMENTAL_MODE && typeof value === 'string') {
+			const input = document.querySelector(value);
+			if (input instanceof HTMLInputElement) {
+				this.syncToOwnInput = input;
+			}
+		}
+	}
+
 	public validateTouched(value?: boolean): void {
-		watchBoolean(this.component, '_touched', value);
+		validateTouched(this.component, value);
 	}
 
 	public componentWillLoad(): void {
 		this.validateAlert(this.component._alert);
+		this.validateSyncValueBySelector(this.component._syncValueBySelector);
 		this.validateTouched(this.component._touched);
 	}
 }

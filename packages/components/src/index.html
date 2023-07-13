@@ -16,21 +16,21 @@
 		<script nomodule src="build/kolibri.js"></script>
 
 		<meta name="robots" content="noindex" />
-		<meta name="kolibri" content="dev-mode=true,color-contrast-analysis=false" />
+		<meta name="kolibri" content="dev-mode=true,experimental-mode=true,color-contrast-analysis=false" />
 
 		<link rel="shortcut icon" type="image/x-icon" href="assets/kolibri.ico" />
 
-		<script defer src="simulations/alert-simulation.js"></script>
-		<script defer src="simulations/modal-simulation.js"></script>
-		<script defer src="simulations/nav-simulation.js"></script>
-		<script defer src="simulations/pagination-simulation.js"></script>
-		<script defer src="simulations/popover-simulation.js"></script>
-		<script defer src="simulations/progress-simulation.js"></script>
-		<script defer src="simulations/smart-button-simulation.js"></script>
-		<script defer src="simulations/spin-simulation.js"></script>
-		<script defer src="simulations/table-simulation.js"></script>
-		<script defer src="simulations/tabs-simulation.js"></script>
-		<script defer src="simulations/toast-simulation.js"></script>
+		<script defer src="assets/simulations/alert-simulation.js"></script>
+		<script defer src="assets/simulations/modal-simulation.js"></script>
+		<script defer src="assets/simulations/nav-simulation.js"></script>
+		<script defer src="assets/simulations/pagination-simulation.js"></script>
+		<script defer src="assets/simulations/popover-simulation.js"></script>
+		<script defer src="assets/simulations/progress-simulation.js"></script>
+		<script defer src="assets/simulations/smart-button-simulation.js"></script>
+		<script defer src="assets/simulations/spin-simulation.js"></script>
+		<script defer src="assets/simulations/table-simulation.js"></script>
+		<script defer src="assets/simulations/tabs-simulation.js"></script>
+		<script defer src="assets/simulations/toast-simulation.js"></script>
 
 		<script src="https://unpkg.com/petite-vue" defer init></script>
 		<script src="https://cdn.tailwindcss.com"></script>
@@ -196,7 +196,8 @@
 								<kol-input-email _icon="{'left': 'codicon codicon-home'}" _id="input-email" _error="Test einer Fehlermeldung" _touched
 									>E-Mail-Adresse</kol-input-email
 								>
-								<kol-input-text _id="input-text" _hint="Ich bin ein Hinweis." _type="text">Vorname</kol-input-text>
+								<kol-input-text _id="input-text" _hint="Ich bin ein Hinweis.">Vorname</kol-input-text>
+								<kol-input-text _id="input-text" _hide-label _label="Vorname" _type="search"></kol-input-text>
 								<kol-input-password _id="input-password" _name="input-password">Passwort</kol-input-password>
 								<kol-select _id="select" _list="[{'label':'Herr','value':0},{'label':'Frau','value':1}]">Stimmung</kol-select>
 
@@ -231,7 +232,7 @@
 					<div style="display: flex; gap: 2rem; justify-content: space-between">
 						<kol-pagination _total="9" _page="3" class="bordered p-i"></kol-pagination>
 
-						<kol-version _version="1.6.0-rc.4"></kol-version>
+						<kol-version _version="1.6.0-rc.12"></kol-version>
 					</div>
 					<kol-image _src="/assets/images/abgrenzung.jpg" _alt="KoliBri Darstellung"></kol-image>
 				</div>
@@ -711,7 +712,7 @@
 									>Anrede</kol-input-radio
 								>
 								<kol-input-range class="herr-frau" _id="input-range" _min="0" _max="50">Schieberegler</kol-input-range>
-								<kol-input-text _id="input-text" _hint="Ich bin ein Hinweis." _type="text">Vorname (Auto-Vervollständigung) </kol-input-text>
+								<kol-input-text _id="input-text" _hint="Ich bin ein Hinweis.">Vorname (Auto-Vervollständigung) </kol-input-text>
 								<kol-input-text _id="input-text-search" _type="search">Suchbegriff</kol-input-text>
 								<kol-input-text _id="input-text-url" _type="url">Url</kol-input-text>
 								<kol-input-text _id="input-text-tel" _type="tel">Telefonnummer</kol-input-text>
@@ -1128,11 +1129,9 @@
 							</div>
 							<div class="d-grid gap-2">
 								<kol-heading _label="" _level="3">InputText</kol-heading>
-								<kol-input-text class="vorname" _hint="Ich bin ein Hinweis." _id="input-text-vorname" _type="text"
-									>Vorname (Auto-Vervollständigung)
-								</kol-input-text>
+								<kol-input-text class="vorname" _hint="Ich bin ein Hinweis." _id="input-text-vorname">Vorname (Auto-Vervollständigung) </kol-input-text>
 								<lean-input-adapter class="d-grid gap-2" id="kol-input-text">
-									<kol-input-text class="vorname" _id="input-text-vorname" _type="text">Vorname</kol-input-text>
+									<kol-input-text class="vorname" _id="input-text-vorname">Vorname</kol-input-text>
 								</lean-input-adapter>
 								<kol-input-text _type="search">Suchbegriff</kol-input-text>
 								<br />
@@ -1422,14 +1421,14 @@
 							></kol-nav>
 							<kol-nav
 								_aria-label="Navigation mit sinnvoller Breite"
-								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc'}]"
+								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-flame'},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc'}]"
 								_orientation="horizontal"
 							></kol-nav>
 							<kol-nav
 								class="font-80"
 								style="display: inline-flex"
 								_aria-label="Navigation mit sinnvoller Breite 2"
-								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-woodpecker','_hideLabel': true,'_tooltipAlign':'bottom','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-woodpecker','_hideLabel': true},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_hideLabel': true,'_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc','_hideLabel': true}]"
+								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-flame','_hideLabel': true,'_tooltipAlign':'bottom','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-flame','_hideLabel': true},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_hideLabel': true,'_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc','_hideLabel': true}]"
 								_orientation="horizontal"
 							></kol-nav>
 							<kol-nav class="max-width" id="click-nav" _aria-label="Navigation mit sinnvoller Breite 3"></kol-nav>
@@ -1437,21 +1436,21 @@
 								class="font-80 max-width"
 								_aria-label="Navigation in der Breite beschränkt"
 								_has-compact-button
-								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc'}]"
+								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-flame'},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc'}]"
 							>
 							</kol-nav>
 							<kol-nav
 								class="font-60 max-width"
 								_aria-label="Navigation initial eingeklappt"
 								_compact
-								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc'}]"
+								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-flame'},{'_active':true,'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_active':true,'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_active':true,'_label':'3.3.1 Navigationspunkt (aktiv)','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_label':'4 Navigationspunkt','_href':'#abc'}]"
 							>
 							</kol-nav>
 							<kol-nav
 								class="font-60 max-width"
 								_aria-label="Navigation initial eingeklappt 2"
 								_compact
-								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-woodpecker','_target':'asdasd'},{'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.3.1 Navigationspunkt','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_active':true,'_label':'4 Navigationspunkt (aktiv)','_href':'#abc'}]"
+								_links="[{'_label':'1 Navigationspunkt mit sehr langem Link-Test','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_label':'2 Navigationspunkt und ich_bin_ein_echt_langes_zusammengesetztes_Worte_und_versuche_das_Layout_zu_brechen','_href':'#abc','_icon':'codicon codicon-flame'},{'_label':'3 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_children':[{'_label':'3.1 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame'},{'_label':'3.2 Navigationspunkt','_href':'#abc','_icon':'codicon codicon-flame','_target':'asdasd'},{'_label':'3.3 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.3.1 Navigationspunkt','_href':'#abc'},{'_label':'3.3.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.4 Navigationspunkt','_href':'#abc','_children':[{'_label':'3.4.1 Navigationspunkt','_href':'#abc'},{'_label':'3.4.2 Navigationspunkt','_href':'#abc'}]},{'_label':'3.5 Navigationspunkt','_href':'#abc'}]},{'_active':true,'_label':'4 Navigationspunkt (aktiv)','_href':'#abc'}]"
 							>
 							</kol-nav>
 						</div>
@@ -2179,8 +2178,8 @@
 						</div>
 						<div class="col-12">
 							<div class="gap-2 d-flex">
-								<kol-version _version="1.6.0-rc.4"></kol-version>
-								<kol-version _label="1.6.0-rc.4"></kol-version>
+								<kol-version _version="1.6.0-rc.12"></kol-version>
+								<kol-version _label="1.6.0-rc.12"></kol-version>
 							</div>
 						</div>
 					</div>

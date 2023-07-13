@@ -1,15 +1,16 @@
 import { mixMembers } from 'stencil-awesome-test';
-import { getHeadingWcHtml } from '../../heading/test/html.mock';
-import { Props } from '../component';
 
-export const getCardHtml = (props: Props): string => {
+import { getHeadingWcHtml } from '../../heading/test/html.mock';
+import { koliBriCardProps } from '../types';
+
+export const getCardHtml = (props: koliBriCardProps): string => {
 	props = mixMembers(
 		{
 			_heading: '…',
 		},
 		props
 	);
-	return `<kol-card${props._hasFooter ? ' _has-footer' : ''}>
+	return `<kol-card>
 	<mock:shadow-root>
 		<div class="card">
 			<div class="header">

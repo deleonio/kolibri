@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { Component, h, Host, JSX, Prop } from '@stencil/core';
+import { Component, Fragment, h, Host, JSX, Prop } from '@stencil/core';
+
+import { translate } from '../../i18n';
 import { ButtonProps } from '../../types/button-link';
 import { Stringified } from '../../types/common';
-import { KoliBriCustomIcon } from '../../types/icon';
-
-import { KoliBriHorizontalIcon } from '../../types/icon';
+import { KoliBriCustomIcon, KoliBriHorizontalIcon } from '../../types/icon';
 import { Props } from './types';
 
 /**
@@ -19,6 +19,7 @@ export class KolInput implements Props {
 		const hasError = typeof this._error === 'string' && this._error.length > 0 && this._touched === true;
 		const hasHint = typeof this._hint === 'string' && this._hint.length > 0;
 		const hideLabel = this._hideLabel === true && this._required !== true;
+		const slotName = this._slotName ? this._slotName : 'input';
 
 		return (
 			<Host
@@ -52,10 +53,9 @@ export class KolInput implements Props {
 					}}
 				>
 					{this._icon?.left && <kol-icon _ariaLabel="" _icon={(this._icon.left as KoliBriCustomIcon).icon}></kol-icon>}
-					<slot name="input"></slot>
+					<slot name={slotName}></slot>
 					{typeof this._smartButton === 'object' && this._smartButton !== null && (
 						<kol-button-wc
-							_ariaLabel={this._smartButton._ariaLabel}
 							_customClass={this._smartButton._customClass}
 							_disabled={this._smartButton._disabled}
 							_icon={this._smartButton._icon}
@@ -81,6 +81,20 @@ export class KolInput implements Props {
 						))}
 					</datalist>
 				)}
+				{this._hasCounter && (
+					<span aria-atomic="true" aria-live="polite">
+						{this._currentLength}
+						{this._maxLength && (
+							<Fragment>
+								<span aria-label={translate('kol-of')} role="img">
+									/
+								</span>
+								{this._maxLength}
+							</Fragment>
+						)}{' '}
+						<span>{translate('kol-characters')}</span>
+					</span>
+				)}
 			</Host>
 		);
 	}
@@ -88,12 +102,17 @@ export class KolInput implements Props {
 	/**
 	 * Gibt an, ob der Screenreader die Meldung aktiv vorlesen soll.
 	 */
-	@Prop({ reflect: true }) public _alert?: boolean = true;
+	@Prop() public _alert?: boolean = true;
+
+	/**
+	 * @internal
+	 */
+	@Prop() public _currentLength?: number;
 
 	/**
 	 * Deaktiviert das interaktive Element in der Komponente und erlaubt keine Interaktion mehr damit.
 	 */
-	@Prop({ reflect: true }) public _disabled?: boolean = false;
+	@Prop() public _disabled?: boolean = false;
 
 	/**
 	 * Gibt den Text für eine Fehlermeldung an.
@@ -101,9 +120,14 @@ export class KolInput implements Props {
 	@Prop() public _error?: string = '';
 
 	/**
+	 * Aktiviert den Zeichenanzahlzähler am unteren Rand des Eingabefeldes.
+	 */
+	@Prop() public _hasCounter?: boolean;
+
+	/**
 	 * Blendet die Beschriftung (Label) aus und zeigt sie stattdessen mittels eines Tooltips an.
 	 */
-	@Prop({ reflect: true }) public _hideLabel?: boolean = false;
+	@Prop() public _hideLabel?: boolean = false;
 
 	/**
 	 * Gibt den Hinweistext an.
@@ -126,19 +150,30 @@ export class KolInput implements Props {
 	@Prop() public _list?: Stringified<string[]>;
 
 	/**
+	 * Gibt an, wie viele Zeichen maximal eingegeben werden können.
+	 */
+	@Prop() public _maxLength?: number;
+
+	/**
 	 * Gibt an, ob die Eingabefeld nur lesend ist.
 	 */
-	@Prop({ reflect: true }) public _readOnly?: boolean = false;
+	@Prop() public _readOnly?: boolean = false;
 
 	/**
 	 * Gibt an, ob die Komponente kein Label rendern soll.
 	 */
-	@Prop({ reflect: true }) public _renderNoLabel?: boolean = false;
+	@Prop() public _renderNoLabel?: boolean = false;
 
 	/**
 	 * Macht das Eingabeelement zu einem Pflichtfeld.
 	 */
-	@Prop({ reflect: true }) public _required?: boolean = false;
+	@Prop() public _required?: boolean = false;
+
+	/**
+	 * Ermöglicht den Slotnamen zu bestimmen. Wird nur verwendet, wenn sonst mehrere Slots mit dem gleichen Namen innerhalb eines ShadowDOMs existieren würden.
+	 * @internal
+	 */
+	@Prop() public _slotName?: string;
 
 	/**
 	 * Ermöglicht eine Schaltfläche ins das Eingabefeld mit einer beliebigen Aktion zu einzufügen (ohne label).
@@ -148,5 +183,5 @@ export class KolInput implements Props {
 	/**
 	 * Gibt an, ob dieses Eingabefeld von Nutzer:innen einmal besucht/berührt wurde.
 	 */
-	@Prop({ reflect: true }) public _touched?: boolean = false;
+	@Prop() public _touched?: boolean = false;
 }

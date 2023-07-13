@@ -1,6 +1,9 @@
 import { Generic } from '@a11y-ui/core';
+
 import { InputTypeOnDefault } from '../../types/input/types';
-import { PropAdjustHeight, PropHasCounter, PropLabel } from '../../types/props';
+import { PropAdjustHeight } from '../../types/props/adjust-height';
+import { PropHasCounter } from '../../types/props/has-counter';
+import { PropLabelWithExpertSlot } from '../../types/props/label';
 import { InputRequiredProps } from '../input/types';
 
 export type CSSResize = 'both' | 'horizontal' | 'vertical' | 'none';
@@ -21,6 +24,7 @@ type OptionalProps = {
 	resize: CSSResize;
 	required: boolean;
 	rows: number;
+	syncValueBySelector: string;
 	tabIndex: number;
 	touched: boolean;
 	value: string;
@@ -35,7 +39,7 @@ type RequiredStates = {
 	hasValue: boolean;
 	resize: CSSResize;
 } & PropAdjustHeight &
-	PropLabel;
+	PropLabelWithExpertSlot;
 type OptionalStates = {
 	accessKey: string;
 	alert: boolean;

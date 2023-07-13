@@ -1,12 +1,13 @@
+import { executeTests } from 'stencil-awesome-test';
+
 import { h } from '@stencil/core';
 import { newSpecPage, SpecPage } from '@stencil/core/testing';
 
 import { COMPONENTS } from '../../component-list';
-import { executeTests } from 'stencil-awesome-test';
-import { Props } from '../component';
+import { KoliBriVersionProps } from '../types';
 import { getVersionHtml } from './html.mock';
 
-executeTests<Props>(
+executeTests<KoliBriVersionProps>(
 	'Version',
 	async (props): Promise<SpecPage> => {
 		const page = await newSpecPage({
@@ -16,7 +17,7 @@ executeTests<Props>(
 		return page;
 	},
 	{
-		_version: ['1.0.0'],
+		_label: ['1.0.0'],
 	},
 	getVersionHtml,
 	{
