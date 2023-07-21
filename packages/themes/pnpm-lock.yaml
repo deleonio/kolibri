@@ -11,8 +11,8 @@ dependencies:
 
 devDependencies:
   '@public-ui/schema':
-    specifier: 1.6.0-rc.12
-    version: 1.6.0-rc.12
+    specifier: 1.6.0-rc.17
+    version: 1.6.0-rc.17
   '@types/node':
     specifier: ts4.9
     version: 20.4.2
@@ -595,6 +595,13 @@ packages:
     resolution: {integrity: sha512-zLHAI8ZibeWUZyA5noZgNmEYQ64PcMDwYvn/j6wGEHNq8rxSeD/pW34N9rKv8k4cYuhzzigdusajgXHqrIaTAQ==}
     dependencies:
       '@a11y-ui/core': 1.0.3
+    dev: false
+
+  /@public-ui/schema@1.6.0-rc.17:
+    resolution: {integrity: sha512-b2ECJkvwxqhuWpyF3UnQwbRDvA0lhQTMncAuZF2MkwX4JTtUkXnkblNp0QffQlOgw7DaPIj+3wy7FQGfQBRo9g==}
+    dependencies:
+      '@a11y-ui/core': 1.0.3
+    dev: true
 
   /@rollup/plugin-alias@5.0.0(rollup@3.25.1):
     resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==}
