@@ -11,11 +11,11 @@ dependencies:
 
 devDependencies:
   '@public-ui/schema':
-    specifier: 1.6.0-rc.12
-    version: 1.6.0-rc.12
+    specifier: 1.6.0-rc.18
+    version: 1.6.0-rc.18
   '@types/node':
     specifier: ts4.9
-    version: 20.4.2
+    version: 20.4.4
   eslint:
     specifier: 8.45.0
     version: 8.45.0
@@ -586,6 +586,13 @@ packages:
     resolution: {integrity: sha512-zLHAI8ZibeWUZyA5noZgNmEYQ64PcMDwYvn/j6wGEHNq8rxSeD/pW34N9rKv8k4cYuhzzigdusajgXHqrIaTAQ==}
     dependencies:
       '@a11y-ui/core': 1.0.3
+    dev: false
+
+  /@public-ui/schema@1.6.0-rc.18:
+    resolution: {integrity: sha512-5JqdDhIMekNfXT7BKbFyU6tpf26Bpt1JoAtXg7HXfj4/VQXhUpttNFbmRCteQkurKDN60Y2OdFvNxTm8OnvnDw==}
+    dependencies:
+      '@a11y-ui/core': 1.0.3
+    dev: true
 
   /@rollup/plugin-alias@5.0.0(rollup@3.25.1):
     resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==}
@@ -682,8 +689,8 @@ packages:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
     dev: true
 
-  /@types/node@20.4.2:
-    resolution: {integrity: sha512-Dd0BYtWgnWJKwO1jkmTrzofjK2QXXcai0dmtzvIBhcA+RsG5h8R3xlyta0kGOZRNfL9GuRtb1knmPEhQrePCEw==}
+  /@types/node@20.4.4:
+    resolution: {integrity: sha512-CukZhumInROvLq3+b5gLev+vgpsIqC2D0deQr/yS1WnxvmYLlJXZpaQrQiseMY+6xusl79E04UjWoqyr+t1/Ew==}
     dev: true
 
   /@types/resolve@1.20.2:
