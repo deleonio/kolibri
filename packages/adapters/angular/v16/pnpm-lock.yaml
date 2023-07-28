@@ -6,14 +6,14 @@ settings:
 
 devDependencies:
   '@angular/compiler':
-    specifier: 16.1.6
-    version: 16.1.6(@angular/core@16.1.6)
+    specifier: 16.1.7
+    version: 16.1.7(@angular/core@16.1.7)
   '@angular/compiler-cli':
     specifier: 16.1.6
-    version: 16.1.6(@angular/compiler@16.1.6)(typescript@5.1.6)
+    version: 16.1.6(@angular/compiler@16.1.7)(typescript@5.1.6)
   '@angular/core':
-    specifier: 16.1.6
-    version: 16.1.6(rxjs@7.8.1)(zone.js@0.13.1)
+    specifier: 16.1.7
+    version: 16.1.7(rxjs@7.8.1)(zone.js@0.13.1)
   '@public-ui/components':
     specifier: 1.6.0-rc.21
     version: 1.6.0-rc.21
@@ -64,7 +64,7 @@ packages:
       '@jridgewell/trace-mapping': 0.3.18
     dev: true
 
-  /@angular/compiler-cli@16.1.6(@angular/compiler@16.1.6)(typescript@5.1.6):
+  /@angular/compiler-cli@16.1.6(@angular/compiler@16.1.7)(typescript@5.1.6):
     resolution: {integrity: sha512-unWmH2CcuCkVuEr1fQuzlJtSGzRirsyg8cGQmRh16orx6N8oa/fCvxYRSOed/5aE9YiRpIFZ2TQWT2myY10/6Q==}
     engines: {node: ^16.14.0 || >=18.10.0}
     hasBin: true
@@ -72,7 +72,7 @@ packages:
       '@angular/compiler': 16.1.6
       typescript: '>=4.9.3 <5.2'
     dependencies:
-      '@angular/compiler': 16.1.6(@angular/core@16.1.6)
+      '@angular/compiler': 16.1.7(@angular/core@16.1.7)
       '@babel/core': 7.22.5
       '@jridgewell/sourcemap-codec': 1.4.15
       chokidar: 3.5.3
@@ -86,21 +86,21 @@ packages:
       - supports-color
     dev: true
 
-  /@angular/compiler@16.1.6(@angular/core@16.1.6):
-    resolution: {integrity: sha512-BVDfKZLMb7mmLwdek+ZyzI43Zv0WNNNqnYpMeOI6egmkhtjNCxpQAy2YFKgNPse3bBGP8tKutwAtBB+Lqu/Kcw==}
+  /@angular/compiler@16.1.7(@angular/core@16.1.7):
+    resolution: {integrity: sha512-93nbMFPSpKNfUyuRvEQxPdYLU6g25oZ4Gp7ewzNLyDHIbTQv6FwsthHfgPigPJJUUyKak6Gr3koFsgk7Dl3LAA==}
     engines: {node: ^16.14.0 || >=18.10.0}
     peerDependencies:
-      '@angular/core': 16.1.6
+      '@angular/core': 16.1.7
     peerDependenciesMeta:
       '@angular/core':
         optional: true
     dependencies:
-      '@angular/core': 16.1.6(rxjs@7.8.1)(zone.js@0.13.1)
+      '@angular/core': 16.1.7(rxjs@7.8.1)(zone.js@0.13.1)
       tslib: 2.6.1
     dev: true
 
-  /@angular/core@16.1.6(rxjs@7.8.1)(zone.js@0.13.1):
-    resolution: {integrity: sha512-tUXvVLc+Vbl8Se7hajwyUTNmKD9uPq+SZH6x8sRM2n5azzjBZltOoJfzxK5JKAkiFf/KkQhteHkMBfoDLZ2tmw==}
+  /@angular/core@16.1.7(rxjs@7.8.1)(zone.js@0.13.1):
+    resolution: {integrity: sha512-Wl5BR9X1xnV7Z9v/MNVANhymuTKAuRv4etr4rRgaC5NbbJSuFM4y+mg4yVI4wmrYJo0gKRcV9+2mHaePr41fTg==}
     engines: {node: ^16.14.0 || >=18.10.0}
     peerDependencies:
       rxjs: ^6.5.3 || ^7.4.0
