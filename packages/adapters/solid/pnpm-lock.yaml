@@ -16,13 +16,13 @@ devDependencies:
     version: 1.2.2
   '@types/node':
     specifier: ts4.9
-    version: 20.4.5
+    version: 20.4.7
   '@types/normalize-package-data':
     specifier: 2.4.1
     version: 2.4.1
   solid-js:
-    specifier: 1.7.8
-    version: 1.7.8
+    specifier: 1.7.9
+    version: 1.7.9
   typescript:
     specifier: 5.1.6
     version: 5.1.6
@@ -634,8 +634,8 @@ packages:
     resolution: {integrity: sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==}
     dev: true
 
-  /@types/node@20.4.5:
-    resolution: {integrity: sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==}
+  /@types/node@20.4.7:
+    resolution: {integrity: sha512-bUBrPjEry2QUTsnuEjzjbS7voGWCc30W0qzgMf90GPeDGFRakvrz47ju+oqDAKCXLUCe39u57/ORMl/O/04/9g==}
     dev: true
 
   /@types/normalize-package-data@2.4.1:
@@ -1221,8 +1221,8 @@ packages:
     engines: {node: '>=12'}
     dev: true
 
-  /solid-js@1.7.8:
-    resolution: {integrity: sha512-XHBWk1FvFd0JMKljko7FfhefJMTSgYEuVKcQ2a8hzRXfiuSJAGsrPPafqEo+f6l+e8Oe3cROSpIL6kbzjC1fjQ==}
+  /solid-js@1.7.9:
+    resolution: {integrity: sha512-p1orXnauMQmwYULZtuPAXyKNRGEN2qh60kLX4YURa3jvulxAqjlh2kWEljXCtAVR6UZPC16NXdj9ASHcH383Fg==}
     dependencies:
       csstype: 3.1.2
       seroval: 0.5.1
