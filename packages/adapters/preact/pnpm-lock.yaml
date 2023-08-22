@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@public-ui/react':
-    specifier: 1.6.0-rc.23
-    version: 1.6.0-rc.23(@public-ui/components@1.6.0-rc.23)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.6.0
+    version: 1.6.0(@public-ui/components@1.6.0-rc.23)(react-dom@18.2.0)(react@18.2.0)
   preact:
     specifier: '>=10.11.3'
     version: 10.11.3
@@ -520,10 +520,10 @@ packages:
       '@public-ui/schema': 1.6.0-rc.23
       i18next: 23.2.11
 
-  /@public-ui/react@1.6.0-rc.23(@public-ui/components@1.6.0-rc.23)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p9osjRHdFcJ6P54NhIEOWrQi1qlTwoMhQNjOtRbAWdWzPmMjDJ+4Oyd2CTD5KGMnXDf4oCvFrEDmk6+Bf28Mxw==}
+  /@public-ui/react@1.6.0(@public-ui/components@1.6.0-rc.23)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-fkTRy0/ArYidGOCpt7e0UGRZY5YLmCm/ZYzSBxxrcm1k55wkZJGfFnEMId2hSu52/B2IjnPHSQ5PWHN2BcLnqA==}
     peerDependencies:
-      '@public-ui/components': 1.6.0-rc.23
+      '@public-ui/components': 1.6.0
       react: '>=16.14.0'
       react-dom: '>=16.14.0'
     dependencies:
