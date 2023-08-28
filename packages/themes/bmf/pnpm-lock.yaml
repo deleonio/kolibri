@@ -11,11 +11,11 @@ dependencies:
 
 devDependencies:
   '@public-ui/schema':
-    specifier: 1.6.0-rc.23
-    version: 1.6.0-rc.23
+    specifier: 1.6.2
+    version: 1.6.2
   '@types/node':
     specifier: ts4.9
-    version: 20.4.10
+    version: 20.5.7
   eslint:
     specifier: 8.45.0
     version: 8.45.0
@@ -32,6 +32,13 @@ packages:
     resolution: {integrity: sha512-yzL0NESiAXL4Z/aqf4iptvZZsuju5Px6TUkdSVG+0PnrBaHfL35ThhoxDk2PJafm2d/b93mMVkw8VET5+2f73g==}
     dependencies:
       adopted-style-sheets: 1.0.3
+    dev: false
+
+  /@a11y-ui/core@1.0.5:
+    resolution: {integrity: sha512-eC+cyWuerJ8YueeTfiw/xfDo845s0fQHE55VjvrsOwZQNFRKqpbTyD/oT0H7yYacI6APc2Sw8TPljd/OLNVjtQ==}
+    dependencies:
+      adopted-style-sheets: 1.0.6
+    dev: true
 
   /@aashutoshrathi/word-wrap@1.2.6:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
@@ -587,6 +594,13 @@ packages:
     resolution: {integrity: sha512-WL6TmshLq7iHytJhqJM8LGwGL3jXrnwYPUNIcFKeMMFhq0B671BcMwhPmJXwqBIODjyyNxvCsqm5hz9/7VgtMw==}
     dependencies:
       '@a11y-ui/core': 1.0.3
+    dev: false
+
+  /@public-ui/schema@1.6.2:
+    resolution: {integrity: sha512-JveRd0fIqyoUHU6v94Zwf+xT0OIk7XGhiERoBl+cmo1MBBSj6N4rs/RD2ZndBalbxWPAhhwXLURTSQEIrpskOA==}
+    dependencies:
+      '@a11y-ui/core': 1.0.5
+    dev: true
 
   /@rollup/plugin-alias@5.0.0(rollup@3.25.1):
     resolution: {integrity: sha512-l9hY5chSCjuFRPsnRm16twWBiSApl2uYFLsepQYwtBuAxNMQ/1dJqADld40P0Jkqm65GRTLy/AC6hnpVebtLsA==}
@@ -683,8 +697,8 @@ packages:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
     dev: true
 
-  /@types/node@20.4.10:
-    resolution: {integrity: sha512-vwzFiiy8Rn6E0MtA13/Cxxgpan/N6UeNYR9oUu6kuJWxu6zCk98trcDp8CBhbtaeuq9SykCmXkFr2lWLoPcvLg==}
+  /@types/node@20.5.7:
+    resolution: {integrity: sha512-dP7f3LdZIysZnmvP3ANJYTSwg+wLLl8p7RqniVlV7j+oXSXAbt9h0WIBFmJy5inWZoX9wZN6eXx+YXd9Rh3RBA==}
     dev: true
 
   /@types/resolve@1.20.2:
@@ -709,6 +723,13 @@ packages:
     resolution: {integrity: sha512-zMTpWbVY6CqhDTkoE6JFslgXkz4irt1wL9QoO5rkqmju8i3X6cc5yxncnUqVJCHfT98hPlZcxLKIbnZzZQ3D2g==}
     dependencies:
       loglevel: 1.8.1
+    dev: false
+
+  /adopted-style-sheets@1.0.6:
+    resolution: {integrity: sha512-gSrGOxGhpjV1Eh85iSmTLIk1qrTbjNr1mHnSJMUBCa2BtOIDVWTZTuQU4cdvQPc/NMIgbTHcRi8MFrfBdC9giA==}
+    dependencies:
+      loglevel: 1.8.1
+    dev: true
 
   /ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
