@@ -44,10 +44,14 @@ export class VsCodeSettingsReconfigureTask extends AbstractTask {
 		const settingsPath = path.join(process.cwd(), '.vscode', 'settings.json');
 
 		if (fs.existsSync(settingsPath)) {
-			const fileContent = JSON.parse(fs.readFileSync(settingsPath, 'utf8')) as Record<string, unknown>;
-			fileContent[this.key] = this.value;
-			fs.writeFileSync(settingsPath, JSON.stringify(fileContent, null, 2));
-			MODIFIED_FILES.add(settingsPath);
+			try {
+				const fileContent = JSON.parse(fs.readFileSync(settingsPath, 'utf8')) as Record<string, unknown>;
+				fileContent[this.key] = this.value;
+				fs.writeFileSync(settingsPath, JSON.stringify(fileContent, null, 2));
+				MODIFIED_FILES.add(settingsPath);
+			} catch (e) {
+				// empty
+			}
 		} else {
 			fs.mkdirSync(path.dirname(settingsPath), { recursive: true });
 			fs.writeFileSync(
@@ -60,6 +64,7 @@ export class VsCodeSettingsReconfigureTask extends AbstractTask {
 					2,
 				),
 			);
+			MODIFIED_FILES.add(settingsPath);
 		}
 	}
 }
