@@ -19,11 +19,13 @@ if (!tempDir) {
 process.env.THEME_MODULE = path.join(process.cwd(), process.env.THEME_MODULE); // Use current working directory (i.e. the theme folder) to complete module path
 const visualsTestModulePath = fileURLToPath(new URL('..', import.meta.url));
 const binaryPath = fileURLToPath(new URL('../node_modules/.bin', import.meta.url));
+const workingDir = fileURLToPath(new URL('../node_modules/@public-ui/sample-react', import.meta.url));
 const buildPath = path.join(tempDir, `kolibri-visual-testing-build-${crypto.randomUUID()}`);
 process.env.KOLIBRI_VISUAL_TESTS_BUILD_PATH = buildPath;
 
 console.log('Building React Sample App …');
-child_process.execFileSync(path.join(binaryPath, 'kolibri-sample-react-test-build'), [buildPath], {
+child_process.execFileSync('npm', ['run', 'build', '--', `--output-path=${buildPath}`], {
+	cwd: workingDir,
 	encoding: 'utf-8',
 });
 
@@ -46,8 +48,15 @@ void (async () => {
 
 	playwright.on('exit', (code) => {
 		console.log(`Playwright test finished with exit code ${code}.`);
-		console.log('Cleaning up build folder …');
-		fs.rmSync(buildPath, { recursive: true, force: true });
+
+		if (process.env.KOLIBRI_CLEANUP === '0') {
+			console.log('Skipping cleanup up build folder.');
+			console.log(`You can serve this build with "npx serve ${buildPath}".`);
+		} else {
+			console.log('Cleaning up build folder …');
+			fs.rmSync(buildPath, { recursive: true, force: true });
+			console.log('Cleaning up finished successfully.');
+		}
 		process.exit(code ?? 1);
 	});
 })();

@@ -1,7 +1,7 @@
 {
 	"entry": ["src/index.ts"],
 	"ignoreBinaries": [],
-	"ignoreDependencies": ["http-server"],
+	"ignoreDependencies": ["serve"],
 	"project": ["src/**/*.ts"],
 	"rules": {
 		"classMembers": "warn"

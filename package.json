@@ -22,6 +22,7 @@
 		"prepare:husky:ts-prune": "husky add .husky/pre-commit \"pnpm ts-prune\"",
 		"reinstall": "pnpm clean:pnpm && pnpm i",
 		"test": "pnpm -r --workspace-concurrency=1 test",
+		"test-reset-and-update": "rimraf packages/themes/**/snapshots/** && pnpm test-update",
 		"test-update": "pnpm -r --workspace-concurrency=1 test-update",
 		"update": "pnpm ncu:patch && pnpm ncu:minor && pnpm ncu:major"
 	},

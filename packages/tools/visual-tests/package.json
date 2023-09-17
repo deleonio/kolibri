@@ -16,7 +16,7 @@
 	"sideEffects": false,
 	"description": "Provides utility to run visual regression tests for themes.",
 	"scripts": {
-		"depcheck": "depcheck --ignores=@public-ui/sample-react,http-server,tslib",
+		"depcheck": "depcheck --ignores=@public-ui/sample-react,serve",
 		"format": "prettier --check src",
 		"lint": "eslint src",
 		"unused": "knip"
@@ -27,8 +27,8 @@
 	"dependencies": {
 		"@playwright/test": "1.38.0",
 		"@public-ui/sample-react": "1.7.0-rc.11",
-		"http-server": "14.1.1",
-		"portfinder": "1.0.32"
+		"portfinder": "1.0.32",
+		"serve": "14.2.1"
 	},
 	"devDependencies": {
 		"@babel/eslint-parser": "7.22.15",
