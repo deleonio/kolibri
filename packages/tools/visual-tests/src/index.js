@@ -21,9 +21,14 @@ const visualsTestModulePath = fileURLToPath(new URL('..', import.meta.url));
 const binaryPath = fileURLToPath(new URL('../node_modules/.bin', import.meta.url));
 const workingDir = fileURLToPath(new URL('../node_modules/@public-ui/sample-react', import.meta.url));
 const buildPath = path.join(tempDir, `kolibri-visual-testing-build-${crypto.randomUUID()}`);
+const packageJsonPath = await import(new URL('../node_modules/@public-ui/sample-react/package.json', import.meta.url), {
+	assert: { type: 'json' },
+});
+
 process.env.KOLIBRI_VISUAL_TESTS_BUILD_PATH = buildPath;
 
-console.log('Building React Sample App …');
+console.log(`
+Building React Sample App (v${packageJsonPath?.default?.version ?? '#.#.#'}) …`);
 child_process.execFileSync('npm', ['run', 'build', '--', `--output-path=${buildPath}`], {
 	cwd: workingDir,
 	encoding: 'utf-8',

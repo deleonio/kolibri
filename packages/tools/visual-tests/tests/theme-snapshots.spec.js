@@ -57,7 +57,9 @@ ROUTES.forEach((options, route) => {
 		if (options?.viewportSize) {
 			await page.setViewportSize(options.viewportSize);
 		}
-		await page.waitForTimeout(options?.timeout ?? 0);
+		if (options?.waitForTimeout) {
+			await page.waitForTimeout(options.waitForTimeout);
+		}
 		await expect(page).toHaveScreenshot({
 			fullPage: true,
 			...options,
