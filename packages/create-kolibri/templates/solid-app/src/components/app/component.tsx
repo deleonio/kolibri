@@ -1,5 +1,6 @@
-import { KolAlert, KolIcon, KolKolibri, KolLink } from '@public-ui/solid';
 import { Component } from 'solid-js';
+
+import { KolAlert, KolIcon, KolKolibri, KolLink } from '@public-ui/solid';
 
 import IMG_FRAMEWORK from '../../assets/logo.solid.png';
 

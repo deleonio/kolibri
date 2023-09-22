@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolForm, KolInputColor } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolForm, KolInputColor } from '@public-ui/react';
 
 import { ERROR_MSG } from '../../shares/constants';
 

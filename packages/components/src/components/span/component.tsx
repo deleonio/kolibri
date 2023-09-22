@@ -5,9 +5,9 @@ import { KoliBriIconProp } from '../../types/icon';
 import { HideLabelPropType, validateHideLabel } from '../../types/props/hide-label';
 import { validateIcon } from '../../types/props/icon';
 import { LabelWithExpertSlotPropType, validateLabelWithExpertSlot } from '../../types/props/label';
-import { API, States } from './types';
-import { watchBoolean } from '../../utils/prop.validators';
 import { md } from '../../utils/markdown';
+import { watchBoolean } from '../../utils/prop.validators';
+import { API, States } from './types';
 
 /**
  * @internal

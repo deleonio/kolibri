@@ -1,4 +1,4 @@
-import { editor, Uri, languages, Position } from 'monaco-editor';
+import { editor, languages, Position, Uri } from 'monaco-editor';
 import { Component, createEffect, createSignal, on, Show } from 'solid-js';
 
 import { createCssEditor as createCssStyleEditor } from './css-style.editor';

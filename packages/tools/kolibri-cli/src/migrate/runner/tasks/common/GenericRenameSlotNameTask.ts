@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 import { COMPONENT_FILE_EXTENSIONS, MARKUP_EXTENSIONS } from '../../../../types';
-import { MODIFIED_FILES, filterFilesByExt, isKebabCaseRegExp, isTagKebabCaseRegExp, logAndCreateError } from '../../../shares/reuse';
+import { filterFilesByExt, isKebabCaseRegExp, isTagKebabCaseRegExp, logAndCreateError, MODIFIED_FILES } from '../../../shares/reuse';
 import { AbstractTask, TaskOptions } from '../../abstract-task';
 
 type SlotAttributeName = 'slot' | 'data-removed-slot';

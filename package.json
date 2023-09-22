@@ -18,7 +18,7 @@
 		"prepare:husky": "rimraf .husky && husky install && npm-run-all prepare:husky:*",
 		"prepare:husky:commitlint": "husky add .husky/commit-msg \"npx commitlint --edit $1\"",
 		"prepare:husky:depcheck": "husky add .husky/pre-push \"pnpm -r depcheck\"",
-		"prepare:husky:format": "husky add .husky/pre-push \"pnpm -r format\"",
+		"prepare:husky:format": "husky add .husky/pre-commit \"pnpm -r format\"",
 		"prepare:husky:lint": "husky add .husky/pre-commit \"pnpm -r lint\"",
 		"prepare:husky:unused": "husky add .husky/pre-push \"pnpm -r unused\"",
 		"reinstall": "pnpm clean:pnpm && pnpm i",

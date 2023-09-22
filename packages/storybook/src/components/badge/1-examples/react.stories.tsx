@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolBadge as MyComponent, KolDetails, KolHeading } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { BadgeConfiguration } from './autogen.configuration';
 

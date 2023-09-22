@@ -1,7 +1,7 @@
-import React from 'react';
-import { KolButton, KolDetails, KolInputCheckbox, KolInputRadio } from '@public-ui/react';
-import { FC, useState } from 'react';
+import React, { FC, useState } from 'react';
+
 import { Orientation } from '@public-ui/components';
+import { KolButton, KolDetails, KolInputCheckbox, KolInputRadio } from '@public-ui/react';
 
 export const InputRadioHorizontal: FC = () => {
 	const [show, setShow] = useState(true);

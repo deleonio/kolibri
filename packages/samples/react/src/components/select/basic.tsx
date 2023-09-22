@@ -1,11 +1,8 @@
-import React from 'react';
-import { SelectOption } from '@public-ui/components';
-
-import { KolForm, KolSelect } from '@public-ui/react';
-
-import { FC } from 'react';
-
+import React, { FC } from 'react';
 import countries from 'world_countries_lists/data/countries/de/countries.json';
+
+import { SelectOption } from '@public-ui/components';
+import { KolForm, KolSelect } from '@public-ui/react';
 
 import { ERROR_MSG } from '../../shares/constants';
 

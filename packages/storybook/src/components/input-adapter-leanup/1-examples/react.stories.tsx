@@ -1,7 +1,9 @@
-import { KolInputRadio, KolInputText, KolSelect } from '@public-ui/react';
-import { LeanInputAdapter as MyComponent } from '@leanup/kolibri-react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+
+import { LeanInputAdapter as MyComponent } from '@leanup/kolibri-react';
+import { KolInputRadio, KolInputText, KolSelect } from '@public-ui/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { InputAdapterLeanupConfiguration } from './autogen.configuration';
 
 export default {

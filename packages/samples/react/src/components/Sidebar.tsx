@@ -1,8 +1,10 @@
 import React, { FC, PropsWithChildren, useState } from 'react';
+
 import { KolAccordion, KolButton, KolHeading, KolLink, KolSelect, KolVersion } from '@public-ui/react';
+
+import { useMobile } from '../hooks/useMobile';
 import { THEME_OPTIONS } from '../shares/theme';
 import { Routes } from '../shares/types';
-import { useMobile } from '../hooks/useMobile';
 
 type Props = {
 	version: string;

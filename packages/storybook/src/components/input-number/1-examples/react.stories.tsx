@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { KolButton, KolInputNumber as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 
+import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 import { InputNumberConfiguration } from './autogen.configuration';
 
 export default {

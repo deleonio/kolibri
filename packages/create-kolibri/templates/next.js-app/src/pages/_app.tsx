@@ -1,10 +1,12 @@
-import React from 'react';
-import App from 'next/app';
-import { applyPolyfills, defineCustomElements } from '@public-ui/components/dist/loader';
-import { ITZBund } from '@public-ui/themes';
-import { register } from '@public-ui/components';
 import '../style.css';
 import '../style.scss';
+
+import App from 'next/app';
+import React from 'react';
+
+import { register } from '@public-ui/components';
+import { applyPolyfills, defineCustomElements } from '@public-ui/components/dist/loader';
+import { ITZBund } from '@public-ui/themes';
 
 class RootApp extends App {
 	componentDidMount() {

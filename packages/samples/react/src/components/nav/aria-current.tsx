@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolNav } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolNav } from '@public-ui/react';
 
 export const NavAriaCurrent: FC = () => (
 	<KolNav

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { KolButton as StoryButton, KolModal as StoryModal } from '@public-ui/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { ModalConfiguration } from './autogen.configuration';
 
 export default {

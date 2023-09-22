@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolButton as MyComponent, KolInputText } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { ButtonConfiguration } from './autogen.configuration';
 

@@ -1,5 +1,6 @@
 /* types */
 import { Generic } from '@a11y-ui/core';
+
 import { watchValidator } from '../../utils/prop.validators';
 
 export type ButtonTypePropType = 'button' | 'reset' | 'submit';

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { KolAccordion as MyComponent, KolButton } from '@public-ui/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+
 import { AccordionConfiguration } from './autogen.configuration';
 
 export default {

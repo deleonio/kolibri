@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-import { MODIFIED_FILES, logAndCreateError } from '../../../shares/reuse';
+import { logAndCreateError, MODIFIED_FILES } from '../../../shares/reuse';
 import { AbstractTask, TaskOptions } from '../../abstract-task';
 
 export class VsCodeSettingsReconfigureTask extends AbstractTask {

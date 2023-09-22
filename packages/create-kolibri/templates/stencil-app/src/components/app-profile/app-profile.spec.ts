@@ -1,5 +1,6 @@
-import { AppProfile } from './app-profile';
 import { newSpecPage } from '@stencil/core/testing';
+
+import { AppProfile } from './app-profile';
 
 describe('app-profile', () => {
   describe('normalization', () => {

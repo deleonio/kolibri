@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolLinkGroup as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { LinkGroupConfiguration } from './autogen.configuration';
 

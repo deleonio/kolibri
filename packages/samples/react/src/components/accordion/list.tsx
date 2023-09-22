@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolAccordion, KolButton } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolAccordion, KolButton } from '@public-ui/react';
 
 const LIST = [
 	{

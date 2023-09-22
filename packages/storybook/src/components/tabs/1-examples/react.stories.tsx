@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolAlert, KolLink, KolTabs as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { TabsConfiguration } from './autogen.configuration';
 

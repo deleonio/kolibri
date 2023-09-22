@@ -1,6 +1,9 @@
-import { KolDetails, KolIcon, KolIconIcofont as MyComponent, KolIndentedText, KolLink } from '@public-ui/react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
+
+import {
+    KolDetails, KolIcon, KolIconIcofont as MyComponent, KolIndentedText, KolLink
+} from '@public-ui/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { IconIcofontConfiguration } from './autogen.configuration';
 

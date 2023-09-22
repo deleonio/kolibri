@@ -1,9 +1,6 @@
 import { Routes } from '../../shares/types';
-
 import { AccordionBasic } from './basic';
-
 import { AccordionHeader } from './header';
-
 import { AccordionHeadlines } from './headlines';
 import { AccordionList } from './list';
 

@@ -2,20 +2,8 @@ import React from 'react';
 
 import { KoliBriDevHelper } from '@public-ui/components';
 import {
-	KolAccordion,
-	KolBadge,
-	KolButton,
-	KolDetails,
-	KolForm,
-	KolForm as MyComponent,
-	KolIndentedText,
-	KolInputCheckbox,
-	KolInputEmail,
-	KolInputRadio,
-	KolInputText,
-	KolLink,
-	KolSelect,
-	KolTable,
+    KolAccordion, KolBadge, KolButton, KolDetails, KolForm, KolIndentedText, KolInputCheckbox,
+    KolInputEmail, KolInputRadio, KolInputText, KolLink, KolSelect, KolTable
 } from '@public-ui/react';
 import { ComponentMeta } from '@storybook/react';
 

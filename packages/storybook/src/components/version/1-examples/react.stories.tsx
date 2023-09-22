@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolVersion as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { VersionConfiguration } from './autogen.configuration';
 

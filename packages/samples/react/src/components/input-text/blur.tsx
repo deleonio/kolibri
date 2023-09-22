@@ -1,7 +1,6 @@
-import { KolForm, KolInputText } from '@public-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolForm, KolInputText } from '@public-ui/react';
 
 export const InputTextBlur: FC = () => (
 	<KolForm className="grid gap-4">

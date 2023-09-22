@@ -1,15 +1,16 @@
 import React, { FC } from 'react';
+import { useLocation } from 'react-router';
 import { Navigate, Route, Routes, useSearchParams } from 'react-router-dom';
-import { Route as MyRoute, Routes as MyRoutes } from './shares/types';
 
 import { Option } from '@public-ui/components';
-import { KolAlert } from '@public-ui/react';
-import { ROUTES } from './shares/routes';
-import { Theme, THEME_OPTIONS } from './shares/theme';
 import PackageJson from '@public-ui/components/package.json';
-import { getTheme, getThemeName, setStorage, setTheme } from './shares/store';
+import { KolAlert } from '@public-ui/react';
+
 import { Sidebar } from './components/Sidebar';
-import { useLocation } from 'react-router';
+import { ROUTES } from './shares/routes';
+import { getTheme, getThemeName, setStorage, setTheme } from './shares/store';
+import { Theme, THEME_OPTIONS } from './shares/theme';
+import { Route as MyRoute, Routes as MyRoutes } from './shares/types';
 
 setStorage(localStorage);
 

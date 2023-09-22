@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { DetailedHTMLProps, HTMLAttributes } from 'react';
+
 /* eslint-disable import/prefer-default-export */
 import { JSX as KoliBripLocalJSX } from '@public-ui/components';
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 type StencilProps<T> = {
 	[P in keyof T]?: Omit<T[P], 'ref'> | HTMLAttributes<T>;

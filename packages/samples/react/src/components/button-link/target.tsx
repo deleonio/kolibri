@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolAlert, KolButtonLink } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolAlert, KolButtonLink } from '@public-ui/react';
 
 export const ButtonLinkTarget: FC = () => (
 	<div className="grid gap-4">

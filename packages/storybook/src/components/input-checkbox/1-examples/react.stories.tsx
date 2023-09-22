@@ -1,8 +1,9 @@
+import React, { useState } from 'react';
+
 import { KolButton, KolInputCheckbox as MyComponent, KolLink } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
-import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 
+import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 import { InputCheckboxConfiguration } from './autogen.configuration';
 
 export default {

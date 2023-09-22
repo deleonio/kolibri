@@ -2,13 +2,14 @@ import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter as Router } from 'react-router-dom';
 
-import { defineCustomElements } from '@public-ui/components/dist/loader';
-import type { Generic } from '@a11y-ui/core';
-import { register } from '@public-ui/components';
-import { BAMF, BMF, BZSt, DEFAULT, DESYv1, DESYv2, ECL_EC, ECL_EU, ITZBund, MAPZ, ZOLLv2 } from '@public-ui/themes';
 import { TH } from '@public-oss/kolibri-themes';
+import { register } from '@public-ui/components';
+import { defineCustomElements } from '@public-ui/components/dist/loader';
+import { BAMF, BMF, BZSt, DEFAULT, DESYv1, DESYv2, ECL_EC, ECL_EU, ITZBund, MAPZ, ZOLLv2 } from '@public-ui/themes';
+
 import { App } from './App';
 
+import type { Generic } from '@a11y-ui/core';
 type Theme = Generic.Theming.RegisterPatch<string, string, string>;
 
 void (async () => {

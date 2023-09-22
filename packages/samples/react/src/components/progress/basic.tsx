@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolProgress } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolProgress } from '@public-ui/react';
 
 export const ProgressBasic: FC = () => (
 	<div className="grid gap-4">

@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolButton, KolCard } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolButton, KolCard } from '@public-ui/react';
 
 export const CardConfirm: FC = () => (
 	<KolCard _has-footer _heading="Überschrift">

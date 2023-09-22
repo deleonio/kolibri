@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { KolQuote } from '@public-ui/react';
 
 export const QuoteBasic: FC = () => (

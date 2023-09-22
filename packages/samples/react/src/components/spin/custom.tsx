@@ -1,8 +1,8 @@
-import React from 'react';
-import { KolSpin } from '@public-ui/react';
 import './custom.css';
 
-import { FC } from 'react';
+import React, { FC } from 'react';
+
+import { KolSpin } from '@public-ui/react';
 
 export const SpinCustom: FC = () => (
 	<KolSpin _show _variant="none">

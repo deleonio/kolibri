@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolDetails } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolDetails } from '@public-ui/react';
 
 export const DetailsBasic: FC = () => (
 	<p className="grid gap-4">

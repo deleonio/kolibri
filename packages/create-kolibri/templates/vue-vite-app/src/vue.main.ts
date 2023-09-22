@@ -1,8 +1,7 @@
-import { createApp } from 'vue'
+import { createApp } from 'vue';
 
-import App from './App.vue'
-
-import { ComponentLibrary } from './plugins/kolibri'
+import App from './App.vue';
+import { ComponentLibrary } from './plugins/kolibri';
 
 const app = createApp(App)
 

@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolLinkButton } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolLinkButton } from '@public-ui/react';
 
 const ARGS = {
 	_on: {

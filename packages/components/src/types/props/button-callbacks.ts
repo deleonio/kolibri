@@ -1,7 +1,8 @@
-import { Events } from '../../enums/events';
-import { EventCallback, EventValueOrEventCallback } from '../callbacks';
 import { Generic } from '@a11y-ui/core';
+
+import { Events } from '../../enums/events';
 import { watchValidator } from '../../utils/prop.validators';
+import { EventCallback, EventValueOrEventCallback } from '../callbacks';
 import { StencilUnknown } from '../unknown';
 
 /* types */

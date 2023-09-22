@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolIndentedText, KolSkipNav as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { SkipNavConfiguration } from './autogen.configuration';
 

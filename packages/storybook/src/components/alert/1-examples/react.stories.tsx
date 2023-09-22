@@ -1,6 +1,8 @@
 import React from 'react';
+
+import { KolAccordion, KolAlert as MyComponent, KolHeading } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { KolAlert as MyComponent, KolHeading, KolAccordion } from '@public-ui/react';
+
 import { AlertConfiguration } from './autogen.configuration';
 
 export default {

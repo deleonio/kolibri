@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolIndentedText } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolIndentedText } from '@public-ui/react';
 
 export const IndentedTextBasic: FC = () => (
 	<div className="grid gap-4">

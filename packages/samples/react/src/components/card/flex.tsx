@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolCard } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolCard } from '@public-ui/react';
 
 export const CardFlex: FC = () => (
 	<div className="grid grid-cols-2 gap-4">

@@ -1,9 +1,7 @@
-import React from 'react';
-import { KolNav } from '@public-ui/react';
-
-import { FC, useEffect, useState } from 'react';
-
+import React, { FC, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+
+import { KolNav } from '@public-ui/react';
 
 export const NavActive: FC = () => {
 	const [links, setLinks] = useState([]);

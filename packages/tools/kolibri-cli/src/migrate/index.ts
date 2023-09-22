@@ -5,6 +5,7 @@ import path from 'path';
 
 import { Configuration } from '../types';
 import { TaskRunner } from './runner/task-runner';
+import { commonTasks } from './runner/tasks';
 import { testTasks } from './runner/tasks/test';
 import { v1Tasks } from './runner/tasks/v1';
 import {
@@ -17,7 +18,6 @@ import {
 	setRemoveMode,
 } from './shares/reuse';
 import { REMOVE_MODE, RemoveMode } from './types';
-import { commonTasks } from './runner/tasks';
 
 type MigrateOption = {
 	ignoreUncommittedChanges: boolean;

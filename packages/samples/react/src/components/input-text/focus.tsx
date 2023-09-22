@@ -1,7 +1,6 @@
-import React, { useLayoutEffect, useRef } from 'react';
-import { KolButton, KolForm, KolInputText } from '@public-ui/react';
+import React, { FC, useLayoutEffect, useRef } from 'react';
 
-import { FC } from 'react';
+import { KolButton, KolForm, KolInputText } from '@public-ui/react';
 
 export const InputTextFocus: FC = () => {
 	const ref = useRef<HTMLKolInputTextElement | null>(null);

@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolIndentedText, KolLink, KolLogo as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { LogoConfiguration } from './autogen.configuration';
 

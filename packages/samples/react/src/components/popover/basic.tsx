@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolButton, KolInputPassword, KolInputText, KolPopover } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolButton, KolInputPassword, KolInputText, KolPopover } from '@public-ui/react';
 
 export const PopoverBasic: FC = () => {
 	const [top, setTop] = React.useState(false);

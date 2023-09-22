@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolLink } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolLink } from '@public-ui/react';
 
 export const LinkTarget: FC = () => (
 	<div className="d-flex gap-4">

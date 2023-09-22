@@ -2,9 +2,9 @@ import { mixMembers } from 'stencil-awesome-test';
 
 import { KoliBriCustomIcon, KoliBriIconProp } from '../../../types/icon';
 import { mapIconProp2State } from '../../../types/props/icon';
+import { md } from '../../../utils/markdown';
 import { getIconHtml } from '../../icon/test/html.mock';
 import { Props, States } from '../types';
-import { md } from '../../../utils/markdown';
 
 type Slots = {
 	''?: string;

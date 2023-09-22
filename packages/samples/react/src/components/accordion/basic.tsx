@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolAccordion } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolAccordion } from '@public-ui/react';
 
 export const AccordionBasic: FC = () => (
 	<div className="grid gap-4">

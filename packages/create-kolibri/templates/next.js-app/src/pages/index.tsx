@@ -1,6 +1,7 @@
-import { KolAlert, KolIcon, KolKolibri, KolLink } from '@public-ui/react';
-import React from 'react';
 import Head from 'next/head';
+import React from 'react';
+
+import { KolAlert, KolIcon, KolKolibri, KolLink } from '@public-ui/react';
 
 const Index = () => {
 	return (

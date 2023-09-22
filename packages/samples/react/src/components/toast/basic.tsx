@@ -1,10 +1,9 @@
+import React, { FC } from 'react';
+
 import { ToasterService } from '@public-ui/components';
 import { KolButton } from '@public-ui/react';
-import React from 'react';
 
 const toaster = ToasterService.getInstance(document);
-
-import { FC } from 'react';
 
 const handleButtonClick = () => {
 	void toaster.enqueue({

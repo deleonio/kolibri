@@ -1,7 +1,8 @@
 import React, { FC } from 'react';
 
-import { KolTable } from '@public-ui/react';
 import { KoliBriTableHeaders } from '@public-ui/components';
+import { KolTable } from '@public-ui/react';
+
 import { DATA, Data } from './test-data';
 
 const DATE_FORMATTER = Intl.DateTimeFormat('de-DE', {

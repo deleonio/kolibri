@@ -1,6 +1,8 @@
 import React from 'react';
-import { KolAlert, KolTooltip, KolButton, KolDetails } from '@public-ui/react';
+
+import { KolAlert, KolButton, KolDetails, KolTooltip } from '@public-ui/react';
 import { ComponentMeta } from '@storybook/react';
+
 import { BikBitvTest, STORY_CONFIG } from '../../bik-bitv-test';
 
 export default {

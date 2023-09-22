@@ -1,9 +1,10 @@
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+
 import { register } from '@public-ui/components';
 import { defineCustomElements } from '@public-ui/components/dist/loader';
 import { DEFAULT } from '@public-ui/themes';
 
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
 import App from './App';
 
 register(DEFAULT, defineCustomElements)

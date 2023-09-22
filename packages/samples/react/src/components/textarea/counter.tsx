@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+
 import { KolTextarea } from '@public-ui/react';
 
 export const TextareaCounter: FC = () => (

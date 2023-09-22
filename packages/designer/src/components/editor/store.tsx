@@ -1,3 +1,5 @@
+import { Component } from 'solid-js';
+
 import { Bundesanstalt, Bundesministerium, ButtonOrLinkOrTextWithChildrenProps, SelectOption, TabButtonProps } from '@public-ui/components';
 import {
 	KolAbbr,
@@ -41,7 +43,7 @@ import {
 	KolToast,
 	KolVersion,
 } from '@public-ui/solid';
-import { Component } from 'solid-js';
+
 import { COUNTRIES } from './countries';
 import { DATA, Zeiten } from './data';
 

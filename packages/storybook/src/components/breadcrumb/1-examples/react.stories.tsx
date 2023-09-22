@@ -1,6 +1,8 @@
+import React from 'react';
+
 import { KolBreadcrumb as MyComponent, KolHeading } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+
 import { BreadcrumbConfiguration } from './autogen.configuration';
 
 export default {

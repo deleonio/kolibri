@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { KolButton, KolCard, KolHeading, KolModal, KolSelect } from '@public-ui/react';
+
 import { DEFAULT_REQUIRED_VALIDATOR, InputControl, ValidationHandler } from '@leanup/form';
+import { KolButton, KolCard, KolHeading, KolModal, KolSelect } from '@public-ui/react';
 
 const handler = new ValidationHandler();
 handler.validators.add(DEFAULT_REQUIRED_VALIDATOR);

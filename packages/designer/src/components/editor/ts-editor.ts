@@ -1,7 +1,9 @@
-import { ToasterService } from '@public-ui/components';
 import { editor } from 'monaco-editor';
 import { format } from 'prettier';
 import parserTypeScript from 'prettier/esm/parser-typescript.mjs';
+
+import { ToasterService } from '@public-ui/components';
+
 import { copyToClipboard, formatReadableCssJson } from './utils';
 
 const Toaster = ToasterService.getInstance(document);

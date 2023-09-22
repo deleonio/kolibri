@@ -1,5 +1,6 @@
-import { KolAbbr } from '@public-ui/react';
 import React, { FunctionComponent } from 'react';
+
+import { KolAbbr } from '@public-ui/react';
 
 export const KoliBri: FunctionComponent<unknown> = () => {
 	return (

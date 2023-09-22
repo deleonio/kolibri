@@ -1,12 +1,12 @@
 import { Generic } from '@a11y-ui/core';
 
+import { PropButtonCallbacks } from './props/button-callbacks';
 import { PropHideLabel } from './props/hide-label';
 import { PropHref } from './props/href';
 import { PropIcon } from './props/icon';
 import { PropLabel } from './props/label';
-import { StencilUnknown } from './unknown';
-import { PropButtonCallbacks } from './props/button-callbacks';
 import { PropLinkTarget } from './props/link-target';
+import { StencilUnknown } from './unknown';
 
 /**
  * This types specifies the props of a link or button in navigations.

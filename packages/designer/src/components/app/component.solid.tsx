@@ -1,14 +1,15 @@
-import { Component, createEffect, createSignal, Match, Switch } from 'solid-js';
-
-import { KolInputText, KolSelect, KolButton, KolHeading, KolAlert, KolLink, KolInputFile, KolInputCheckbox } from '@public-ui/solid';
-import { EditorComponent } from '../editor/component.solid';
-import { KoliBriDevHelper, SelectOption } from '@public-ui/components';
-import { createTsEditor } from '../editor/ts-editor';
-import AllComp from '../../assets/components-overview.svg';
 import { format } from 'prettier';
 import parserBabel from 'prettier/esm/parser-babel.mjs';
-import { TAG_NAMES } from '../tags';
+import { Component, createEffect, createSignal, Match, Switch } from 'solid-js';
+
+import { KoliBriDevHelper, SelectOption } from '@public-ui/components';
+import { KolAlert, KolButton, KolHeading, KolInputCheckbox, KolInputFile, KolInputText, KolLink, KolSelect } from '@public-ui/solid';
+
+import AllComp from '../../assets/components-overview.svg';
 import { restoreThemes, saveData, storeThemes } from '../../shares/theme';
+import { EditorComponent } from '../editor/component.solid';
+import { createTsEditor } from '../editor/ts-editor';
+import { TAG_NAMES } from '../tags';
 
 type Page = 'editor' | 'result' | 'overview';
 

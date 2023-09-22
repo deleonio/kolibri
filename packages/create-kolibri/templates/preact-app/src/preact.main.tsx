@@ -1,10 +1,10 @@
 import { render } from 'preact';
 
-import { AppComponent } from './components/app/component';
-
 import { register } from '@public-ui/components';
 import { defineCustomElements } from '@public-ui/components/dist/loader';
 import { ITZBund } from '@public-ui/themes';
+
+import { AppComponent } from './components/app/component';
 
 register(ITZBund, defineCustomElements)
 	.then(() => {

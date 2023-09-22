@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
-import { KolSplitButton } from '@public-ui/react';
+import React, { FC, useState } from 'react';
 
-import { FC } from 'react';
+import { KolSplitButton } from '@public-ui/react';
 
 export const SplitButtonBasic: FC = () => {
 	const [showDropdown, setShowDropdown] = useState(false);

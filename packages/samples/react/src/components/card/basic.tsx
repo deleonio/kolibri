@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolCard } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolCard } from '@public-ui/react';
 
 export const CardBasic: FC = () => (
 	<KolCard _heading="Titel" _hasFooter>

@@ -1,5 +1,6 @@
-import { KolAvatar } from '@public-ui/react';
 import React, { FC } from 'react';
+
+import { KolAvatar } from '@public-ui/react';
 
 export const AvatarBasic: FC = () => (
 	<div className="flex flex-wrap gap-4">

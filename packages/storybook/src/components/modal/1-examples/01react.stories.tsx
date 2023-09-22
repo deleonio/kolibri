@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { KolButton, KolCard, KolDetails, KolModal } from '@public-ui/react';
 import { ComponentMeta } from '@storybook/react';
+
 import { BikBitvTest, STORY_CONFIG } from '../../bik-bitv-test';
 
 export default {

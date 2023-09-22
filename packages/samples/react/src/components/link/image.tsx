@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolKolibri, KolLink } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolKolibri, KolLink } from '@public-ui/react';
 
 export const LinkImage: FC = () => (
 	<div className="grid gap-4">

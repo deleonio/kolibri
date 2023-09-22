@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolLink as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { LinkConfiguration } from './autogen.configuration';
 

@@ -1,7 +1,6 @@
 import { Routes } from '../../shares/types';
-
-import { KolibriBasic } from './basic';
 import { KolibriAnimated } from './animated';
+import { KolibriBasic } from './basic';
 import { KolibriNoLabel } from './no-label';
 
 export const KOLIBRI_ROUTES: Routes = {

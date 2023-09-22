@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolLogo as MyComponent, KolPagination } from '@public-ui/react';
 import { ComponentMeta } from '@storybook/react';
-import React from 'react';
 
 import { PaginationConfiguration } from './autogen.configuration';
 

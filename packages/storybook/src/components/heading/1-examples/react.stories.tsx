@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolBadge, KolDetails, KolHeading as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { HeadingConfiguration } from './autogen.configuration';
 

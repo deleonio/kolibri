@@ -1,6 +1,8 @@
+import React from 'react';
+
 import { KolButton, KolButtonGroup as MyComponent, KolHeading } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
+
 import { ButtonGroupConfiguration } from './autogen.configuration';
 
 export default {

@@ -1,4 +1,5 @@
 import { Component, h, JSX, Prop } from '@stencil/core';
+
 import { Props } from './schema';
 
 @Component({

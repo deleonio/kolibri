@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
+
 import { KolButton, KolInputColor as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React, { useState } from 'react';
+
 import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 import { InputColorConfiguration } from './autogen.configuration';
 

@@ -1,8 +1,8 @@
 import { mixMembers } from 'stencil-awesome-test';
 
-import { Props, States } from '../types';
 import { getSpanWcHtml } from '../../span/test/html.mock';
 import { getTooltipHtml } from '../../tooltip/test/html.mock';
+import { Props, States } from '../types';
 
 type Slots = {
 	expert?: string;

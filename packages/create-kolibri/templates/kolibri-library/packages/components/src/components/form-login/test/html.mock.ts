@@ -1,4 +1,5 @@
 import { mixMembers } from 'stencil-awesome-test';
+
 import { Props } from '../schema';
 
 export const getFormLoginWcHtml = (props: Props, additionalAttrs = ''): string => {

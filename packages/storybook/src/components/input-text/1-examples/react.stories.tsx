@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { KolButton, KolInputText as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 
 import { NAMEN } from '../../../constants/names';
+import { DEFAULT_INPUT_PROPS } from '../../bik-bitv-test';
 import { InputTextConfiguration } from './autogen.configuration';
 
 export default {

@@ -1,7 +1,6 @@
-import { KolForm, KolTextarea } from '@public-ui/react';
-import React from 'react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolForm, KolTextarea } from '@public-ui/react';
 
 export const TextareaRows: FC = () => (
 	<KolForm>

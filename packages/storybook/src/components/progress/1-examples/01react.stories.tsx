@@ -1,6 +1,8 @@
+import React from 'react';
+
 import { KolButton, KolProgress } from '@public-ui/react';
 import { ComponentMeta } from '@storybook/react';
-import React from 'react';
+
 import { STORY_CONFIG } from '../../bik-bitv-test';
 
 export default {

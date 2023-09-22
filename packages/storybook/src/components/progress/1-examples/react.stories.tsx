@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { KolProgress as MyComponent } from '@public-ui/react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import React from 'react';
 
 import { ProgressConfiguration } from './autogen.configuration';
 

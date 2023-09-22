@@ -1,7 +1,7 @@
-import { h, Component, JSX, Prop, State, Watch, Host } from '@stencil/core';
+import {} from '{';
 
 import { Generic } from '@a11y-ui/core';
-import { {{capital name}}ButtonVariants, OptionalProps, OptionalStates, RequiredProps, RequiredStates, States } from './types';
+import { Component, h, Host, JSX, Prop, State, Watch } from '@stencil/core';
 
 /**
  * @internal

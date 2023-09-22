@@ -1,6 +1,6 @@
-import React, { FunctionComponent, useEffect } from 'react';
 import mermaid from 'mermaid';
 import mermaidAPI from 'mermaid/mermaidAPI';
+import React, { FunctionComponent, useEffect } from 'react';
 
 type MermaidProps = {
 	config?: mermaidAPI.Config;

@@ -1,5 +1,7 @@
+import React, { FC, useLayoutEffect, useRef } from 'react';
+
 import { KolInputCheckbox } from '@public-ui/react';
-import React, { FC, useRef, useLayoutEffect } from 'react';
+
 import { ERROR_MSG } from '../../../shares/constants';
 
 type Props = {

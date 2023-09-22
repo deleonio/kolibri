@@ -1,7 +1,6 @@
-import React from 'react';
-import { KolButton } from '@public-ui/react';
+import React, { FC } from 'react';
 
-import { FC } from 'react';
+import { KolButton } from '@public-ui/react';
 
 const ARGS = {
 	className: 'w-8rem',
