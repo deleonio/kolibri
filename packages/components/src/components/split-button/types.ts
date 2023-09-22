@@ -1,6 +1,5 @@
 import { Generic } from '@a11y-ui/core';
 
-import { StencilUnknown } from '../../components';
 import { PropAlternativeButtonLinkRole } from '../../types/props/alternative-button-link-role';
 import { ButtonCallbacksPropType } from '../../types/props/button-callbacks';
 import { PropButtonVariant } from '../../types/props/button-variant';
@@ -8,6 +7,7 @@ import { PropIcon } from '../../types/props/icon';
 import { PropLabel } from '../../types/props/label';
 import { PropShow } from '../../types/props/show';
 import { PropTooltipAlign } from '../../types/props/tooltip-align';
+import { StencilUnknown } from '../../types/unknown';
 
 type RequiredProps = PropLabel;
 type OptionalProps = {
