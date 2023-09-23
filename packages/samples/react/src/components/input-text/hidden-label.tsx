@@ -8,7 +8,6 @@ import { ERROR_MSG, HINT_MSG } from '../../shares/constants';
 export const InputTextHiddenLabel: FC = () => (
 	<KolForm className="grid gap-4">
 		<KolInputText
-			_id=""
 			_hint={HINT_MSG}
 			_hideLabel
 			_error={ERROR_MSG}
@@ -39,7 +38,6 @@ export const InputTextHiddenLabel: FC = () => (
 			_label="Suche"
 		/>
 		<KolInputText
-			_id=""
 			_error={ERROR_MSG}
 			_hideLabel
 			_placeholder="Mit Icons"
@@ -54,13 +52,13 @@ export const InputTextHiddenLabel: FC = () => (
 			_type="search"
 			_label="Suche"
 		/>
-		<KolInputText _id="" _hideLabel _placeholder="Placeholder" _label="Vorname (text)" _required />
-		<KolInputText _id="" _placeholder="Placeholder" _type="search" _label="Suche (search)" />
-		<KolInputText _id="vorname" _placeholder="Placeholder" _error={ERROR_MSG} _type="url" _label="URL (url)" />
-		<KolInputText _id="" _placeholder="Placeholder" _type="tel" _label="Telefon (tel)" />
-		<KolInputText _id="" _placeholder="Placeholder" _read-only _label="Vorname (text, readonly)" />
-		<KolInputText _id="" _value="Value" _read-only _label="Vorname (text, readonly)" />
-		<KolInputText _id="" _placeholder="Placeholder" _disabled _label="Vorname (text, disabled)" />
-		<KolInputText _id="" _value="Value" _disabled _label="Vorname (text, disabled)" />
+		<KolInputText _hideLabel _placeholder="Placeholder" _label="Vorname (text)" _required />
+		<KolInputText _placeholder="Placeholder" _type="search" _label="Suche (search)" />
+		<KolInputText _placeholder="Placeholder" _error={ERROR_MSG} _type="url" _label="URL (url)" />
+		<KolInputText _placeholder="Placeholder" _type="tel" _label="Telefon (tel)" />
+		<KolInputText _placeholder="Placeholder" _readOnly _label="Vorname (text, readonly)" />
+		<KolInputText _value="Value" _readOnly _label="Vorname (text, readonly)" />
+		<KolInputText _placeholder="Placeholder" _disabled _label="Vorname (text, disabled)" />
+		<KolInputText _value="Value" _disabled _label="Vorname (text, disabled)" />
 	</KolForm>
 );
