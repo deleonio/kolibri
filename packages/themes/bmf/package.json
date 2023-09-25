@@ -11,7 +11,7 @@
 	},
 	"devDependencies": {
 		"@public-ui/schema": "1.7.0-rc.11",
-		"@public-ui/visual-tests": "1.7.0-rc.11",
+		"@public-ui/visual-tests": "1.7.0-rc.12",
 		"@types/node": "ts5.2",
 		"typescript": "5.2.2"
 	},
