@@ -38,15 +38,17 @@ export class KolCard implements API {
 		return (
 			<Host>
 				<div class="card">
+					{/* Deprecated (header entfernen) for version 2 */}
 					<div class="header">
 						<kol-heading-wc _label={this.state._label} _level={this.state._level}></kol-heading-wc>
 						<slot name="header"></slot>
 					</div>
 					<div class="content">
-						<slot name="content"></slot>
-						{/* Deprecated for version 2 */}
 						<slot />
+						{/* Deprecated (nur standard slot) for version 2 */}
+						<slot name="content"></slot>
 					</div>
+					{/* Deprecated (footer entfernen) for version 2 */}
 					{this.state._hasFooter && (
 						<div class="footer">
 							<slot name="footer"></slot>
@@ -85,6 +87,7 @@ export class KolCard implements API {
 
 	/**
 	 * Shows the slot="footer".
+	 * @deprecated will be removed in version 2
 	 * @TODO: Change type back to `HasFooterPropType` after Stencil#4663 has been resolved.
 	 */
 	@Prop() public _hasFooter?: boolean = false;
@@ -133,6 +136,9 @@ export class KolCard implements API {
 		validateHasCloser(this, value);
 	}
 
+	/**
+	 * @deprecated will be removed in version 2
+	 */
 	@Watch('_hasFooter')
 	public validateHasFooter(value?: HasFooterPropType): void {
 		validateHasFooter(this, value);
