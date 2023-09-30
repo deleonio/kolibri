@@ -621,6 +621,7 @@ export namespace Components {
         "_hasCloser"?: boolean;
         /**
           * Shows the slot="footer".
+          * @deprecated will be removed in version 2
           * @TODO : Change type back to `HasFooterPropType` after Stencil#4663 has been resolved.
          */
         "_hasFooter"?: boolean;
@@ -4100,6 +4101,7 @@ declare namespace LocalJSX {
         "_hasCloser"?: boolean;
         /**
           * Shows the slot="footer".
+          * @deprecated will be removed in version 2
           * @TODO : Change type back to `HasFooterPropType` after Stencil#4663 has been resolved.
          */
         "_hasFooter"?: boolean;
