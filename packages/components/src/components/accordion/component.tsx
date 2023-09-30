@@ -45,7 +45,7 @@ export class KolAccordion implements API {
 				>
 					<kol-heading-wc _label="" _level={this.state._level}>
 						<kol-button-wc
-							// slot="expert"
+							// slot="expert" // @TODO: Add slot for version 2
 							_ariaControls={this.nonce}
 							_ariaExpanded={this.state._open}
 							_icons={this.state._open ? 'codicon codicon-remove' : 'codicon codicon-add'}
@@ -53,6 +53,7 @@ export class KolAccordion implements API {
 							_on={{ onClick: this.onClick }}
 						></kol-button-wc>
 					</kol-heading-wc>
+					{/* Deprecated (header entfernen) for version 2 */}
 					<div class="header">
 						<slot name="header"></slot>
 					</div>
