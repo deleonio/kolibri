@@ -1,12 +1,13 @@
 import { autoUpdate } from '@floating-ui/dom';
 import { getDocument, validateAccessKey, validateAlign, validateId, validateLabel } from '@public-ui/schema';
-import { Component, Element, h, Host, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Host, Prop, State, Watch, h } from '@stencil/core';
 
 import { alignFloatingElements } from '../../utils/align-floating-elements';
 import { hideOverlay, showOverlay } from '../../utils/overlay';
 
 import type { AccessKeyPropType, AlignPropType, IdPropType, LabelPropType, TooltipAPI, TooltipStates } from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
+import { nonce } from '../../utils/dev.utils';
 @Component({
 	tag: 'kol-tooltip-wc',
 	styleUrl: './style.css',
@@ -109,7 +110,7 @@ export class KolTooltip implements TooltipAPI {
 		return (
 			<Host>
 				{this.state._label !== '' && (
-					<div class="tooltip-floating" ref={this.catchTooltipElement}>
+					<div aria-labelledby={this.state._id} class="tooltip-floating" ref={this.catchTooltipElement} role="tooltip">
 						<div class="tooltip-area tooltip-arrow" ref={this.catchArrowElement} />
 						<kol-span-wc class="tooltip-area tooltip-content" id={this.state._id} _accessKey={this._accessKey} _label={this.state._label}></kol-span-wc>
 					</div>
@@ -140,6 +141,7 @@ export class KolTooltip implements TooltipAPI {
 
 	@State() public state: TooltipStates = {
 		_align: 'top',
+		_id: nonce(),
 		_label: '', // ⚠ required
 	};
 

@@ -5,8 +5,8 @@ import type { PropAccessKey, PropAlign, PropId, PropLabel } from '../props';
 type RequiredProps = PropLabel;
 type OptionalProps = PropAccessKey & PropAlign & PropId;
 
-type RequiredStates = PropLabel & PropAlign;
-type OptionalStates = PropAccessKey & PropId;
+type RequiredStates = PropAlign & PropId & PropLabel;
+type OptionalStates = PropAccessKey;
 
 export type TooltipProps = Generic.Element.Members<RequiredProps, OptionalProps>;
 export type TooltipStates = Generic.Element.Members<RequiredStates, OptionalStates>;
