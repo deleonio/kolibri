@@ -3,6 +3,7 @@ import { TerminComponent } from './complex-form/component';
 import { AppointmentForm } from './appointment-form/AppointmentForm';
 import { InputsGetValue } from './inputs-get-value';
 import { CustomTooltipWidth } from './custom-tooltip-width';
+import { Zer } from './zer/component';
 
 export const SCENARIO_ROUTES: Routes = {
 	scenarios: {
@@ -10,5 +11,6 @@ export const SCENARIO_ROUTES: Routes = {
 		'appointment-form': AppointmentForm,
 		'inputs-get-value': InputsGetValue,
 		'custom-tooltip-width': CustomTooltipWidth,
+		zer: Zer,
 	},
 };

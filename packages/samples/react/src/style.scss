@@ -24,6 +24,10 @@ hr {
 	grid-template-columns: auto auto;
 }
 
+.column-count-2 {
+	column-count: 1;
+}
+
 @media (min-width: 1024px) {
 	.app-container {
 		display: grid;
@@ -33,6 +37,10 @@ hr {
 
 	.app-sidebar {
 		border-right: 1px solid gray;
+	}
+
+	.column-count-2 {
+		column-count: 2;
 	}
 }
 

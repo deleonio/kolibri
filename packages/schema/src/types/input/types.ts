@@ -25,7 +25,7 @@ export type Option<T> = {
 	disabled?: boolean;
 	label: string | number;
 	// selected?: boolean; // wird über den value der *-Komponente gesteuert
-	value: T;
+	value: T; // TODO: could be optional, and then the label is used as value
 };
 
 export type Optgroup<T> = {

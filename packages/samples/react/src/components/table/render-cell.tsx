@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 
 import { KolButton, KolInputText, KolTable } from '@public-ui/react';
 
-import { getRoot } from '../../shares/react-roots';
 import { KoliBriTableHeaders } from '@public-ui/components';
-import { DATE_FORMATTER } from './formatter';
+import { DATE_FORMATTER } from '../../shares/formatter';
+import { getRoot } from '../../shares/react-roots';
 import { SampleDescription } from '../SampleDescription';
 
 type Data = {
