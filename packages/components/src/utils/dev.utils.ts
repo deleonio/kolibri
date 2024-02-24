@@ -1,7 +1,6 @@
 import { Log, getDocument, processEnv, setColorContrastAnalysis, setDevMode, setExperimentalMode } from '@public-ui/schema';
 
 import { getWindow, setDocument, setWindow } from '@public-ui/schema';
-import { ModalService } from '../components/modal/service';
 
 export const configKoliBri = (window: Window): void => {
 	if (window instanceof Window) {
@@ -43,14 +42,6 @@ const getKoliBri = (): Record<string, unknown> => {
 export const initKoliBri = (): void => {
 	initMeta();
 	if (getKoliBri() === undefined) {
-		if (getKoliBri().Modal === undefined) {
-			const Modal = new ModalService();
-			Object.defineProperty(getKoliBri(), 'Modal', {
-				get: function (): ModalService {
-					return Modal;
-				},
-			});
-		}
 		Log.debug(
 			`
 	,--. ,--.         ,--. ,--. ,-----.           ,--.
