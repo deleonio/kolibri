@@ -1,19 +1,6 @@
 import { Log, getDocument, processEnv, setColorContrastAnalysis, setDevMode, setExperimentalMode } from '@public-ui/schema';
 
-import { getWindow, setDocument, setWindow } from '@public-ui/schema';
-
-export const configKoliBri = (window: Window): void => {
-	if (window instanceof Window) {
-		setWindow(window);
-		if (getWindow().document instanceof Document) {
-			setDocument(window.document);
-		} else {
-			console.warn(`The given Window has no valid Document.`);
-		}
-	} else {
-		console.warn(`The given Window is not valid.`);
-	}
-};
+import { getWindow } from '@public-ui/schema';
 
 const initMeta = (): void => {
 	const meta = getDocument().querySelector('meta[name="kolibri"]');
@@ -39,6 +26,8 @@ const getKoliBri = (): Record<string, unknown> => {
 	return kolibri;
 };
 
+export { getKoliBri };
+
 export const initKoliBri = (): void => {
 	initMeta();
 	if (getKoliBri() === undefined) {
@@ -59,7 +48,6 @@ export const initKoliBri = (): void => {
 		console.warn(`You can only initialize KoliBri once.`);
 	}
 };
-export { getKoliBri };
 
 export const renderDevAdvice = (): void => {
 	if (getKoliBri().adviceShown !== true) {
