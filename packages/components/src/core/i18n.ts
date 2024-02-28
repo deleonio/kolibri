@@ -1,3 +1,7 @@
+/**
+ * WARNING: i18next could translate with replacement values.
+ *          We could not remove i18next from the project.
+ */
 import i18next from 'i18next';
 
 import type { Generic } from 'adopted-style-sheets';
