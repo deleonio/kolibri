@@ -46,7 +46,7 @@
 		"prepack": "npm run build"
 	},
 	"devDependencies": {
-		"@public-ui/components": "1.7.0",
+		"@public-ui/components": "1.7.25",
 		"rimraf": "3.0.2"
 	},
 	"peerDependencies": {

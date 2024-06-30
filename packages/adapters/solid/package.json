@@ -46,12 +46,12 @@
 		"prepack": "unbuild"
 	},
 	"devDependencies": {
-		"@public-ui/components": "1.7.0",
+		"@public-ui/components": "1.7.25",
 		"@types/minimatch": "5.1.2",
-		"@types/minimist": "1.2.3",
+		"@types/minimist": "1.2.5",
 		"@types/node": "ts5.1",
-		"@types/normalize-package-data": "2.4.2",
-		"solid-js": "1.7.12",
+		"@types/normalize-package-data": "2.4.4",
+		"solid-js": "1.8.18",
 		"typescript": "5.2.2",
 		"unbuild": "1.2.1"
 	},
