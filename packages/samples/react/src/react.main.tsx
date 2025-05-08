@@ -5,8 +5,7 @@ import { setTagNameTransformer } from '@public-ui/react';
 
 import { bootstrap, KoliBriDevHelper } from '@public-ui/components';
 import { defineCustomElements } from '@public-ui/components/dist/loader';
-import { DEFAULT } from '@public-ui/theme-default';
-import { ECL_EC, ECL_EU } from '@public-ui/theme-ecl';
+import { DEFAULT, ECL_EC, ECL_EU } from '@public-ui/themes';
 
 import { App } from './App';
 
