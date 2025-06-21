@@ -41,9 +41,18 @@ exports.config = {
 		{
 			maxInstances: 1,
 			browserName: 'chrome',
-			'goog:chromeOptions': {
-				args: ['--headless=new', '--disable-gpu', '--no-sandbox', '--disable-dev-shm-usage', '--js-flags=--expose-gc'],
-			},
+                        'goog:chromeOptions': {
+                                args: [
+                                        '--headless=new',
+                                        '--disable-gpu',
+                                        '--no-sandbox',
+                                        '--disable-dev-shm-usage',
+                                        '--js-flags=--expose-gc',
+                                        '--disable-background-timer-throttling',
+                                        '--disable-renderer-backgrounding',
+                                        '--disable-extensions',
+                                ],
+                        },
 		},
 	],
 	logLevel: 'silent',

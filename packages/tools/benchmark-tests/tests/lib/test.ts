@@ -18,6 +18,9 @@ export async function testRun({ batchSize, iterations, tag, timeout }: Params): 
 
 		function startNextHydration() {
 			if (batches.size > 0) {
+				performance.clearMarks();
+				performance.clearMeasures();
+				window.gc?.();
 				batchCounter++;
 				currentBatch = batches.values()?.next()?.value!;
 				performance.mark(`mark-append-${batchCounter}`);
@@ -70,6 +73,9 @@ export async function testRun({ batchSize, iterations, tag, timeout }: Params): 
 						measure.hydrated = performance.getEntriesByName(`hydrated-${batchCounter}`).pop()?.duration!;
 
 						removeBatch(currentBatch);
+						performance.clearMarks();
+						performance.clearMeasures();
+						window.gc?.();
 						setTimeout(startNextHydration);
 					}
 				}

@@ -1,4 +1,4 @@
-import { TEST_BATCH_SIZE, TEST_ITERATIONS, TEST_TIMEOUT } from './config';
+import { TEST_BATCH_SIZE, TEST_ITERATIONS, TEST_TIMEOUT, TEST_WARMUP_ITERATIONS } from './config';
 import { testRun } from './test';
 import type { TagType } from './types';
 
@@ -14,5 +14,5 @@ export async function runBenchmark(tag: TagType, execFn: any, results: Map<TagTy
 	/**
 	 * Cut warmup iterations from the results.
 	 */
-	results.set(tag, durations.splice(1, durations.length - 1));
+	results.set(tag, durations.splice(TEST_WARMUP_ITERATIONS, durations.length - TEST_WARMUP_ITERATIONS));
 }

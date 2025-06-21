@@ -14,9 +14,14 @@ export default defineConfig({
 		{
 			name: 'chromium',
 			use: { ...devices['Desktop Chrome'] },
-			launchOptions: {
-				args: ['--js-flags=--expose-gc'],
-			},
+                        launchOptions: {
+                                args: [
+                                        '--js-flags=--expose-gc',
+                                        '--disable-background-timer-throttling',
+                                        '--disable-renderer-backgrounding',
+                                        '--disable-extensions',
+                                ],
+                        },
 		},
 	],
 	webServer: {

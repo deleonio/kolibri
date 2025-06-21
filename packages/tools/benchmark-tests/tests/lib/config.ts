@@ -3,6 +3,7 @@ import type { TagType } from './types';
 export const TEST_ITERATIONS = parseInt(process.env.TEST_ITERATIONS || '50', 10);
 export const TEST_BATCH_SIZE = parseInt(process.env.TEST_BATCH_SIZE || '100', 10);
 export const TEST_TIMEOUT = parseInt(process.env.TEST_TIMEOUT || '10000', 10);
+export const TEST_WARMUP_ITERATIONS = parseInt(process.env.TEST_WARMUP_ITERATIONS || '5', 10);
 export const TEST_URL = 'http://localhost:3000/test-page.html';
 
 export const TAGS = [
