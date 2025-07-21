@@ -45,6 +45,7 @@ export * from './modal';
 export * from './msg';
 export * from './multiple';
 export * from './name';
+export * from './nav-behavior';
 export * from './open';
 export * from './options';
 export * from './pagination-position';

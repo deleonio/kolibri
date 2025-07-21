@@ -9,6 +9,7 @@ import type {
 	NavAPI,
 	NavStates,
 	Stringified,
+	NavBehaviorPropType,
 } from '../../schema';
 import {
 	a11yHintLabelingLandmarks,
@@ -18,11 +19,12 @@ import {
 	validateHasCompactButton,
 	validateHasIconsWhenExpanded,
 	validateHideLabel,
+	validateNavBehavior,
 	validateLabel,
 	watchValidator,
 } from '../../schema';
 import type { JSX } from '@stencil/core';
-import { Component, h, Prop, State, Watch } from '@stencil/core';
+import { Component, h, Prop, State, Watch, Element, Listen } from '@stencil/core';
 
 import { translate } from '../../i18n';
 import { addNavLabel, removeNavLabel } from '../../utils/unique-nav-labels';
@@ -31,6 +33,7 @@ import { KolButtonWcTag, KolLinkWcTag } from '../../core/component-names';
 import type { StencilUnknown } from '../../schema';
 import clsx from 'clsx';
 import type { OrientationPropType } from '../../schema/props/orientation';
+import { KeyboardKey } from '../../schema/enums';
 
 const linkValidator = (link: ButtonOrLinkOrTextWithChildrenProps): boolean => {
 	if (typeof link === 'object' && typeof link._label === 'string' /* && typeof newLink._href === 'string' */) {
@@ -65,6 +68,7 @@ const entryIsButton = (entryProps: ButtonOrLinkOrTextWithChildrenProps): entryPr
 	shadow: true,
 })
 export class KolNav implements NavAPI {
+	@Element() host?: HTMLKolNavElement;
 	private expandChildren(children: ButtonOrLinkOrTextWithChildrenProps[]) {
 		this.state = {
 			...this.state,
@@ -217,6 +221,78 @@ export class KolNav implements NavAPI {
 		this.state._links.forEach(handleBranch);
 	}
 
+	private entryElements: Array<HTMLKolButtonWcElement | HTMLKolLinkWcElement> = [];
+	private currentIndex = 0;
+
+	private updateEntryElements() {
+		const nodeList = this.host?.shadowRoot?.querySelectorAll<HTMLKolButtonWcElement | HTMLKolLinkWcElement>('.kol-nav__entry');
+		this.entryElements = nodeList ? Array.from(nodeList) : [];
+		this.entryElements.forEach((el, index) => {
+			el._tabIndex = this.state._behavior === 'arrow-navigation' ? (index === this.currentIndex ? 0 : -1) : 0;
+		});
+	}
+
+	private focusEntry(index: number) {
+		const next = Math.max(0, Math.min(index, this.entryElements.length - 1));
+		this.currentIndex = next;
+		this.updateEntryElements();
+		this.entryElements[this.currentIndex]?.kolFocus?.();
+	}
+
+	private toggleCurrentExpansion(expand: boolean) {
+		const current = this.entryElements[this.currentIndex];
+		const li = current?.closest('li');
+		const button = li?.querySelector<HTMLKolButtonWcElement>('.kol-nav__expand-button');
+		if (button) {
+			const expanded = li?.classList.contains('kol-nav__list-item--expanded');
+			if ((expand && !expanded) || (!expand && expanded)) {
+				button.click();
+				this.updateEntryElements();
+			}
+		}
+	}
+
+	private handleArrowNavigation(event: KeyboardEvent) {
+		if (this.state._behavior !== 'arrow-navigation') return;
+		const orientation = this.state._orientation;
+		switch (event.key as KeyboardKey) {
+			case KeyboardKey.ArrowDown:
+				if (orientation === 'vertical') this.focusEntry(this.currentIndex + 1);
+				else this.toggleCurrentExpansion(true);
+				event.preventDefault();
+				break;
+			case KeyboardKey.ArrowUp:
+				if (orientation === 'vertical') this.focusEntry(this.currentIndex - 1);
+				else this.toggleCurrentExpansion(false);
+				event.preventDefault();
+				break;
+			case KeyboardKey.ArrowRight:
+				if (orientation === 'horizontal') this.focusEntry(this.currentIndex + 1);
+				else this.toggleCurrentExpansion(true);
+				event.preventDefault();
+				break;
+			case KeyboardKey.ArrowLeft:
+				if (orientation === 'horizontal') this.focusEntry(this.currentIndex - 1);
+				else this.toggleCurrentExpansion(false);
+				event.preventDefault();
+				break;
+			case KeyboardKey.Enter:
+			case KeyboardKey.Space:
+				this.entryElements[this.currentIndex]?.click();
+				event.preventDefault();
+				break;
+		}
+	}
+
+	@Listen('keydown')
+	public onKeyDown(event: KeyboardEvent) {
+		this.handleArrowNavigation(event);
+	}
+
+	public componentDidRender(): void {
+		this.updateEntryElements();
+	}
+
 	public render(): JSX.Element {
 		let hasCompactButton = this.state._hasCompactButton;
 		if (this.state._orientation === 'horizontal' && this.state._hasCompactButton === true) {
@@ -232,7 +308,7 @@ export class KolNav implements NavAPI {
 					'kol-nav--is-compact': this.state._hideLabel,
 				})}
 			>
-				<nav class="kol-nav__navigation" aria-label={this.state._label} id="nav">
+				<nav class="kol-nav__navigation" aria-label={this.state._label} id="nav" role={orientation === 'horizontal' ? 'menubar' : 'tree'}>
 					<this.linkList collapsible={collapsible} hideLabel={hideLabel} deep={0} links={this.state._links} orientation={orientation}></this.linkList>
 				</nav>
 				{hasCompactButton && (
@@ -299,6 +375,11 @@ export class KolNav implements NavAPI {
 	 */
 	@Prop() public _orientation?: OrientationPropType = 'vertical';
 
+	/**
+	 * Defines which navigation behavior is active.
+	 */
+	@Prop() public _behavior?: NavBehaviorPropType = 'tab-navigation';
+
 	@State() public state: NavStates = {
 		_collapsible: true,
 		_hasCompactButton: false,
@@ -307,6 +388,7 @@ export class KolNav implements NavAPI {
 		_label: '', // ⚠ required
 		_links: [],
 		_orientation: 'vertical',
+		_behavior: 'tab-navigation',
 		_expandedChildren: [],
 	};
 
@@ -348,6 +430,11 @@ export class KolNav implements NavAPI {
 		devHint(`[KolNav] The navigation structure is not yet validated recursively.`);
 	}
 
+	@Watch('_behavior')
+	public validateBehavior(value?: NavBehaviorPropType) {
+		validateNavBehavior(this, value);
+	}
+
 	@Watch('_orientation')
 	public validateOrientation(value?: OrientationPropType): void {
 		watchValidator(
@@ -370,6 +457,7 @@ export class KolNav implements NavAPI {
 		this.validateLabel(this._label, undefined, true);
 		this.validateLinks(this._links);
 		this.validateOrientation(this._orientation);
+		this.validateBehavior(this._behavior);
 		this.initializeExpandedChildren();
 	}
 
