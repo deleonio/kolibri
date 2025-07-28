@@ -49,12 +49,12 @@
 	},
 	"devDependencies": {
 		"@public-ui/components": "workspace:*",
-		"@types/minimatch": "5.1.2",
+		"@types/minimatch": "6.0.0",
 		"@types/minimist": "1.2.5",
 		"@types/normalize-package-data": "2.4.4",
 		"solid-js": "1.9.7",
 		"typescript": "5.8.3",
-		"unbuild": "3.5.0"
+		"unbuild": "3.6.0"
 	},
 	"peerDependencies": {
 		"@public-ui/components": "workspace:*",
