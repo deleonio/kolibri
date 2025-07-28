@@ -98,12 +98,12 @@ https://en.wikipedia.org/wiki/Modal_window
 
 ## Properties
 
-| Property              | Attribute | Description                                                                                                                                                                  | Type                                                      | Default     |
-| --------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------- |
-| `_activeElement`      | --        | <span style="color:red">**[DEPRECATED]**</span> Use methode `openModal` and `closeModal` instead.<br/><br/>Legacy property - while set to an HTMLElement, the modal is open. | `HTMLElement \| null \| undefined`                        | `undefined` |
-| `_label` _(required)_ | `_label`  | Defines the visible or semantic label of the component (e.g. aria-label, label, headline, caption, summary, etc.).                                                           | `string`                                                  | `undefined` |
-| `_on`                 | --        | Defines the modal callback functions.                                                                                                                                        | `undefined \| ({ onClose?: (() => void) \| undefined; })` | `undefined` |
-| `_width`              | `_width`  | Defines the width of the modal. (max-width: 100%)                                                                                                                            | `string \| undefined`                                     | `'100%'`    |
+| Property              | Attribute         | Description                                                                                                                                                                  | Type                                                      | Default     |
+| --------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- | ----------- |
+| `_activeElement`      | `_active-element` | <span style="color:red">**[DEPRECATED]**</span> Use methode `openModal` and `closeModal` instead.<br/><br/>Legacy property - while set to an HTMLElement, the modal is open. | `HTMLElement \| null \| undefined`                        | `undefined` |
+| `_label` _(required)_ | `_label`          | Defines the visible or semantic label of the component (e.g. aria-label, label, headline, caption, summary, etc.).                                                           | `string`                                                  | `undefined` |
+| `_on`                 | `_on`             | Defines the modal callback functions.                                                                                                                                        | `undefined \| ({ onClose?: (() => void) \| undefined; })` | `undefined` |
+| `_width`              | `_width`          | Defines the width of the modal. (max-width: 100%)                                                                                                                            | `string \| undefined`                                     | `'100%'`    |
 
 ## Methods
 
