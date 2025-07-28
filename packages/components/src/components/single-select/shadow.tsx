@@ -29,7 +29,7 @@ import { tryToDispatchKoliBriEvent } from '../../utils/events';
 import { getRenderStates } from '../input/controller';
 import { InternalUnderlinedBadgeText } from '../span/InternalUnderlinedBadgeText';
 import { SingleSelectController } from './controller';
-import { EventDetail } from '../../schema/interfaces/EventDetail';
+import type { EventDetail } from '../../schema/interfaces/EventDetail';
 
 /**
  * @slot - The input field label.
