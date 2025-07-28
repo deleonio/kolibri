@@ -7,7 +7,7 @@ import type {
 	PaginationProps,
 	Stringified,
 	TooltipAlignPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import type { JSX } from '@stencil/core';
 import { Component, h, Prop } from '@stencil/core';

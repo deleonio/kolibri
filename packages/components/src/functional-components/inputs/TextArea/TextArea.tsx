@@ -3,7 +3,7 @@ import type { JSXBase } from '@stencil/core/internal';
 import clsx from 'clsx';
 import { getDefaultProps } from '../_helpers/getDefaultProps';
 import type { DefaultInputProps } from '../_types';
-import { checkHasMsg, type InternMsgPropType } from '../../../schema';
+import { checkHasMsg, type InternMsgPropType } from '@public-ui/schema';
 
 export type TextAreaProps = DefaultInputProps<JSXBase.TextareaHTMLAttributes<HTMLTextAreaElement>> & {
 	value: string;

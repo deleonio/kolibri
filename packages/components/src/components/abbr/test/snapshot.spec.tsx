@@ -1,5 +1,5 @@
 import { KolAbbrTag } from '../../../core/component-names';
-import type { AbbrProps } from '../../../schema';
+import type { AbbrProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolAbbr } from '../shadow';

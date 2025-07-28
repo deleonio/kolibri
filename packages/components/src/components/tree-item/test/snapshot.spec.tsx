@@ -1,5 +1,5 @@
 import { KolTreeItemTag } from '../../../core/component-names';
-import type { TreeItemProps } from '../../../schema';
+import type { TreeItemProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolTreeItem } from '../shadow';

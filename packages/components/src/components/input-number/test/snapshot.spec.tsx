@@ -1,5 +1,5 @@
 import { KolInputNumberTag } from '../../../core/component-names';
-import type { InputNumberProps } from '../../../schema';
+import type { InputNumberProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolInputNumber } from '../shadow';

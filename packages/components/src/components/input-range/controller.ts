@@ -1,6 +1,6 @@
-import type { AutoCompletePropType, InputRangeProps, InputRangeWatches, NumberString, SuggestionsPropType } from '../../schema';
-import { validateSuggestions } from '../../schema';
-import { validateAutoComplete } from '../../schema/props/auto-complete';
+import type { AutoCompletePropType, InputRangeProps, InputRangeWatches, NumberString, SuggestionsPropType } from '@public-ui/schema';
+import { validateSuggestions } from '@public-ui/schema';
+import { validateAutoComplete } from '@public-ui/schema/props/auto-complete';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 

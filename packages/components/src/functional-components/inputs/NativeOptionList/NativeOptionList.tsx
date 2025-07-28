@@ -1,6 +1,6 @@
 import { Fragment, type FunctionalComponent as FC, h } from '@stencil/core';
 import clsx from 'clsx';
-import type { SelectOption, StencilUnknown } from '../../../schema';
+import type { SelectOption, StencilUnknown } from '@public-ui/schema';
 import NativeOptionFc from '../NativeOption/NativeOption';
 import type { JSXBase } from '@stencil/core/internal';
 

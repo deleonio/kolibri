@@ -1,7 +1,7 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import clsx from 'clsx';
 
-import type { KoliBriCustomIcon } from '../../schema';
+import type { KoliBriCustomIcon } from '@public-ui/schema';
 import KolIconFc from '../Icon';
 
 const IconHelper: FC<KoliBriCustomIcon & { class?: string }> = (props) => {

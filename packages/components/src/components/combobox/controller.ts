@@ -1,5 +1,5 @@
-import type { ComboboxWatches, ComboboxProps, SuggestionsPropType } from '../../schema';
-import { watchBoolean, validateSuggestions, watchString } from '../../schema';
+import type { ComboboxWatches, ComboboxProps, SuggestionsPropType } from '@public-ui/schema';
+import { watchBoolean, validateSuggestions, watchString } from '@public-ui/schema';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 

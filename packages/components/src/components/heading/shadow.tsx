@@ -1,7 +1,7 @@
 import type { JSX } from '@stencil/core';
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import type { HeadingAPI, HeadingLevel, HeadingStates, LabelWithExpertSlotPropType } from '../../schema';
-import { validateLabelWithExpertSlot, watchString } from '../../schema';
+import type { HeadingAPI, HeadingLevel, HeadingStates, LabelWithExpertSlotPropType } from '@public-ui/schema';
+import { validateLabelWithExpertSlot, watchString } from '@public-ui/schema';
 import { KolHeadingFc } from '../../functional-components';
 import { watchHeadingLevel } from './validation';
 

@@ -4,7 +4,7 @@ export { ToasterService } from './components/toaster/toaster';
 export { bootstrap, register, isInitialized } from './core/bootstrap';
 export * from './enums/bund';
 export * from './kolibri';
-export { KoliBri, KoliBriDevHelper } from './schema';
+export { KoliBri, KoliBriDevHelper } from '@public-ui/schema';
 export { KolEvent } from './utils/events';
 export type {
 	FocusableElement,
@@ -17,6 +17,6 @@ export type {
 	Toast,
 	ToasterOptions,
 	W3CInputValue,
-} from './schema';
+} from '@public-ui/schema';
 export { BEM_ALERT } from './functional-components/Alert/bem';
 export { BEM_ICON } from './components/icon/bem';

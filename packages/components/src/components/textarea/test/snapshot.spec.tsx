@@ -1,5 +1,5 @@
 import { KolTextareaTag } from '../../../core/component-names';
-import type { TextareaProps } from '../../../schema';
+import type { TextareaProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolTextarea } from '../shadow';

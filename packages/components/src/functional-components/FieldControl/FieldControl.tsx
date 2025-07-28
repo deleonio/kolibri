@@ -1,7 +1,7 @@
 import { h, Fragment, type FunctionalComponent as FC } from '@stencil/core';
 import type { JSXBase } from '@stencil/core/internal';
 import clsx from 'clsx';
-import { type AlignPropType, type LabelAlignPropType, buildBadgeTextString, checkHasMsg, type InternMsgPropType, showExpertSlot } from '../../schema';
+import { type AlignPropType, type LabelAlignPropType, buildBadgeTextString, checkHasMsg, type InternMsgPropType, showExpertSlot } from '@public-ui/schema';
 import KolFieldControlTooltipFc from '../FormFieldTooltip';
 import KolFieldControlLabelFc from '../FormFieldLabel';
 import KolFieldControlHintFc from '../FormFieldHint';

@@ -1,6 +1,6 @@
 import { KolProgress } from '../shadow';
 import { executeSnapshotTests } from '../../../utils/testing';
-import type { ProgressProps } from '../../../schema';
+import type { ProgressProps } from '@public-ui/schema';
 import { KolProgressTag } from '../../../core/component-names';
 
 executeSnapshotTests<ProgressProps>(

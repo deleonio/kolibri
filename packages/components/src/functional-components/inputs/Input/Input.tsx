@@ -1,7 +1,7 @@
 import { h, Fragment, type FunctionalComponent as FC } from '@stencil/core';
 import type { JSXBase, VNode } from '@stencil/core/internal';
 import clsx from 'clsx';
-import { checkHasMsg, type InternMsgPropType } from '../../../schema';
+import { checkHasMsg, type InternMsgPropType } from '@public-ui/schema';
 import { getDefaultProps } from '../_helpers/getDefaultProps';
 import type { DefaultInputProps } from '../_types';
 

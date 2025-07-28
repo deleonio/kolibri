@@ -21,7 +21,7 @@ import type {
 	DisabledPropType,
 	HideLabelPropType,
 	HintPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import { nonce } from '../../utils/dev.utils';
 import { InputRadioController } from './controller';
@@ -32,7 +32,7 @@ import KolFieldControlStateWrapperFc, {
 	type FieldControlStateWrapperProps,
 } from '../../functional-component-wrappers/FieldControlStateWrapper/FieldControlStateWrapper';
 import KolRadioStateWrapperFc, { type RadioStateWrapperProps } from '../../functional-component-wrappers/RadioStateWrapper/RadioStateWrapper';
-import type { OrientationPropType } from '../../schema/props/orientation';
+import type { OrientationPropType } from '@public-ui/schema/props/orientation';
 
 /**
  * @slot - Die Legende/Überschrift der Radiobuttons.

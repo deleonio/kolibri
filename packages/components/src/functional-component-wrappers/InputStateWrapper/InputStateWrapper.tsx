@@ -13,7 +13,7 @@ import {
 	type InputCheckboxStates,
 	type InputRadioStates,
 	convertMsgToInternMsg,
-} from '../../schema';
+} from '@public-ui/schema';
 import { getRenderStates } from '../_helpers/getRenderStates';
 import SuggestionsFc from '../../functional-components/Suggestions';
 

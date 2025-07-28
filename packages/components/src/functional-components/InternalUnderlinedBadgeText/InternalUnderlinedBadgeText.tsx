@@ -1,5 +1,5 @@
 import { Fragment, h, type FunctionalComponent as FC } from '@stencil/core';
-import type { BadgeTextPropType } from '../../schema';
+import type { BadgeTextPropType } from '@public-ui/schema';
 
 type InternalUnderlinedBadgeTextProps = {
 	badgeText: BadgeTextPropType;

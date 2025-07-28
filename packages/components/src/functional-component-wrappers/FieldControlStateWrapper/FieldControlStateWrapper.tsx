@@ -12,7 +12,7 @@ import {
 	type InputRadioStates,
 	type SelectStates,
 	convertMsgToInternMsg,
-} from '../../schema';
+} from '@public-ui/schema';
 
 type InputState =
 	| InputTextStates

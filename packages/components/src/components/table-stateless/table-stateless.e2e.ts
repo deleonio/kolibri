@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '@stencil/playwright';
-import type { SortEventPayload, TableHeaderCellsPropType, KoliBriTableSelection } from '../../schema';
+import type { SortEventPayload, TableHeaderCellsPropType, KoliBriTableSelection } from '@public-ui/schema';
 import { KolEvent } from '../../utils/events';
 
 const DATA = [{ id: '1001' }, { id: '1002' }, { id: '1003' }, { id: '1004' }];

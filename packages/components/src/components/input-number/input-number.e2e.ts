@@ -3,7 +3,7 @@ import type { E2EPage } from '@stencil/playwright';
 import { test } from '@stencil/playwright';
 import { testInputCallbacksAndEvents, testInputValueReflection } from '../../e2e';
 import type { FillAction } from '../../e2e/utils/FillAction';
-import type { NumberString } from '../../schema';
+import type { NumberString } from '@public-ui/schema';
 import { testInputMessage } from '../../e2e/input-msg';
 
 const COMPONENT_NAME = 'kol-input-number';

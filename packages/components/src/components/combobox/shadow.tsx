@@ -19,7 +19,7 @@ import type {
 	HideLabelPropType,
 	HintPropType,
 	W3CInputValue,
-} from '../../schema';
+} from '@public-ui/schema';
 import clsx from 'clsx';
 import { nonce } from '../../utils/dev.utils';
 import KolFormFieldStateWrapperFc, { type FormFieldStateWrapperProps } from '../../functional-component-wrappers/FormFieldStateWrapper/FormFieldStateWrapper';
@@ -31,7 +31,7 @@ import KolInputContainerFc from '../../functional-component-wrappers/InputContai
 import CustomSuggestionsToggleFc from '../../functional-components/CustomSuggestionsToggle';
 import CustomSuggestionsOptionFc from '../../functional-components/CustomSuggestionsOption/CustomSuggestionsOption';
 import CustomSuggestionsOptionsGroupFc from '../../functional-components/CustomSuggestionsOptionsGroup';
-import type { EventDetail } from '../../schema/interfaces/EventDetail';
+import type { EventDetail } from '@public-ui/schema/interfaces/EventDetail';
 
 /**
  * @slot - Die Beschriftung des Eingabefeldes.

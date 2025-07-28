@@ -21,7 +21,7 @@ import type {
 	DisabledPropType,
 	HideLabelPropType,
 	HintPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import clsx from 'clsx';
 import { KolIconTag } from '../../core/component-names';
@@ -33,7 +33,7 @@ import CustomSuggestionsOptionFc from '../../functional-components/CustomSuggest
 import CustomSuggestionsOptionsGroupFc from '../../functional-components/CustomSuggestionsOptionsGroup';
 import CustomSuggestionsToggleFc from '../../functional-components/CustomSuggestionsToggle';
 import { translate } from '../../i18n';
-import type { EventDetail } from '../../schema/interfaces/EventDetail';
+import type { EventDetail } from '@public-ui/schema/interfaces/EventDetail';
 import { nonce } from '../../utils/dev.utils';
 import { getRenderStates } from '../../functional-component-wrappers/_helpers/getRenderStates';
 import { SingleSelectController } from './controller';

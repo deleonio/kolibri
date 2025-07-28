@@ -1,6 +1,6 @@
-import type { AutoCompletePropType, InputColorProps, InputColorWatches, SuggestionsPropType } from '../../schema';
-import { validateSuggestions, watchString } from '../../schema';
-import { validateAutoComplete } from '../../schema/props/auto-complete';
+import type { AutoCompletePropType, InputColorProps, InputColorWatches, SuggestionsPropType } from '@public-ui/schema';
+import { validateSuggestions, watchString } from '@public-ui/schema';
+import { validateAutoComplete } from '@public-ui/schema/props/auto-complete';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 

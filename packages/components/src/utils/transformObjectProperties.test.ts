@@ -1,4 +1,4 @@
-import type { MsgPropType } from '../schema';
+import type { MsgPropType } from '@public-ui/schema';
 import { transformObjectProperties } from './transformObjectProperties';
 
 describe('transformObjectProperties', () => {

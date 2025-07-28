@@ -1,6 +1,6 @@
 import type { ComponentKeys, ResourcePrefix } from './core/i18n';
 import { getI18nInstance, initializeI18n } from './core/i18n';
-import { processEnv } from './schema';
+import { processEnv } from '@public-ui/schema';
 
 type Options = {
 	count?: number;

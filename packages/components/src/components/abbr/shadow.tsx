@@ -1,7 +1,7 @@
 import type { JSX } from '@stencil/core';
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
-import type { AbbrAPI, AbbrStates, LabelPropType } from '../../schema';
-import { validateLabel } from '../../schema';
+import type { AbbrAPI, AbbrStates, LabelPropType } from '@public-ui/schema';
+import { validateLabel } from '@public-ui/schema';
 import { KolTooltipWcTag } from '../../core/component-names';
 
 /**

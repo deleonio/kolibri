@@ -1,5 +1,5 @@
 import { KolDetailsTag } from '../../../core/component-names';
-import type { DetailsProps } from '../../../schema';
+import type { DetailsProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolDetails } from '../shadow';

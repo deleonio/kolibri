@@ -3,8 +3,8 @@ import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
 import { translate } from '../../i18n';
 import { KolAlertWcTag, KolButtonWcTag, KolHeadingTag, KolInputCheckboxTag, KolInputNumberTag, KolPopoverButtonWcTag } from '../../core/component-names';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';
-import type { TableSettingsPropType } from '../../schema/props/table-settings';
-import type { ColumnSettings } from '../../schema';
+import type { TableSettingsPropType } from '@public-ui/schema/props/table-settings';
+import type { ColumnSettings } from '@public-ui/schema';
 
 /**
  * @internal

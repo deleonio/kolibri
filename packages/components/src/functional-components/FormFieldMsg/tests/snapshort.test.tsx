@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import FormFieldMsgFc from '../FormFieldMsg';
 import { renderFunctionalComponentToSpecPage } from '../../../utils/testing';
-import type { InternMsgPropType } from '../../../schema';
+import type { InternMsgPropType } from '@public-ui/schema';
 
 describe('FormFieldMsgFc', () => {
 	it('should render with all props', async () => {

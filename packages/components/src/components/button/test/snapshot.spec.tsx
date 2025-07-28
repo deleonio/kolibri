@@ -1,5 +1,5 @@
 import { KolButtonTag } from '../../../core/component-names';
-import type { ButtonProps } from '../../../schema';
+import type { ButtonProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolButton } from '../shadow';

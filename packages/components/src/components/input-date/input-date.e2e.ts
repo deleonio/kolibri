@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '@stencil/playwright';
-import type { Iso8601 } from '../../schema';
+import type { Iso8601 } from '@public-ui/schema';
 import { testInputCallbacksAndEvents } from '../../e2e';
 import type { FillAction } from '../../e2e/utils/FillAction';
 import { testInputMessage } from '../../e2e/input-msg';

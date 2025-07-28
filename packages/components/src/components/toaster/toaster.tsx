@@ -1,5 +1,5 @@
-import type { Toast, ToasterOptions } from '../../schema';
-import { Log } from '../../schema';
+import type { Toast, ToasterOptions } from '@public-ui/schema';
+import { Log } from '@public-ui/schema';
 import { KolToastContainerTag } from '../../core/component-names';
 import { isInitialized } from '../../core/bootstrap';
 

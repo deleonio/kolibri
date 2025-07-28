@@ -1,5 +1,5 @@
 import { KolToolbarTag } from '../../../core/component-names';
-import type { ToolbarProps } from '../../../schema';
+import type { ToolbarProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolToolbar } from '../shadow';

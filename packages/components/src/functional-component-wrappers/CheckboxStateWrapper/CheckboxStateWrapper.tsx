@@ -2,7 +2,7 @@ import { h, type FunctionalComponent as FC } from '@stencil/core';
 import KolCheckboxFc, { type CheckboxProps } from '../../functional-components/inputs/Checkbox';
 import { type InputProps } from '../../functional-components/inputs/Input';
 
-import { type InputCheckboxStates, convertMsgToInternMsg } from '../../schema';
+import { type InputCheckboxStates, convertMsgToInternMsg } from '@public-ui/schema';
 import { getRenderStates } from '../_helpers/getRenderStates';
 
 export type CheckboxStateWrapperProps = Omit<CheckboxProps, 'inputProps'> & {

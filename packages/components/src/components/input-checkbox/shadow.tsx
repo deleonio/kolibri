@@ -26,7 +26,7 @@ import type {
 	DisabledPropType,
 	HideLabelPropType,
 	HintPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import { nonce } from '../../utils/dev.utils';
 import { InputCheckboxController } from './controller';

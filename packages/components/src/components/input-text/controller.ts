@@ -6,8 +6,8 @@ import type {
 	PropSuggestions,
 	SpellCheckPropType,
 	SuggestionsPropType,
-} from '../../schema';
-import { inputTextTypeOptions, validateSpellCheck, validateSuggestions, watchValidator } from '../../schema';
+} from '@public-ui/schema';
+import { inputTextTypeOptions, validateSpellCheck, validateSuggestions, watchValidator } from '@public-ui/schema';
 
 import { InputPasswordController } from '../input-password/controller';
 

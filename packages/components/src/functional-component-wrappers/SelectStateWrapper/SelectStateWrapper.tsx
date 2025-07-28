@@ -1,7 +1,7 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import KolSelectFc, { type SelectProps } from '../../functional-components/inputs/NativeSelect';
 
-import { convertMsgToInternMsg, type SelectStates } from '../../schema';
+import { convertMsgToInternMsg, type SelectStates } from '@public-ui/schema';
 import { getRenderStates } from '../_helpers/getRenderStates';
 
 export type SelectStateWrapperProps = Partial<SelectProps> & {

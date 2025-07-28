@@ -1,6 +1,6 @@
 import type { Generic } from 'adopted-style-sheets';
 
-import { validateTouched } from '../../schema';
+import { validateTouched } from '@public-ui/schema';
 
 import { AssociatedInputController } from './associated.controller';
 

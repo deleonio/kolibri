@@ -1,7 +1,7 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import KolTextAreaFc, { type TextAreaProps } from '../../functional-components/inputs/TextArea';
 
-import { convertMsgToInternMsg, type TextareaStates } from '../../schema';
+import { convertMsgToInternMsg, type TextareaStates } from '@public-ui/schema';
 import { getRenderStates } from '../_helpers/getRenderStates';
 
 export type TextAreaStateWrapperProps = Partial<TextAreaProps> & {

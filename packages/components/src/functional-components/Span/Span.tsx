@@ -3,7 +3,13 @@ import type { JSXBase } from '@stencil/core/internal';
 import clsx from 'clsx';
 import { isString, isObject } from 'lodash-es';
 
-import { type BadgeTextPropType, type HideLabelPropType, type IconOrIconClass, type KoliBriIconsProp, type LabelWithExpertSlotPropType } from '../../schema';
+import {
+	type BadgeTextPropType,
+	type HideLabelPropType,
+	type IconOrIconClass,
+	type KoliBriIconsProp,
+	type LabelWithExpertSlotPropType,
+} from '@public-ui/schema';
 
 import IconHelper from './IconHelper';
 import SpanCoreHelper from './SpanCoreHelper';

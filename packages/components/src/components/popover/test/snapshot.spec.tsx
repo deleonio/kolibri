@@ -1,5 +1,5 @@
 import { KolPopoverWcTag } from '../../../core/component-names';
-import type { PopoverProps } from '../../../schema';
+import type { PopoverProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolPopover } from '../component';

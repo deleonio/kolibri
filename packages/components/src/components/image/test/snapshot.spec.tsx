@@ -1,5 +1,5 @@
 import { KolImageTag } from '../../../core/component-names';
-import type { ImageProps } from '../../../schema';
+import type { ImageProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolImage } from '../shadow';

@@ -15,7 +15,7 @@ import type {
 	StencilUnknown,
 	Stringified,
 	TooltipAlignPropType,
-} from '../../../schema';
+} from '@public-ui/schema';
 import {
 	a11yHint,
 	a11yHintDisabled,
@@ -34,14 +34,14 @@ import {
 	validateTooltipAlign,
 	watchBoolean,
 	watchString,
-} from '../../../schema';
+} from '@public-ui/schema';
 
 import { dispatchDomEvent, KolEvent } from '../../../utils/events';
 import { ControlledInputController } from '../../input-adapter-leanup/controller';
 
 import type { Props as AdapterProps } from '../../input-adapter-leanup/types';
 import type { Props, Watches } from './types';
-import { validateAccessAndShortKey } from '../../../schema/validators/access-and-short-key';
+import { validateAccessAndShortKey } from '@public-ui/schema/validators/access-and-short-key';
 import { debounce } from 'lodash-es';
 
 type ValueChangeListener = (value: StencilUnknown) => void;

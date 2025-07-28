@@ -2,7 +2,7 @@ import { h, type FunctionalComponent as FC } from '@stencil/core';
 import KolRadioFc, { type RadioProps } from '../../functional-components/inputs/Radio';
 import { type InputProps } from '../../functional-components/inputs/Input';
 
-import { type InputRadioStates, convertMsgToInternMsg } from '../../schema';
+import { type InputRadioStates, convertMsgToInternMsg } from '@public-ui/schema';
 import { getRenderStates } from '../_helpers/getRenderStates';
 
 export type RadioStateWrapperProps = Omit<RadioProps, 'inputProps'> & {

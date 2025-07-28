@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import { getDefaultProps } from '../_helpers/getDefaultProps';
 import type { DefaultInputProps } from '../_types';
 import NativeOptionListFc, { type NativeOptionListProps } from '../NativeOptionList';
-import { checkHasMsg, type InternMsgPropType } from '../../../schema';
+import { checkHasMsg, type InternMsgPropType } from '@public-ui/schema';
 
 type SelectAttributes = JSXBase.SelectHTMLAttributes<HTMLSelectElement>;
 

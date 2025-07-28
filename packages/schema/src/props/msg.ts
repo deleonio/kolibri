@@ -3,7 +3,7 @@ import type { AlertProps, InternalAlertProps } from '../components';
 import type { Stringified } from '../types';
 import { objectObjectHandler, parseJson, watchValidator } from '../utils';
 import { isObject, isString } from '../validators';
-import { transformObjectProperties } from '../../utils/transformObjectProperties';
+import { transformObjectProperties } from '../utils/transformObjectProperties';
 
 /* types */
 export type MsgPropType =

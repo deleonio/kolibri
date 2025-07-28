@@ -8,8 +8,8 @@ import KolFormFieldCharacterLimitHintFc from '../FormFieldCharacterLimitHint/For
 import KolFormFieldTooltipFc from '../FormFieldTooltip';
 import type { JSXBase } from '@stencil/core/internal';
 import clsx from 'clsx';
-import type { AlignPropType, InternMsgPropType } from '../../schema';
-import { buildBadgeTextString, checkHasMsg, showExpertSlot } from '../../schema';
+import type { AlignPropType, InternMsgPropType } from '@public-ui/schema';
+import { buildBadgeTextString, checkHasMsg, showExpertSlot } from '@public-ui/schema';
 
 function getModifierClassNameByMsgType(msg?: { type?: string }): string {
 	if (msg?.type) {

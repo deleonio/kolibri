@@ -1,5 +1,5 @@
 import { KolModalTag } from '../../../core/component-names';
-import type { ModalProps } from '../../../schema';
+import type { ModalProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolModal } from '../shadow';

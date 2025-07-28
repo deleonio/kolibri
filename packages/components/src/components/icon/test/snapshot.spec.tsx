@@ -1,5 +1,5 @@
 import { KolIconTag } from '../../../core/component-names';
-import type { IconProps } from '../../../schema';
+import type { IconProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolIcon } from '../shadow';

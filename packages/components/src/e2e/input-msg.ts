@@ -1,6 +1,6 @@
 import { test } from '@stencil/playwright';
 import { expect } from '@playwright/test';
-import type { MsgPropType } from '../schema';
+import type { MsgPropType } from '@public-ui/schema';
 
 const testInputMessage = <ElementType extends { _msg?: MsgPropType } & HTMLElement>(componentName: string) => {
 	test.describe('Input messages', () => {

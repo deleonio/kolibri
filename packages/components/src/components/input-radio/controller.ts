@@ -9,12 +9,12 @@ import type {
 	RadioOption,
 	SelectOption,
 	StencilUnknown,
-} from '../../schema';
-import { setState, validateOptions, validateRequired } from '../../schema';
+} from '@public-ui/schema';
+import { setState, validateOptions, validateRequired } from '@public-ui/schema';
 
 import { InputController } from '../@deprecated/input/controller';
-import type { OrientationPropType } from '../../schema/props/orientation';
-import { validateOrientation } from '../../schema/props/orientation';
+import type { OrientationPropType } from '@public-ui/schema/props/orientation';
+import { validateOrientation } from '@public-ui/schema/props/orientation';
 
 export const fillKeyOptionMap = <T>(keyOptionMap: Map<string, RadioOption<T>>, options: SelectOption<T>[], preKey = ''): void => {
 	options.forEach((option, index) => {

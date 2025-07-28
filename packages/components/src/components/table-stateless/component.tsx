@@ -24,8 +24,8 @@ import type {
 	TableSettings,
 	TableStatelessAPI,
 	TableStatelessStates,
-} from '../../schema';
-import { setState } from '../../schema';
+} from '@public-ui/schema';
+import { setState } from '@public-ui/schema';
 import {
 	validateLabel,
 	validateTableCallbacks,
@@ -33,15 +33,15 @@ import {
 	validateTableDataFoot,
 	validateTableHeaderCells,
 	validateTableSelection,
-} from '../../schema';
-import type { ColumnSettings } from '../../schema/types';
-import { Callback } from '../../schema/enums';
-import type { MinWidthPropType } from '../../schema/props/min-width';
-import { validateMinWidth } from '../../schema/props/min-width';
+} from '@public-ui/schema';
+import type { ColumnSettings } from '@public-ui/schema/types';
+import { Callback } from '@public-ui/schema/enums';
+import type { MinWidthPropType } from '@public-ui/schema/props/min-width';
+import { validateMinWidth } from '@public-ui/schema/props/min-width';
 import { nonce } from '../../utils/dev.utils';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';
-import type { TableSettingsPropType } from '../../schema/props/table-settings';
-import { validateTableSettings } from '../../schema/props/table-settings';
+import type { TableSettingsPropType } from '@public-ui/schema/props/table-settings';
+import { validateTableSettings } from '@public-ui/schema/props/table-settings';
 
 /**
  * @internal

@@ -1,4 +1,4 @@
-import { Log } from '../schema';
+import { Log } from '@public-ui/schema';
 
 /**
  * There can be several navigations on one page (e.g. main navigation, subnavigation, breadcrumbs, pagination).

@@ -8,9 +8,9 @@ import type {
 	NumberString,
 	ReadOnlyPropType,
 	SuggestionsPropType,
-} from '../../schema';
-import { inputDateTypeOptions, setState, validateReadOnly, validateSuggestions, watchBoolean, watchValidator } from '../../schema';
-import { validateAutoComplete } from '../../schema/props/auto-complete';
+} from '@public-ui/schema';
+import { inputDateTypeOptions, setState, validateReadOnly, validateSuggestions, watchBoolean, watchValidator } from '@public-ui/schema';
+import { validateAutoComplete } from '@public-ui/schema/props/auto-complete';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 

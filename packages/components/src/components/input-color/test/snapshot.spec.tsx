@@ -1,5 +1,5 @@
 import { KolInputColorTag } from '../../../core/component-names';
-import type { InputColorProps } from '../../../schema';
+import type { InputColorProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolInputColor } from '../shadow';

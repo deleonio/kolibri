@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { renderFunctionalComponentToSpecPage } from '../../../utils/testing';
 import KolFormFieldFc from '../FormField';
-import type { InternMsgPropType } from '../../../schema';
+import type { InternMsgPropType } from '@public-ui/schema';
 
 describe('KolFormFieldFc', () => {
 	it('should render correctly', async () => {

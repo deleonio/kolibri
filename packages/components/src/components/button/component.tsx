@@ -20,8 +20,8 @@ import type {
 	StencilUnknown,
 	SyncValueBySelectorPropType,
 	TooltipAlignPropType,
-} from '../../schema';
-import { validateLinkVariant } from '../../schema';
+} from '@public-ui/schema';
+import { validateLinkVariant } from '@public-ui/schema';
 import {
 	mapBoolean2String,
 	mapStringOrBoolean2String,
@@ -46,7 +46,7 @@ import {
 	validateTabIndex,
 	validateTooltipAlign,
 	watchString,
-} from '../../schema';
+} from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 
@@ -55,8 +55,8 @@ import { nonce } from '../../utils/dev.utils';
 import { propagateResetEventToForm, propagateSubmitEventToForm } from '../form/controller';
 import { AssociatedInputController } from '../input-adapter-leanup/associated.controller';
 import { KolTooltipWcTag } from '../../core/component-names';
-import { validateAccessAndShortKey } from '../../schema/validators/access-and-short-key';
-import type { AriaHasPopupPropType } from '../../schema/props/aria-has-popup';
+import { validateAccessAndShortKey } from '@public-ui/schema/validators/access-and-short-key';
+import type { AriaHasPopupPropType } from '@public-ui/schema/props/aria-has-popup';
 import { KolSpanFc } from '../../functional-components';
 import clsx from 'clsx';
 

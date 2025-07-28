@@ -1,6 +1,6 @@
 import { autoUpdate } from '@floating-ui/dom';
-import type { AlignPropType, BadgeTextPropType, IdPropType, LabelPropType, TooltipAPI, TooltipStates } from '../../schema';
-import { getDocument, validateBadgeText, validateAlign, validateId, validateLabel } from '../../schema';
+import type { AlignPropType, BadgeTextPropType, IdPropType, LabelPropType, TooltipAPI, TooltipStates } from '@public-ui/schema';
+import { getDocument, validateBadgeText, validateAlign, validateId, validateLabel } from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Method } from '@stencil/core';
 import { Component, Element, h, Host, Prop, State, Watch } from '@stencil/core';

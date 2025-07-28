@@ -22,7 +22,7 @@ import type {
 	TableSelectionPropType,
 	TableStatefulCallbacksPropType,
 	TableStates,
-} from '../../schema';
+} from '@public-ui/schema';
 import {
 	devHint,
 	emptyStringByArrayHandler,
@@ -37,12 +37,12 @@ import {
 	validateTableStatefulCallbacks,
 	watchString,
 	watchValidator,
-} from '../../schema';
-import { Callback } from '../../schema/enums';
-import type { MinWidthPropType } from '../../schema/props/min-width';
+} from '@public-ui/schema';
+import { Callback } from '@public-ui/schema/enums';
+import type { MinWidthPropType } from '@public-ui/schema/props/min-width';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';
-import type { TableSettingsPropType } from '../../schema/props/table-settings';
-import { validateTableSettings } from '../../schema/props/table-settings';
+import type { TableSettingsPropType } from '@public-ui/schema/props/table-settings';
+import { validateTableSettings } from '@public-ui/schema/props/table-settings';
 
 const PAGINATION_OPTIONS = [10, 20, 50, 100];
 

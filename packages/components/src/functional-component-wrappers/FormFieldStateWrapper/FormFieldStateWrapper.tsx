@@ -1,6 +1,6 @@
 import { type FunctionalComponent as FC, h } from '@stencil/core';
 import KolFormFieldFc, { type FormFieldProps } from '../../functional-components/FormField';
-import type { TextareaStates } from '../../schema';
+import type { TextareaStates } from '@public-ui/schema';
 import {
 	convertMsgToInternMsg,
 	type InputCheckboxStates,
@@ -13,7 +13,7 @@ import {
 	type InputRangeStates,
 	type InputTextStates,
 	type SelectStates,
-} from '../../schema';
+} from '@public-ui/schema';
 
 type InputState =
 	| InputTextStates

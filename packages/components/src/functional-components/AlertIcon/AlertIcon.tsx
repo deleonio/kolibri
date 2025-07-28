@@ -1,6 +1,6 @@
 import { Fragment, type FunctionalComponent as FC, h } from '@stencil/core';
 import { KolIconTag } from '../../core/component-names';
-import type { AlertType } from '../../schema';
+import type { AlertType } from '@public-ui/schema';
 import { translate } from '../../i18n';
 import { BEM_CLASS_ALERT__ICON } from '../Alert/bem';
 

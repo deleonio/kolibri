@@ -1,12 +1,12 @@
 import type { JSX } from '@stencil/core';
 import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core';
-import { validateErrorList, watchBoolean, watchString } from '../../schema';
+import { validateErrorList, watchBoolean, watchString } from '@public-ui/schema';
 
 import { translate } from '../../i18n';
 
 import { KolLinkWcTag } from '../../core/component-names';
 import KolAlertFc from '../../functional-components/Alert';
-import type { ErrorListPropType, FormAPI, FormStates, KoliBriFormCallbacks, Stringified } from '../../schema';
+import type { ErrorListPropType, FormAPI, FormStates, KoliBriFormCallbacks, Stringified } from '@public-ui/schema';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';
 
 /**

@@ -1,5 +1,5 @@
 import { KolLinkTag } from '../../../core/component-names';
-import type { LinkProps } from '../../../schema';
+import type { LinkProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolLink } from '../shadow';

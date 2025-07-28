@@ -15,7 +15,7 @@ import type {
 	ShortKeyPropType,
 	Stringified,
 	TooltipAlignPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, h, Method, Prop } from '@stencil/core';
 import { KolLinkWcTag } from '../../core/component-names';

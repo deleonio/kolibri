@@ -1,9 +1,9 @@
-import type { AutoCompletePropType, HasCounterPropType, InputPasswordProps, InputPasswordWatches, MaxLengthBehaviorPropType } from '../../schema';
-import { validateHasCounter, watchBoolean, watchNumber, watchString } from '../../schema';
-import { validateAutoComplete } from '../../schema/props/auto-complete';
-import { validateMaxLengthBehavior } from '../../schema/props/max-length-behavior';
-import type { PasswordVariantPropType } from '../../schema/props/variant/password-variant';
-import { validatePasswordVariant } from '../../schema/props/variant/password-variant';
+import type { AutoCompletePropType, HasCounterPropType, InputPasswordProps, InputPasswordWatches, MaxLengthBehaviorPropType } from '@public-ui/schema';
+import { validateHasCounter, watchBoolean, watchNumber, watchString } from '@public-ui/schema';
+import { validateAutoComplete } from '@public-ui/schema/props/auto-complete';
+import { validateMaxLengthBehavior } from '@public-ui/schema/props/max-length-behavior';
+import type { PasswordVariantPropType } from '@public-ui/schema/props/variant/password-variant';
+import { validatePasswordVariant } from '@public-ui/schema/props/variant/password-variant';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 

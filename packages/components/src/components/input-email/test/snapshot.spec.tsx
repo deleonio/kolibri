@@ -1,5 +1,5 @@
 import { KolInputEmailTag } from '../../../core/component-names';
-import type { InputEmailProps } from '../../../schema';
+import type { InputEmailProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolInputEmail } from '../shadow';

@@ -1,5 +1,5 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
-import type { InternMsgPropType } from '../../schema';
+import type { InternMsgPropType } from '@public-ui/schema';
 import {
 	type ButtonProps,
 	type IconOrIconClass,
@@ -14,7 +14,7 @@ import {
 	type TextareaStates,
 	type SelectStates,
 	convertMsgToInternMsg,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import KolInputContainerFc, { type InputContainerProps } from '../../functional-components/InputContainer';
 import KolIconButtonFc from '../../functional-components/IconButton';

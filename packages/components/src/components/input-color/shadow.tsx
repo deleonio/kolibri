@@ -21,7 +21,7 @@ import type {
 	DisabledPropType,
 	HideLabelPropType,
 	HintPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import KolFormFieldStateWrapperFc, { type FormFieldStateWrapperProps } from '../../functional-component-wrappers/FormFieldStateWrapper/FormFieldStateWrapper';
 import KolInputContainerFc from '../../functional-component-wrappers/InputContainerStateWrapper/InputContainerStateWrapper';

@@ -9,7 +9,7 @@ import type {
 	NavAPI,
 	NavStates,
 	Stringified,
-} from '../../schema';
+} from '@public-ui/schema';
 import {
 	a11yHintLabelingLandmarks,
 	devHint,
@@ -20,7 +20,7 @@ import {
 	validateHideLabel,
 	validateLabel,
 	watchValidator,
-} from '../../schema';
+} from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 
@@ -28,9 +28,9 @@ import { translate } from '../../i18n';
 import { addNavLabel, removeNavLabel } from '../../utils/unique-nav-labels';
 import { watchNavLinks } from './validation';
 import { KolButtonWcTag, KolLinkWcTag } from '../../core/component-names';
-import type { StencilUnknown } from '../../schema';
+import type { StencilUnknown } from '@public-ui/schema';
 import clsx from 'clsx';
-import type { OrientationPropType } from '../../schema/props/orientation';
+import type { OrientationPropType } from '@public-ui/schema/props/orientation';
 
 const linkValidator = (link: ButtonOrLinkOrTextWithChildrenProps): boolean => {
 	if (typeof link === 'object' && typeof link._label === 'string' /* && typeof newLink._href === 'string' */) {

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import type { AlignPropType, DrawerAPI, DrawerStates, HasCloserPropType, KoliBriModalEventCallbacks, LabelPropType, OpenPropType } from '../../schema';
-import { setState, validateAlign, validateHasCloser, validateLabel, validateOpen } from '../../schema';
+import type { AlignPropType, DrawerAPI, DrawerStates, HasCloserPropType, KoliBriModalEventCallbacks, LabelPropType, OpenPropType } from '@public-ui/schema';
+import { setState, validateAlign, validateHasCloser, validateLabel, validateOpen } from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';

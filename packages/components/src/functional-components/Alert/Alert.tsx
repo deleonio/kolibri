@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import { KolButtonWcTag } from '../../core/component-names';
 import { translate } from '../../i18n';
-import { type InternalAlertProps } from '../../schema';
+import { type InternalAlertProps } from '@public-ui/schema';
 import AlertIcon from '../AlertIcon';
 import KolHeadingFc from '../Heading';
 import { genBemAlert as bem, BEM_CLASS_ALERT__CLOSER, BEM_CLASS_ALERT__CONTENT } from './bem';

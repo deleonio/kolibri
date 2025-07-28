@@ -1,4 +1,4 @@
-import type { CSSResize, MaxLengthBehaviorPropType, RowsPropType, SpellCheckPropType, TextareaProps, TextareaWatches } from '../../schema';
+import type { CSSResize, MaxLengthBehaviorPropType, RowsPropType, SpellCheckPropType, TextareaProps, TextareaWatches } from '@public-ui/schema';
 import {
 	cssResizeOptions,
 	validateHasCounter,
@@ -9,8 +9,8 @@ import {
 	watchNumber,
 	watchString,
 	watchValidator,
-} from '../../schema';
-import type { HasCounterPropType } from '../../schema';
+} from '@public-ui/schema';
+import type { HasCounterPropType } from '@public-ui/schema';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 

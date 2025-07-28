@@ -1,5 +1,5 @@
 import { KolBreadcrumbTag } from '../../../core/component-names';
-import type { BreadcrumbProps } from '../../../schema';
+import type { BreadcrumbProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolBreadcrumb } from '../shadow';

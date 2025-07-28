@@ -26,7 +26,7 @@ import type {
 	HasCounterPropType,
 	HideLabelPropType,
 	HintPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import { nonce } from '../../utils/dev.utils';
 import KolFormFieldStateWrapperFc, { type FormFieldStateWrapperProps } from '../../functional-component-wrappers/FormFieldStateWrapper/FormFieldStateWrapper';

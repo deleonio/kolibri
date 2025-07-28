@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import ToastItemFc from '../ToastItem';
 import { renderFunctionalComponentToSpecPage } from '../../../utils/testing';
-import type { Toast } from '../../../schema';
+import type { Toast } from '@public-ui/schema';
 
 describe('ToastItemFc', () => {
 	const mockOnClose = jest.fn();

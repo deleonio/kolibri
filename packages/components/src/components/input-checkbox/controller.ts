@@ -9,8 +9,8 @@ import type {
 	LabelAlignPropType,
 	StencilUnknown,
 	Stringified,
-} from '../../schema';
-import { inputCheckboxVariantOptions, isString, setState, validateChecked, validateIndeterminate, validateLabelAlign, watchValidator } from '../../schema';
+} from '@public-ui/schema';
+import { inputCheckboxVariantOptions, isString, setState, validateChecked, validateIndeterminate, validateLabelAlign, watchValidator } from '@public-ui/schema';
 
 import { InputCheckboxRadioController } from '../input-radio/controller';
 

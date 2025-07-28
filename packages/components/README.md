@@ -66,7 +66,7 @@ The [component source README](./src/components/README.md) describes additional s
 ## Repository structure
 
 - `src/components` – each web component lives in its own folder.
-- `src/schema` – TypeScript schema describing the API of every component.
+- `packages/schema` – property schema shared by all components.
 - `src/assets`, `src/locales` and `src/utils` – shared assets, translations and utilities.
 
 You can customize KoliBri by creating your own theme. See the [default theme guide](../themes/default/README.md) for details.

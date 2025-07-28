@@ -1,6 +1,6 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import type { JSXBase } from '@stencil/core/internal';
-import { type Toast } from '../../schema';
+import { type Toast } from '@public-ui/schema';
 
 import KolAlertFc from '../Alert';
 import clsx from 'clsx';

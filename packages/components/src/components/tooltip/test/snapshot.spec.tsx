@@ -1,5 +1,5 @@
 import { KolTooltipWcTag } from '../../../core/component-names';
-import type { TooltipProps } from '../../../schema';
+import type { TooltipProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolTooltipWc } from '../component';

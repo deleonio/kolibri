@@ -4,7 +4,7 @@ import { Component, h, Host, Method, State } from '@stencil/core';
 import { translate } from '../../i18n';
 import { nonce } from '../../utils/dev.utils';
 
-import type { Toast, ToasterAPI, ToasterStates, ToastRenderFunction, ToastState } from '../../schema';
+import type { Toast, ToasterAPI, ToasterStates, ToastRenderFunction, ToastState } from '@public-ui/schema';
 import { KolButtonTag } from '../../core/component-names';
 import { KolToastItemFc } from '../../functional-components';
 

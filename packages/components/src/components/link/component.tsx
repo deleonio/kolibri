@@ -22,8 +22,8 @@ import type {
 	ShortKeyPropType,
 	Stringified,
 	TooltipAlignPropType,
-} from '../../schema';
-import { validateLinkVariant } from '../../schema';
+} from '@public-ui/schema';
+import { validateLinkVariant } from '@public-ui/schema';
 import {
 	devHint,
 	setEventTarget,
@@ -47,7 +47,7 @@ import {
 	validateShortKey,
 	validateTabIndex,
 	validateTooltipAlign,
-} from '../../schema';
+} from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, Element, h, Host, Method, Prop, State, Watch } from '@stencil/core';
 import type { UnsubscribeFunction } from './ariaCurrentService';
@@ -57,7 +57,7 @@ import { nonce } from '../../utils/dev.utils';
 import { KolIconTag, KolTooltipWcTag } from '../../core/component-names';
 
 import { translate } from '../../i18n';
-import { validateAccessAndShortKey } from '../../schema/validators/access-and-short-key';
+import { validateAccessAndShortKey } from '@public-ui/schema/validators/access-and-short-key';
 import { KolSpanFc } from '../../functional-components';
 import clsx from 'clsx';
 

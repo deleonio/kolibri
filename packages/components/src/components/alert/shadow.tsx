@@ -1,4 +1,4 @@
-import type { AlertProps, AlertStates, AlertType, AlertVariant, HeadingLevel, KoliBriAlertEventCallbacks, LabelPropType } from '../../schema';
+import type { AlertProps, AlertStates, AlertType, AlertVariant, HeadingLevel, KoliBriAlertEventCallbacks, LabelPropType } from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, h, Prop, State } from '@stencil/core';
 import { KolAlertWcTag } from '../../core/component-names';

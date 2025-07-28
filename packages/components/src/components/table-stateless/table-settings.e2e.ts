@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '@stencil/playwright';
-import type { TableHeaderCellsPropType, TableSettings } from '../../schema';
+import type { TableHeaderCellsPropType, TableSettings } from '@public-ui/schema';
 import { KolEvent } from '../../utils/events';
 
 const DATA = [

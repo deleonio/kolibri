@@ -10,8 +10,8 @@ import type {
 	HeadingLevel,
 	LabelPropType,
 	OpenPropType,
-} from '../../schema';
-import { featureHint, validateAccordionCallbacks, validateDisabled, validateLabel, validateOpen } from '../../schema';
+} from '@public-ui/schema';
+import { featureHint, validateAccordionCallbacks, validateDisabled, validateLabel, validateOpen } from '@public-ui/schema';
 import { nonce } from '../../utils/dev.utils';
 import { watchHeadingLevel } from '../heading/validation';
 import KolCollapsibleFc, { type CollapsibleProps } from '../../functional-components/Collapsible';

@@ -2,7 +2,7 @@ import { test } from '@stencil/playwright';
 import { testInputCallbacksAndEvents } from '../../e2e';
 import type { FillAction } from '../../e2e/utils/FillAction';
 import { expect } from '@playwright/test';
-import { Callback } from '../../schema/enums';
+import { Callback } from '@public-ui/schema/enums';
 import { KolEvent } from '../../utils/events';
 import { testInputMessage } from '../../e2e/input-msg';
 import { translate } from '../../i18n';

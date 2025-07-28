@@ -1,5 +1,5 @@
 import { KolNavTag } from '../../../core/component-names';
-import type { NavProps } from '../../../schema';
+import type { NavProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolNav } from '../shadow';

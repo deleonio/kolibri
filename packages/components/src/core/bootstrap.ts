@@ -1,6 +1,6 @@
 import type { Generic, LoaderCallback, RegisterOptions } from 'adopted-style-sheets';
 import { register as coreRegister } from 'adopted-style-sheets';
-import { setDevMode } from '../schema';
+import { setDevMode } from '@public-ui/schema';
 import { setCustomTagNames } from './component-names';
 import { initializeI18n } from './i18n';
 

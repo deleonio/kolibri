@@ -1,5 +1,5 @@
 import { KolInputDateTag } from '../../../core/component-names';
-import type { InputDateProps } from '../../../schema';
+import type { InputDateProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolInputDate } from '../shadow';

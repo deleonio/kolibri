@@ -9,8 +9,8 @@ import type {
 	StencilUnknown,
 	Stringified,
 	W3CInputValue,
-} from '../../schema';
-import { validateOptionsWithOptgroup, validateRows, watchBoolean, watchJsonArrayString } from '../../schema';
+} from '@public-ui/schema';
+import { validateOptionsWithOptgroup, validateRows, watchBoolean, watchJsonArrayString } from '@public-ui/schema';
 
 import { InputIconController } from '../@deprecated/input/controller-icon';
 import { fillKeyOptionMap } from '../input-radio/controller';

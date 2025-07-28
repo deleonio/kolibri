@@ -1,6 +1,6 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import { KolButtonWcTag } from '../../core/component-names';
-import type { InternalButtonProps } from '../../schema';
+import type { InternalButtonProps } from '@public-ui/schema';
 
 export type ButtonProps = Partial<InternalButtonProps> & {
 	label: string;

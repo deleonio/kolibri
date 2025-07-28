@@ -1,6 +1,6 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import { KolIconTag } from '../../core/component-names';
-import type { InternalIconProps } from '../../schema';
+import type { InternalIconProps } from '@public-ui/schema';
 
 export type IconProps = InternalIconProps & {
 	class?: string;

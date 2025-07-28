@@ -355,6 +355,9 @@ importers:
       '@floating-ui/dom':
         specifier: 1.7.1
         version: 1.7.1
+      '@public-ui/schema':
+        specifier: workspace:*
+        version: link:../schema
       adopted-style-sheets:
         specifier: 1.1.9-rc.19
         version: 1.1.9-rc.19
@@ -744,6 +747,55 @@ importers:
       yup:
         specifier: 1.6.1
         version: 1.6.1
+
+  packages/schema:
+    dependencies:
+      adopted-style-sheets:
+        specifier: 1.1.9-rc.19
+        version: 1.1.9-rc.19
+      color-convert:
+        specifier: 3.1.0
+        version: 3.1.0
+      color-rgba:
+        specifier: 2.4.0
+        version: 2.4.0
+      query-selector-all-shadow-root:
+        specifier: 0.0.3
+        version: 0.0.3
+      query-selector-shadow-root:
+        specifier: 0.0.3
+        version: 0.0.3
+      rgba-convert:
+        specifier: 0.3.0
+        version: 0.3.0
+      wcag-contrast:
+        specifier: 3.0.0
+        version: 3.0.0
+    devDependencies:
+      '@rollup/plugin-commonjs':
+        specifier: 28.0.5
+        version: 28.0.5(rollup@4.43.0)
+      '@rollup/plugin-node-resolve':
+        specifier: 16.0.1
+        version: 16.0.1(rollup@4.43.0)
+      '@rollup/plugin-typescript':
+        specifier: 12.1.2
+        version: 12.1.2(rollup@4.43.0)(tslib@2.8.1)(typescript@5.8.3)
+      '@typescript-eslint/eslint-plugin':
+        specifier: 7.18.0
+        version: 7.18.0(@typescript-eslint/parser@7.18.0(eslint@8.57.1)(typescript@5.8.3))(eslint@8.57.1)(typescript@5.8.3)
+      '@typescript-eslint/parser':
+        specifier: 7.18.0
+        version: 7.18.0(eslint@8.57.1)(typescript@5.8.3)
+      eslint:
+        specifier: 8.57.1
+        version: 8.57.1
+      rollup:
+        specifier: 4.43.0
+        version: 4.43.0
+      typescript:
+        specifier: 5.8.3
+        version: 5.8.3
 
   packages/test-tag-name-transformer:
     devDependencies:
@@ -21772,7 +21824,7 @@ snapshots:
 
   jest-diff@29.7.0:
     dependencies:
-      chalk: 4.1.0
+      chalk: 4.1.2
       diff-sequences: 29.6.3
       jest-get-type: 29.6.3
       pretty-format: 29.7.0
@@ -23445,7 +23497,7 @@ snapshots:
       array-differ: 3.0.0
       array-union: 2.1.0
       arrify: 2.0.1
-      minimatch: 3.0.5
+      minimatch: 3.1.2
 
   mustache@4.2.0: {}
 
@@ -23816,7 +23868,7 @@ snapshots:
       '@yarnpkg/parsers': 3.0.2
       '@zkochan/js-yaml': 0.0.7
       axios: 1.10.0
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       cliui: 8.0.1
@@ -23999,7 +24051,7 @@ snapshots:
   ora@5.3.0:
     dependencies:
       bl: 4.1.0
-      chalk: 4.1.0
+      chalk: 4.1.2
       cli-cursor: 3.1.0
       cli-spinners: 2.6.1
       is-interactive: 1.0.0

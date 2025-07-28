@@ -3,7 +3,7 @@ import type { JSXBase } from '@stencil/core/internal';
 import clsx from 'clsx';
 import KolIconFc, { type IconProps } from '../../Icon';
 import KolInputFc, { type InputProps } from '../Input';
-import { checkHasMsg } from '../../../schema';
+import { checkHasMsg } from '@public-ui/schema';
 
 export type CheckboxProps = JSXBase.HTMLAttributes<HTMLLabelElement> & {
 	icon: string;

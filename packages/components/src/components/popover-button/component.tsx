@@ -3,7 +3,7 @@ import { Component, h, Method, Prop, State, Watch } from '@stencil/core';
 import { autoUpdate } from '@floating-ui/dom';
 import { KolButtonWcTag } from '../../core/component-names';
 import { alignFloatingElements } from '../../utils/align-floating-elements';
-import type { PopoverButtonProps, PopoverButtonStates } from '../../schema/components/popover-button';
+import type { PopoverButtonProps, PopoverButtonStates } from '@public-ui/schema/components/popover-button';
 import type {
 	AccessKeyPropType,
 	AlternativeButtonLinkRolePropType,
@@ -19,8 +19,8 @@ import type {
 	StencilUnknown,
 	SyncValueBySelectorPropType,
 	TooltipAlignPropType,
-} from '../../schema';
-import { validatePopoverAlign } from '../../schema';
+} from '@public-ui/schema';
+import { validatePopoverAlign } from '@public-ui/schema';
 
 /**
  * @slot - The popover content.

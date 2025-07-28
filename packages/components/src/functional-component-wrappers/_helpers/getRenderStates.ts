@@ -1,5 +1,5 @@
-import type { MsgPropType, TouchedPropType } from '../../schema';
-import { convertMsgToInternMsg } from '../../schema/props/msg';
+import type { MsgPropType, TouchedPropType } from '@public-ui/schema';
+import { convertMsgToInternMsg } from '@public-ui/schema/props/msg';
 
 /**
  * Berechnet in Abhängigkeit des Component-State, wie die

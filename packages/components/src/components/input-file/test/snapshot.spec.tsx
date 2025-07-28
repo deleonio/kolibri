@@ -1,5 +1,5 @@
 import { KolInputFileTag } from '../../../core/component-names';
-import type { InputFileProps } from '../../../schema';
+import type { InputFileProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolInputFile } from '../shadow';

@@ -8,9 +8,9 @@ import type {
 	TableHeaderCellsPropType,
 	TableSelectionPropType,
 	TableStatelessProps,
-} from '../../schema';
-import type { MinWidthPropType } from '../../schema/props/min-width';
-import type { TableSettingsPropType } from '../../schema/props/table-settings';
+} from '@public-ui/schema';
+import type { MinWidthPropType } from '@public-ui/schema/props/min-width';
+import type { TableSettingsPropType } from '@public-ui/schema/props/table-settings';
 
 @Component({
 	tag: 'kol-table-stateless',

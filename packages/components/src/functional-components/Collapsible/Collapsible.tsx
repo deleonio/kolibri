@@ -3,7 +3,7 @@ import { h } from '@stencil/core';
 import type { JSXBase } from '@stencil/core/internal';
 import clsx from 'clsx';
 import { KolButtonWcTag } from '../../core/component-names';
-import type { EventValueOrEventCallback, HeadingLevel, IconsPropType, StencilUnknown } from '../../schema';
+import type { EventValueOrEventCallback, HeadingLevel, IconsPropType, StencilUnknown } from '@public-ui/schema';
 import KolHeadingFc from '../Heading';
 
 type ClassType =

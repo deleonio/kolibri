@@ -9,7 +9,7 @@ import type {
 	TabButtonProps,
 	TabsAPI,
 	TabsStates,
-} from '../../schema';
+} from '@public-ui/schema';
 import {
 	devHint,
 	koliBriQuerySelector,
@@ -20,18 +20,18 @@ import {
 	validateTabBehavior,
 	watchJsonArrayString,
 	watchNumber,
-} from '../../schema';
+} from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
 
 import { translate } from '../../i18n';
 import type { Generic } from 'adopted-style-sheets';
 import { KolButtonWcTag } from '../../core/component-names';
-import { KeyboardKey } from '../../schema/enums';
+import { KeyboardKey } from '@public-ui/schema/enums';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';
 import clsx from 'clsx';
-import type { HasCreateButtonPropType } from '../../schema/props/has-create-button';
-import { validateHasCreateButton } from '../../schema/props/has-create-button';
+import type { HasCreateButtonPropType } from '@public-ui/schema/props/has-create-button';
+import { validateHasCreateButton } from '@public-ui/schema/props/has-create-button';
 // https://www.w3.org/TR/wai-aria-practices-1.1/examples/tabs/tabs-2/tabs.html
 
 @Component({

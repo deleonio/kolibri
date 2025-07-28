@@ -1,10 +1,10 @@
-import type { KoliBriModalEventCallbacks, LabelPropType, ModalAPI, ModalStates } from '../../schema';
-import { setState, validateLabel, watchString } from '../../schema';
+import type { KoliBriModalEventCallbacks, LabelPropType, ModalAPI, ModalStates } from '@public-ui/schema';
+import { setState, validateLabel, watchString } from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, Element, h, Method, Prop, State, Watch } from '@stencil/core';
 import { dispatchDomEvent, KolEvent } from '../../utils/events';
-import type { ModalVariantPropType } from '../../schema/props/variant/modal';
-import { validateModalVariant } from '../../schema/props/variant/modal';
+import type { ModalVariantPropType } from '@public-ui/schema/props/variant/modal';
+import { validateModalVariant } from '@public-ui/schema/props/variant/modal';
 import { KolButtonWcTag } from '../../core/component-names';
 import { translate } from '../../i18n';
 import clsx from 'clsx';

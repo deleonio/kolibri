@@ -1,6 +1,6 @@
 import type { JSX } from '@stencil/core';
 import { Component, h, Prop } from '@stencil/core';
-import type { CardProps, HeadingLevel, KoliBriCardEventCallbacks, LabelPropType } from '../../schema';
+import type { CardProps, HeadingLevel, KoliBriCardEventCallbacks, LabelPropType } from '@public-ui/schema';
 
 import { KolCardWcTag } from '../../core/component-names';
 

@@ -6,6 +6,7 @@ packages:
   - packages/adapters/solid*
   - packages/adapters/vue
   - packages/components
+  - packages/schema
   - packages/samples/angular
   - packages/samples/react
   - packages/test-tag-name-transformer

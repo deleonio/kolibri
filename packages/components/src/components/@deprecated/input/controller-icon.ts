@@ -1,8 +1,8 @@
 import type { Generic } from 'adopted-style-sheets';
 
-import type { IconsHorizontalPropType, NumberString } from '../../../schema';
-import { watchValidator } from '../../../schema';
-import { validateIcons } from '../../../schema';
+import type { IconsHorizontalPropType, NumberString } from '@public-ui/schema';
+import { watchValidator } from '@public-ui/schema';
+import { validateIcons } from '@public-ui/schema';
 
 import { InputController } from './controller';
 

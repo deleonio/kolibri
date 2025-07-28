@@ -24,8 +24,8 @@ import type {
 	HasCounterPropType,
 	HideLabelPropType,
 	HintPropType,
-} from '../../schema';
-import { devHint } from '../../schema';
+} from '@public-ui/schema';
+import { devHint } from '@public-ui/schema';
 
 import { nonce } from '../../utils/dev.utils';
 import { propagateSubmitEventToForm } from '../form/controller';
@@ -34,7 +34,7 @@ import KolInputStateWrapperFc, { type InputStateWrapperProps } from '../../funct
 import KolInputContainerStateWrapperFc from '../../functional-component-wrappers/InputContainerStateWrapper/InputContainerStateWrapper';
 import { InputPasswordController } from './controller';
 import { translate } from '../../i18n';
-import type { PasswordVariantPropType } from '../../schema/props/variant/password-variant';
+import type { PasswordVariantPropType } from '@public-ui/schema/props/variant/password-variant';
 import KolIconButtonFc from '../../functional-components/IconButton';
 
 /**

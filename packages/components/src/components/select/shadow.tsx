@@ -23,7 +23,7 @@ import type {
 	Stringified,
 	SyncValueBySelectorPropType,
 	TooltipAlignPropType,
-} from '../../schema';
+} from '@public-ui/schema';
 
 import { nonce } from '../../utils/dev.utils';
 import { SelectController } from './controller';

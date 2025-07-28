@@ -1,6 +1,6 @@
-import type { FormProps } from '../../schema';
-import { Log } from '../../schema';
-import { devHint, getExperimentalMode, KoliBriDevHelper, setEventTarget } from '../../schema';
+import type { FormProps } from '@public-ui/schema';
+import { Log } from '@public-ui/schema';
+import { devHint, getExperimentalMode, KoliBriDevHelper, setEventTarget } from '@public-ui/schema';
 import { KolFormTag } from '../../core/component-names';
 
 const searchFormElement = (el?: HTMLElement | ParentNode | null): HTMLElement | ParentNode | null | undefined => {

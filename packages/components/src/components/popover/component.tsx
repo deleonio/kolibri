@@ -1,5 +1,5 @@
-import type { AlignPropType, PopoverAPI, PopoverCallbacksPropType, PopoverStates, ShowPropType } from '../../schema';
-import { getDocument, validateAlign, validatePopoverCallbacks, validateShow } from '../../schema';
+import type { AlignPropType, PopoverAPI, PopoverCallbacksPropType, PopoverStates, ShowPropType } from '@public-ui/schema';
+import { getDocument, validateAlign, validatePopoverCallbacks, validateShow } from '@public-ui/schema';
 import type { JSX } from '@stencil/core';
 import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
 

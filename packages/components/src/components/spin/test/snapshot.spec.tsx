@@ -1,5 +1,5 @@
 import { KolSpinTag } from '../../../core/component-names';
-import type { SpinProps } from '../../../schema';
+import type { SpinProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolSpin } from '../shadow';

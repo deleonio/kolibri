@@ -1,5 +1,5 @@
 import { KolInputRadioTag } from '../../../core/component-names';
-import type { InputRadioProps } from '../../../schema';
+import type { InputRadioProps } from '@public-ui/schema';
 import { executeInputSnapshotTests } from '../../../utils/testing';
 
 import { KolInputRadio } from '../shadow';

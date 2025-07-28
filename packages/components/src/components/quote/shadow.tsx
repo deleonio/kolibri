@@ -1,5 +1,5 @@
-import type { HrefPropType, KoliBriQuoteVariant, LabelPropType, QuoteAPI, QuoteStates } from '../../schema';
-import { koliBriQuoteVariantOptions, showExpertSlot, validateLabel, watchString, watchValidator } from '../../schema';
+import type { HrefPropType, KoliBriQuoteVariant, LabelPropType, QuoteAPI, QuoteStates } from '@public-ui/schema';
+import { koliBriQuoteVariantOptions, showExpertSlot, validateLabel, watchString, watchValidator } from '@public-ui/schema';
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 
 import type { JSX } from '@stencil/core';

@@ -1,5 +1,5 @@
 import { KolTableStatelessWcTag } from '../../../core/component-names';
-import type { TableStatelessProps } from '../../../schema';
+import type { TableStatelessProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolTableStateless } from '../component';

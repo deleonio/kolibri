@@ -1,5 +1,5 @@
 import { KolDrawerTag } from '../../../core/component-names';
-import type { DrawerProps } from '../../../schema';
+import type { DrawerProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolDrawer } from '../shadow';

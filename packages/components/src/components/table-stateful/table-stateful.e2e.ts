@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '@stencil/playwright';
-import type { KoliBriTableDataType } from '../../schema';
+import type { KoliBriTableDataType } from '@public-ui/schema';
 import { KolEvent } from '../../utils/events';
 
 const DATA = [{ id: '1001' }, { id: '1002' }];

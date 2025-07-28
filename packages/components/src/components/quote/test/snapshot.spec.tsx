@@ -1,5 +1,5 @@
 import { KolQuoteTag } from '../../../core/component-names';
-import type { QuoteProps } from '../../../schema';
+import type { QuoteProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolQuote } from '../shadow';

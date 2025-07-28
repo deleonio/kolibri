@@ -1,6 +1,6 @@
 import { h, type FunctionalComponent as FC } from '@stencil/core';
 import type { JSXBase } from '@stencil/core/internal';
-import type { W3CInputValue } from '../../schema';
+import type { W3CInputValue } from '@public-ui/schema';
 
 export type SuggestionsProps = JSXBase.HTMLAttributes<HTMLDataListElement> & {
 	id: string;

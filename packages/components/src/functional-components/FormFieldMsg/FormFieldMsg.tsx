@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import type { AlertPropType, HideMsgPropType, IdPropType, InternMsgPropType } from '../../schema';
+import type { AlertPropType, HideMsgPropType, IdPropType, InternMsgPropType } from '@public-ui/schema';
 import type { FunctionalComponent } from '@stencil/core';
 import { h } from '@stencil/core';
 import KolAlertFc from '../Alert';

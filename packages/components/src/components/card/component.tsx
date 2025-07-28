@@ -1,7 +1,15 @@
 import { Component, Element, h, Prop, State, Watch } from '@stencil/core';
 import type { JSX } from '@stencil/core';
-import type { CardAPI, CardStates, HasCloserPropType, HeadingLevel, KoliBriAlertEventCallbacks, KoliBriCardEventCallbacks, LabelPropType } from '../../schema';
-import { setState, validateHasCloser, validateLabel } from '../../schema';
+import type {
+	CardAPI,
+	CardStates,
+	HasCloserPropType,
+	HeadingLevel,
+	KoliBriAlertEventCallbacks,
+	KoliBriCardEventCallbacks,
+	LabelPropType,
+} from '@public-ui/schema';
+import { setState, validateHasCloser, validateLabel } from '@public-ui/schema';
 
 import { translate } from '../../i18n';
 import { watchHeadingLevel } from '../heading/validation';

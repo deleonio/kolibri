@@ -1,5 +1,5 @@
 import { KolAccordionTag } from '../../../core/component-names';
-import type { AccordionProps } from '../../../schema';
+import type { AccordionProps } from '@public-ui/schema';
 import { executeSnapshotTests } from '../../../utils/testing';
 
 import { KolAccordion } from '../shadow';
