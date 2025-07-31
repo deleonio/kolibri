@@ -6,8 +6,8 @@ This folder contains the `_skeleton` showcase component. It demonstrates the rec
 
 - **Web component** – `web-components/skeleton/component.tsx`
   - Public props are prefixed with `_` and mirrored to `@State` variables.
-  - Each prop has a `@Watch` method which normalizes and validates the value using helpers from `internal/schema/props`. Valid values update the state via `SkeletonController.setState`.
-  - `componentWillLoad` calls all watchers once to initialise state before the first render.
+  - Each prop has a `@Watch` method that delegates to `SkeletonController`'s watcher functions for normalization and validation. Valid values update the state via `setState`.
+  - The controller implements `componentWillLoad` where it calls these watchers to initialise state. The web component's lifecycle simply delegates to the controller.
   - Rendering is delegated to `SkeletonFC`. Events (`loaded`) and ref callbacks from the controller are forwarded as props.
 - **Functional component** – `internal/functional-components/skeleton/component.tsx`
   - Receives state, callback handlers and ref setters through its props.
@@ -19,8 +19,7 @@ This folder contains the `_skeleton` showcase component. It demonstrates the rec
 - **Sub component** – `internal/functional-components/click-button` and `web-components/click-button`
   - Shows how to build a small component with its own controller and functional component.
 - **Utility files**
-  - `base-controller.ts` – minimal controller base class providing `setState`.
-  - `generic-types.ts` – generic TypeScript helpers for props, callbacks, emitters and refs.
+  - `base-controller.ts` – minimal controller base class with a protected `setState` method.
 
 ## File layout
 
@@ -36,9 +35,9 @@ This folder contains the `_skeleton` showcase component. It demonstrates the rec
 
 ## Implementation pattern
 
-1. Declare public properties with `@Prop({ reflect: true })` and mirror them to `@State` variables.
-2. Normalize and validate values in a `@Watch` method and update state via `controller.setState()`.
-3. Call each watcher from `componentWillLoad` to set the initial state.
+1. Declare public properties with `@Prop()` and mirror them to `@State` variables.
+2. Implement watcher logic in the controller and delegate from the web component's `@Watch` methods.
+3. The controller's `componentWillLoad()` calls the watchers once for initial state. The web component's lifecycle delegates to this method.
 4. Keep all logic inside the controller; the functional component stays stateless.
 5. Pass events and ref callbacks from the controller to the functional component.
 
