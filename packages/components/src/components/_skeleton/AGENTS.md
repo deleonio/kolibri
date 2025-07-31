@@ -36,9 +36,9 @@ This folder contains the `_skeleton` showcase component. It demonstrates the rec
 ## Implementation pattern
 
 1. Declare public properties with `@Prop()` and mirror them to `@State` variables.
-2. Implement watcher logic in the controller and delegate from the web component's `@Watch` methods.
-3. The controller's `componentWillLoad()` calls the watchers once for initial state. The web component's lifecycle delegates to this method.
-4. Keep all logic inside the controller; the functional component stays stateless.
+2. Each `@Watch` in the web component only calls a matching controller method. All normalization and validation happen inside the controller.
+3. The controller implements `componentWillLoad()` and invokes its watchers there so parent controllers can trigger the initialization.
+4. All logic lives in the controller which updates state through its protected `setState` method while the functional component stays stateless.
 5. Pass events and ref callbacks from the controller to the functional component.
 
 ### Example usage
