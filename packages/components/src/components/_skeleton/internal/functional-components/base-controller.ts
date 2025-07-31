@@ -1,7 +1,7 @@
-export abstract class BaseController<State> {
-	public constructor(protected readonly component: { [K in keyof State]: State[K] }) {}
+export abstract class BaseController<Component> {
+	public constructor(protected readonly component: Component) {}
 
-	protected setState<K extends keyof State>(prop: K, value: State[K]): void {
-		this.component[prop] = value;
+	protected setState(prop: string, value: unknown): void {
+		(this.component as Record<string, unknown>)[prop] = value;
 	}
 }

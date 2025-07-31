@@ -1,9 +1,9 @@
 import { BaseController } from '../base-controller';
 import type { ControllerInterface } from '../generic-types';
 import type { ClickButtonCallbacks, ClickButtonRefs, ClickButtonState } from './component';
-import { normalizeLabel, validateLabel, type LabelPropType } from '../schema/props/label';
+import { normalizeLabel, validateLabel, type LabelPropType } from '../../schema/props/label';
 
-export class ClickButtonController<State extends ClickButtonState>
+export class ClickButtonController<State extends object>
 	extends BaseController<State>
 	implements ControllerInterface<ClickButtonState, ClickButtonCallbacks, ClickButtonRefs>
 {
@@ -18,7 +18,7 @@ export class ClickButtonController<State extends ClickButtonState>
 		const normalized = normalizeLabel(value);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		if (validateLabel(normalized)) {
-			this.setState('label', normalized as State['label']);
+			this.setState('label', normalized);
 		}
 	};
 

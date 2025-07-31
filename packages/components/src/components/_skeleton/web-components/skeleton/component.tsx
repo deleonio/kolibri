@@ -1,7 +1,7 @@
 import type { EventEmitter, JSX } from '@stencil/core';
 import { Component, Event, h, Host, Prop, State, Watch } from '@stencil/core';
 import type { WebComponentInterface } from '../../internal/functional-components/generic-types';
-import type { SkeletonEmitters, SkeletonState } from '../../internal/functional-components/skeleton/component';
+import type { SkeletonEmitters } from '../../internal/functional-components/skeleton/component';
 import { SkeletonFC } from '../../internal/functional-components/skeleton/component';
 import { SkeletonController } from '../../internal/functional-components/skeleton/controller';
 import type { LabelProp, LabelPropType } from '../../internal/schema/props/label';
@@ -10,7 +10,7 @@ import type { ShowProp, ShowPropType } from '../../internal/schema/props/show';
 
 type Props = LabelProp & NameProp & ShowProp;
 
-type Interface = WebComponentInterface<Props, SkeletonState, SkeletonEmitters>;
+type Interface = WebComponentInterface<Props, SkeletonEmitters>;
 
 @Component({
 	tag: 'kol-skeleton',
@@ -23,7 +23,7 @@ export class KolSkeleton implements Interface {
 	public _label!: LabelPropType;
 
 	@State()
-	public label: LabelPropType = '';
+	private label: LabelPropType = '';
 
 	@Watch('label')
 	public watchLabel(value?: LabelPropType): void {
@@ -34,7 +34,7 @@ export class KolSkeleton implements Interface {
 	public _name!: NamePropType;
 
 	@State()
-	public name: NamePropType = '';
+	private name: NamePropType = '';
 
 	@Watch('name')
 	public watchName(value?: NamePropType): void {
@@ -45,7 +45,7 @@ export class KolSkeleton implements Interface {
 	public _show?: ShowPropType;
 
 	@State()
-	public show: ShowPropType = false;
+	private show: ShowPropType = false;
 
 	@Watch('show')
 	public watchShow(value?: ShowPropType): void {

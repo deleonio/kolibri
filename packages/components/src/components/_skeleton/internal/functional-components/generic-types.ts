@@ -26,7 +26,7 @@ type ComponentWatchers<Props> = {
 	[K in keyof Props as `watch${Capitalize<string & K>}`]: Callback<Props[K]>;
 };
 
-export type WebComponentInterface<Props, State, Emitters> = ComponentProps<Props> & State & WebComponentEmitters<Emitters> & ComponentWatchers<Props>;
+export type WebComponentInterface<Props, Emitters> = ComponentProps<Props> & WebComponentEmitters<Emitters> & ComponentWatchers<Props>;
 
 export type FunctionalComponentProps<State, Callbacks, Emitters, Refs> = State &
 	ComponentCallbacks<Callbacks> &

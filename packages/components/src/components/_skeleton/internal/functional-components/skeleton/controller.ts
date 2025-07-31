@@ -2,11 +2,11 @@ import { BaseController } from '../base-controller';
 import type { ControllerInterface } from '../generic-types';
 import { ClickButtonController } from '../click-button/controller';
 import type { SkeletonCallbacks, SkeletonRefs, SkeletonState } from './component';
-import { normalizeLabel, validateLabel, type LabelPropType } from '../schema/props/label';
-import { normalizeName, validateName, type NamePropType } from '../schema/props/name';
-import { normalizeShow, validateShow, type ShowPropType } from '../schema/props/show';
+import { normalizeLabel, validateLabel, type LabelPropType } from '../../schema/props/label';
+import { normalizeName, validateName, type NamePropType } from '../../schema/props/name';
+import { normalizeShow, validateShow, type ShowPropType } from '../../schema/props/show';
 
-export class SkeletonController<State extends SkeletonState>
+export class SkeletonController<State extends object>
 	extends BaseController<State>
 	implements ControllerInterface<SkeletonState, SkeletonCallbacks, SkeletonRefs>
 {
@@ -23,7 +23,7 @@ export class SkeletonController<State extends SkeletonState>
 		const normalized = normalizeLabel(value);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		if (validateLabel(normalized)) {
-			this.setState('label', normalized as State['label']);
+			this.setState('label', normalized);
 		}
 	};
 
@@ -32,7 +32,7 @@ export class SkeletonController<State extends SkeletonState>
 		const normalized = normalizeName(value);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		if (validateName(normalized)) {
-			this.setState('name', normalized as State['name']);
+			this.setState('name', normalized);
 		}
 	};
 
@@ -41,7 +41,7 @@ export class SkeletonController<State extends SkeletonState>
 		const normalized = normalizeShow(value);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 		if (validateShow(normalized)) {
-			this.setState('show', normalized as State['show']);
+			this.setState('show', normalized);
 		}
 	};
 
