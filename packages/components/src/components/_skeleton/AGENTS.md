@@ -15,6 +15,7 @@ This folder contains the `_skeleton` showcase component. It demonstrates the rec
 - **Controller** – `internal/functional-components/skeleton/controller.ts`
   - Extends `BaseController` and contains the component logic.
   - Exposes callback handlers (`handleClick`) and ref setters (`setButtonRef`).
+  - Implements watcher methods like `watchLabel` defined by its interface. The web component delegates to these.
   - Only updates state via `setState` and does not manipulate DOM directly.
 - **Sub component** – `internal/functional-components/click-button` and `web-components/click-button`
   - Shows how to build a small component with its own controller and functional component.
@@ -36,7 +37,7 @@ This folder contains the `_skeleton` showcase component. It demonstrates the rec
 ## Implementation pattern
 
 1. Declare public properties with `@Prop()` and mirror them to `@State` variables.
-2. Each `@Watch` in the web component only calls a matching controller method. All normalization and validation happen inside the controller.
+2. Each `@Watch` in the web component only calls a matching controller method required by the controller interface. All normalization and validation happen inside the controller.
 3. The controller implements `componentWillLoad()` and invokes its watchers there so parent controllers can trigger the initialization.
 4. All logic lives in the controller which updates state through its protected `setState` method while the functional component stays stateless.
 5. Pass events and ref callbacks from the controller to the functional component.

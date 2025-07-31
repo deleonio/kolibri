@@ -4,7 +4,7 @@ import type { ClickButtonEmitters, ClickButtonState } from '../../internal/funct
 import { ClickButtonFC } from '../../internal/functional-components/click-button/component';
 import { ClickButtonController } from '../../internal/functional-components/click-button/controller';
 import type { WebComponentInterface } from '../../internal/functional-components/generic-types';
-import { normalizeLabel, validateLabel, type LabelProp, type LabelPropType } from '../../internal/schema/props/label';
+import type { LabelProp, LabelPropType } from '../../internal/schema/props/label';
 
 type Props = LabelProp;
 
@@ -23,23 +23,14 @@ export class KolClickButton implements Interface {
 	@State()
 	public label: LabelPropType = '';
 
-	/**
-	 * Das muss wohl doch in den den Controller.
-	 */
-	@Watch('label')
-	public watchLabel(value?: LabelPropType): void {
-		const normalized = normalizeLabel(value);
-		if (validateLabel(normalized)) {
-			this.controller.setState('label', normalized);
-		}
-	}
+       @Watch('label')
+       public watchLabel(value?: LabelPropType): void {
+               this.controller.watchLabel(value);
+       }
 
-	/**
-	 * Das muss wohl doch in den den Controller.
-	 */
-	public componentWillLoad(): void {
-		this.watchLabel(this._label);
-	}
+       public componentWillLoad(): void {
+               this.controller.componentWillLoad({ label: this._label });
+       }
 
 	public render(): JSX.Element {
 		return (
