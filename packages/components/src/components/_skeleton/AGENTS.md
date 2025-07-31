@@ -1,161 +1,49 @@
 # Overview
 
-This folder provides a minimal but fully functional example component. It shows
-how a Stencil web component in KoliBri is organised and can be used as a
-blueprint when implementing new components.
+This folder contains the `_skeleton` showcase component. It demonstrates the recommended interaction between a Stencil web component, a stateless functional component and a controller. Use it as a blueprint when starting new components.
 
-## Todos
+## Architecture summary
 
-- [x] `@Component` - the web component's main class
-- [x] `@Element` - the web component's host element
-- [x] `@Prop` - a property of the web component
-- [x] `@State` - a state variable of the web component and part of the props of the functional component
-- [x] `@Event` - an event emitted by the web component
-- [ ] `@Listen` - a decorator to listen to events
-- [ ] `@Method` - a method exposed by the web component
-- [x] `@Watch` - a watch for changes of properties of the web component
-- [x] `FunctionalComponent` - a stateless functional component that receives props and renders the template
-- [x] `Callbacks` - a set of callback functions to handle actions in the functional component
+- **Web component** – `web-components/skeleton/component.tsx`
+  - Public props are prefixed with `_` and mirrored to `@State` variables.
+  - Each prop has a `@Watch` method which normalizes and validates the value using helpers from `internal/schema/props`. Valid values update the state via `SkeletonController.setState`.
+  - `componentWillLoad` calls all watchers once to initialise state before the first render.
+  - Rendering is delegated to `SkeletonFC`. Events (`loaded`) and ref callbacks from the controller are forwarded as props.
+- **Functional component** – `internal/functional-components/skeleton/component.tsx`
+  - Receives state, callback handlers and ref setters through its props.
+  - Contains all DOM markup and composes the `ClickButtonFC` sub component.
+- **Controller** – `internal/functional-components/skeleton/controller.ts`
+  - Extends `BaseController` and contains the component logic.
+  - Exposes callback handlers (`handleClick`) and ref setters (`setButtonRef`).
+  - Only updates state via `setState` and does not manipulate DOM directly.
+- **Sub component** – `internal/functional-components/click-button` and `web-components/click-button`
+  - Shows how to build a small component with its own controller and functional component.
+- **Utility files**
+  - `base-controller.ts` – minimal controller base class providing `setState`.
+  - `generic-types.ts` – generic TypeScript helpers for props, callbacks, emitters and refs.
 
-## Component architecture
+## File layout
 
-The following guidelines define how we structure component state and properties:
+- `web-components/skeleton/component.tsx` – Stencil component
+- `web-components/click-button/component.tsx` – example button component
+- `internal/functional-components/skeleton/component.tsx` – functional component
+- `internal/functional-components/skeleton/controller.ts` – controller logic
+- `internal/functional-components/click-button/component.tsx` – functional button
+- `internal/functional-components/click-button/controller.ts` – button controller
+- `internal/functional-components/base-controller.ts` – helper base class
+- `internal/functional-components/generic-types.ts` – shared type helpers
+- `internal/schema/props/*.ts` – property types with `normalize*` and `validate*`
 
-- Create a state variable only when a property has a direct and atomic effect on rendering.
-- When several properties form one logical state, combine them into a single state variable, either as a primitive value or an object.
-- Each property may implement `normalizeProperty` and `validateProperty`; call these from the property's `Watch` method.
-- Stateless internal functional components receive props that mirror the web component's state. These props use the same names as the state variables (e.g., `stateA`). They are invoked from the web component's private `render()` method and never inherit from the web component.
-- Complex interactions can be handled inside a component controller. The controller follows the composition pattern and is created by the component.
-- All controllers inherit from a common `BaseController` that exposes a `setState()` helper mirroring Stencil's state mechanism. After normalizing and validating incoming props, a controller updates the web component by calling this method, which triggers a rerender.
-- A minimal implementation looks like this:
+## Implementation pattern
 
-```ts
-export abstract class BaseController<State> {
-	protected constructor(protected readonly component: { [K in keyof State]: State[K] }) {}
-
-	public setState<K extends keyof State>(prop: K, value: State[K]): void {
-		this.component[prop] = value;
-	}
-}
-```
-
-- A web component (e.g. `kol-skeleton`) may compose only one functional components (e.g. `SkeletonFC`). A functional component can compose multiple internal functional components, each with its own controller for handling logic. The controllers and functional components share an interface describing the state they operate on. All rendering happens inside the functional components which receive the state via props.
-- Each functional component receives an immutable instance of its state controller. If the controller exposes several independent values, you may also pass those states individually to the functional component instead of the whole controller.
-- Functional component props combine the component state with callback refs. The controller exposes ref setter functions that connect DOM elements back to the controller.
-
-```ts
-export type SkeletonRefs = {
-       setSpanRef: (el?: HTMLSpanElement) => void;
-};
-
-export type SkeletonEmitter = {
-       onLoadedEmitter: EventEmitter<void>;
-};
-
-export const SkeletonFC: FC<SkeletonState & SkeletonRefs & SkeletonEmitter> = ({
-       nameState,
-       showState,
-       setSpanRef,
-       onLoadedEmitter,
-}) => {
-       if (showState) {
-               setTimeout(() => onLoadedEmitter.emit(), 2000);
-               return <span ref={setSpanRef}>{nameState}</span>;
-       }
-       return null;
-};
-```
-
-```ts
-export type ClickButtonRefs = {
-       setButtonRef: (el?: HTMLButtonElement) => void;
-};
-
-export type ClickButtonCallbacks = {
-       onClick: () => void;
-};
-
-export const ClickButtonFC: FC<ClickButtonRefs & ClickButtonCallbacks> = ({ setButtonRef, onClick }) => (
-       <button
-               ref={setButtonRef}
-               onClick={onClick}
-               onKeyDown={(event): void => {
-                       if (event.key === 'Enter' || event.key === ' ') {
-                               onClick();
-                       }
-               }}
-       >
-               Toggle
-       </button>
-);
-```
-
-The following class diagram shows how a web component exposes public
-properties while maintaining its state in private variables. Every web
-component in KoliBri always attaches a ShadowRoot. The component passes its
-state to a stateless functional component for rendering.
-
-```mermaid
-classDiagram
-    class WebComponent {
-        +stateA
-        +stateB
-        -stateA
-        -stateB
-        -render()
-    }
-    class BaseController {
-        +setState()
-    }
-    class ComponentControllerA {
-    }
-    class ComponentControllerB {
-    }
-    BaseController <|-- ComponentControllerA
-    BaseController <|-- ComponentControllerB
-    class FunctionalComponentA {
-        +stateA
-        +stateB
-        <<stateless>>
-    }
-    class FunctionalComponentB {
-        +stateA
-        +stateB
-        <<stateless>>
-    }
-    WebComponent *-- ComponentControllerA : composes
-    WebComponent *-- ComponentControllerB : composes
-    WebComponent --> FunctionalComponentA : calls in render
-    WebComponent --> FunctionalComponentB : calls in render
-```
-
-### File layout
-
-- `component.tsx` – Stencil web component managing state and watchers.
-- `internal/functional-components` – stateless React-like component and its controller.
-  - `component.tsx` – functional component rendering the template and declaring the shared `SkeletonState` interface.
-  - `controller.ts` – logic for normalizing, validating and updating state via `BaseController`.
-  - `schema/props` – property types with `normalize*` and `validate*` helpers.
-  - `click-button/` – standalone button component handling the click interaction.
-
-### Implementation pattern
-
-1. Declare public properties with `@Prop({ reflect: true })` and mirror them to private state using `@State` variables named `<prop>State`.
-2. Implement a `@Watch` method for each property. Normalize and validate the value inside the watcher and, if valid, call `controller.setState()`.
-3. Call each watcher from `componentWillLoad` to initialise the state before the first render.
-4. The controller only updates state via `setState()` and exposes no watcher methods.
-5. `render()` only delegates to the functional component, passing the current state as props.
-6. Refs are forwarded via callback functions. Define a method like `setSpanRef` on the controller and pass it directly from `render()` so the controller can access DOM elements.
-7. Events are emitted from the functional component. Forward the `EventEmitter` via a prop like `onLoadedEmitter` and call `.emit()` inside the functional component logic.
-8. `SkeletonController` instantiates a `ClickButtonController` for the `ClickButton` subcomponent which toggles the `show` state.
-9. All rendering happens in the functional components which must remain stateless.
-10. Define the component's state interface next to the functional component and implement it in the web component class so Stencil knows which `@State` variables exist.
-
-All watcher methods share a generic `WatchCallback<T>` type defined as `(value?: T) => void`.
-Components can implement a `ComponentWatchers<Props>` interface to type their watcher methods based on the public properties.
+1. Declare public properties with `@Prop({ reflect: true })` and mirror them to `@State` variables.
+2. Normalize and validate values in a `@Watch` method and update state via `controller.setState()`.
+3. Call each watcher from `componentWillLoad` to set the initial state.
+4. Keep all logic inside the controller; the functional component stays stateless.
+5. Pass events and ref callbacks from the controller to the functional component.
 
 ### Example usage
 
 ```html
-<kol-skeleton onSkeletonLoaded="{()" =""> console.log('Skeleton geladen!')}></kol-skeleton>
+<kol-skeleton _label="Foo" _name="Bar" _show></kol-skeleton>
 ```
