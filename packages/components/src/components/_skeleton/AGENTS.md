@@ -2,6 +2,8 @@
 
 This folder contains the `_skeleton` showcase component. It demonstrates the recommended interaction between a Stencil web component, a stateless functional component and a controller. Use it as a blueprint when starting new components.
 
+Functional components themselves hold **no state**. They only render based on the props they receive. All state must live in a web component which attaches the shadow root. To keep nested components lightweight and still reuse them, we compose multiple functional components within a single web component. That means the web component also manages the state of any internal functional components. Their business logic stays reusable by delegating it to dedicated controllers.
+
 ## Architecture summary
 
 - **Web component** – `web-components/skeleton/component.tsx`

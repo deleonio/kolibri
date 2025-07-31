@@ -7,36 +7,43 @@ import { normalizeName, validateName, type NamePropType } from '../schema/props/
 import { normalizeShow, validateShow, type ShowPropType } from '../schema/props/show';
 
 export class SkeletonController<State extends SkeletonState>
-       extends BaseController<State>
-       implements ControllerInterface<SkeletonState, SkeletonCallbacks, SkeletonRefs> {
-       private readonly clickButtonController = new ClickButtonController<State>(this.component);
+	extends BaseController<State>
+	implements ControllerInterface<SkeletonState, SkeletonCallbacks, SkeletonRefs>
+{
+	private readonly clickButtonController = new ClickButtonController<State>(this.component);
 
-       public componentWillLoad(props: Partial<SkeletonState>): void {
-               this.watchLabel(props.label);
-               this.watchName(props.name);
-               this.watchShow(props.show);
-       }
+	public componentWillLoad(props: Partial<SkeletonState>): void {
+		this.watchLabel(props.label);
+		this.watchName(props.name);
+		this.watchShow(props.show);
+	}
 
-       public watchLabel = (value?: LabelPropType): void => {
-               const normalized = normalizeLabel(value);
-               if (validateLabel(normalized)) {
-                       this.setState('label', normalized);
-               }
-       };
+	public watchLabel = (value?: LabelPropType): void => {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
+		const normalized = normalizeLabel(value);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+		if (validateLabel(normalized)) {
+			this.setState('label', normalized as State['label']);
+		}
+	};
 
-       public watchName = (value?: NamePropType): void => {
-               const normalized = normalizeName(value);
-               if (validateName(normalized)) {
-                       this.setState('name', normalized);
-               }
-       };
+	public watchName = (value?: NamePropType): void => {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
+		const normalized = normalizeName(value);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+		if (validateName(normalized)) {
+			this.setState('name', normalized as State['name']);
+		}
+	};
 
-       public watchShow = (value?: ShowPropType): void => {
-               const normalized = normalizeShow(value);
-               if (validateShow(normalized)) {
-                       this.setState('show', normalized);
-               }
-       };
+	public watchShow = (value?: ShowPropType): void => {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
+		const normalized = normalizeShow(value);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+		if (validateShow(normalized)) {
+			this.setState('show', normalized as State['show']);
+		}
+	};
 
 	public handleClick = (): void => {
 		// eslint-disable-next-line no-console

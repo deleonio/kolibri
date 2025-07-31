@@ -23,14 +23,14 @@ export class KolClickButton implements Interface {
 	@State()
 	public label: LabelPropType = '';
 
-       @Watch('label')
-       public watchLabel(value?: LabelPropType): void {
-               this.controller.watchLabel(value);
-       }
+	@Watch('label')
+	public watchLabel(value?: LabelPropType): void {
+		this.controller.watchLabel(value);
+	}
 
-       public componentWillLoad(): void {
-               this.controller.componentWillLoad({ label: this._label });
-       }
+	public componentWillLoad(): void {
+		this.controller.componentWillLoad({ label: this._label });
+	}
 
 	public render(): JSX.Element {
 		return (

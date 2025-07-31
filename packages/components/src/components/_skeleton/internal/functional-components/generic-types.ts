@@ -34,17 +34,15 @@ export type FunctionalComponentProps<State, Callbacks, Emitters, Refs> = State &
 	ComponentRefs<Refs>;
 
 type ControllerCallbackHandlers<Callbacks> = {
-       [K in keyof Callbacks as `handle${Capitalize<string & K>}`]: (element?: Callbacks[K]) => void;
+	[K in keyof Callbacks as `handle${Capitalize<string & K>}`]: (element?: Callbacks[K]) => void;
 };
 
 type ControllerRefSetters<Refs> = {
-       [K in keyof Refs as `set${Capitalize<string & K>}Ref`]: (element?: Refs[K]) => void;
+	[K in keyof Refs as `set${Capitalize<string & K>}Ref`]: (element?: Refs[K]) => void;
 };
 
 type ControllerWatchers<Props> = {
-       [K in keyof Props as `watch${Capitalize<string & K>}`]: Callback<Props[K]>;
+	[K in keyof Props as `watch${Capitalize<string & K>}`]: Callback<Props[K]>;
 };
 
-export type ControllerInterface<Props, Callbacks, Refs> = ControllerCallbackHandlers<Callbacks> &
-       ControllerRefSetters<Refs> &
-       ControllerWatchers<Props>;
+export type ControllerInterface<Props, Callbacks, Refs> = ControllerCallbackHandlers<Callbacks> & ControllerRefSetters<Refs> & ControllerWatchers<Props>;

@@ -4,20 +4,23 @@ import type { ClickButtonCallbacks, ClickButtonRefs, ClickButtonState } from './
 import { normalizeLabel, validateLabel, type LabelPropType } from '../schema/props/label';
 
 export class ClickButtonController<State extends ClickButtonState>
-       extends BaseController<State>
-       implements ControllerInterface<ClickButtonState, ClickButtonCallbacks, ClickButtonRefs> {
-       private buttonRef?: HTMLButtonElement;
+	extends BaseController<State>
+	implements ControllerInterface<ClickButtonState, ClickButtonCallbacks, ClickButtonRefs>
+{
+	private buttonRef?: HTMLButtonElement;
 
-       public componentWillLoad(props: Partial<ClickButtonState>): void {
-               this.watchLabel(props.label);
-       }
+	public componentWillLoad(props: Partial<ClickButtonState>): void {
+		this.watchLabel(props.label);
+	}
 
-       public watchLabel = (value?: LabelPropType): void => {
-               const normalized = normalizeLabel(value);
-               if (validateLabel(normalized)) {
-                       this.setState('label', normalized);
-               }
-       };
+	public watchLabel = (value?: LabelPropType): void => {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-assignment
+		const normalized = normalizeLabel(value);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call
+		if (validateLabel(normalized)) {
+			this.setState('label', normalized as State['label']);
+		}
+	};
 
 	public handleClick = (): void => {
 		// eslint-disable-next-line no-console

@@ -25,10 +25,10 @@ export class KolSkeleton implements Interface {
 	@State()
 	public label: LabelPropType = '';
 
-        @Watch('label')
-        public watchLabel(value?: LabelPropType): void {
-                this.controller.watchLabel(value);
-        }
+	@Watch('label')
+	public watchLabel(value?: LabelPropType): void {
+		this.controller.watchLabel(value);
+	}
 
 	@Prop()
 	public _name!: NamePropType;
@@ -36,10 +36,10 @@ export class KolSkeleton implements Interface {
 	@State()
 	public name: NamePropType = '';
 
-        @Watch('name')
-        public watchName(value?: NamePropType): void {
-                this.controller.watchName(value);
-        }
+	@Watch('name')
+	public watchName(value?: NamePropType): void {
+		this.controller.watchName(value);
+	}
 
 	@Prop()
 	public _show?: ShowPropType;
@@ -47,20 +47,20 @@ export class KolSkeleton implements Interface {
 	@State()
 	public show: ShowPropType = false;
 
-        @Watch('show')
-        public watchShow(value?: ShowPropType): void {
-                this.controller.watchShow(value);
-        }
+	@Watch('show')
+	public watchShow(value?: ShowPropType): void {
+		this.controller.watchShow(value);
+	}
 
 	@Event() public loaded!: EventEmitter<number>;
 
-        public componentWillLoad(): void {
-                this.controller.componentWillLoad({
-                        label: this._label,
-                        name: this._name,
-                        show: this._show,
-                });
-        }
+	public componentWillLoad(): void {
+		this.controller.componentWillLoad({
+			label: this._label,
+			name: this._name,
+			show: this._show,
+		});
+	}
 
 	public render(): JSX.Element {
 		return (
