@@ -7,8 +7,8 @@ Functional components themselves hold **no state**. They only render based on th
 ## Architecture summary
 
 - **Web component** – `web-components/skeleton/component.tsx`
-  - Public props are prefixed with `_` and mirrored to `@State` variables.
-  - Each prop has a `@Watch` method that delegates to `SkeletonController`'s watcher functions for normalization and validation. Valid values update the state via `setState`.
+  - Public props are prefixed with `_` and mirrored to private variables.
+  - Each prop has a `@Watch` method observing the `_` prop and delegating to `SkeletonController`'s watcher functions for normalization and validation. Valid values update the private variable via `setState`.
   - The controller implements `componentWillLoad` where it calls these watchers to initialise state. The web component's lifecycle simply delegates to the controller.
   - Rendering is delegated to `SkeletonFC`. Events (`loaded`) and ref callbacks from the controller are forwarded as props.
 - **Functional component** – `internal/functional-components/skeleton/component.tsx`
@@ -38,7 +38,7 @@ Functional components themselves hold **no state**. They only render based on th
 
 ## Implementation pattern
 
-1. Declare public properties with `@Prop()` and mirror them to `@State` variables.
+1. Declare public properties with `@Prop()` and mirror them to private variables.
 2. Each `@Watch` in the web component only calls a matching controller method required by the controller interface. All normalization and validation happen inside the controller.
 3. The controller implements `componentWillLoad()` and invokes its watchers there so parent controllers can trigger the initialization.
 4. All logic lives in the controller which updates state through its protected `setState` method while the functional component stays stateless.

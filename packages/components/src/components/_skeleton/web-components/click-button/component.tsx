@@ -1,5 +1,5 @@
 import type { JSX } from '@stencil/core';
-import { Component, h, Host, Prop, State, Watch } from '@stencil/core';
+import { Component, h, Host, Prop, Watch } from '@stencil/core';
 import type { ClickButtonEmitters } from '../../internal/functional-components/click-button/component';
 import { ClickButtonFC } from '../../internal/functional-components/click-button/component';
 import { ClickButtonController } from '../../internal/functional-components/click-button/controller';
@@ -20,10 +20,9 @@ export class KolClickButton implements Interface {
 	@Prop()
 	public _label!: LabelPropType;
 
-	@State()
 	private label: LabelPropType = '';
 
-	@Watch('label')
+	@Watch('_label')
 	public watchLabel(value?: LabelPropType): void {
 		this.controller.watchLabel(value);
 	}
