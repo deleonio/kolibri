@@ -12,7 +12,7 @@ Functional components themselves hold **no state**. They only render based on th
   - The controller implements `componentWillLoad` where it calls these watchers to initialise state. The web component's lifecycle simply delegates to the controller.
   - Rendering is delegated to `SkeletonFC`. Events (`loaded`) and ref callbacks from the controller are forwarded as props.
 - **Functional component** – `internal/functional-components/skeleton/component.tsx`
-  - Receives state, callback handlers and ref setters through its props.
+  - Receives the mirrored props via the `SkeletonInternalProps` interface together with callback handlers and ref setters.
   - Contains all DOM markup and composes the `ClickButtonFC` sub component.
 - **Controller** – `internal/functional-components/skeleton/controller.ts`
   - Extends `BaseController` and contains the component logic.
@@ -38,7 +38,7 @@ Functional components themselves hold **no state**. They only render based on th
 
 ## Implementation pattern
 
-1. Declare public properties with `@Prop()` and mirror them to private variables.
+1. Declare public properties with `@Prop()` and mirror them to private variables. List these private values in an `InternalProps` type next to the functional component.
 2. Each `@Watch` in the web component only calls a matching controller method required by the controller interface. All normalization and validation happen inside the controller.
 3. The controller implements `componentWillLoad()` and invokes its watchers there so parent controllers can trigger the initialization.
 4. All logic lives in the controller which updates state through its protected `setState` method while the functional component stays stateless.

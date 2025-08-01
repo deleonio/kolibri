@@ -29,13 +29,13 @@ export type SkeletonRefs = {
 	button: HTMLButtonElement;
 };
 
-export type SkeletonState = {
+export type SkeletonInternalProps = {
 	label: LabelPropType;
 	name: NamePropType;
 	show: ShowPropType;
 };
 
-type Props = FunctionalComponentProps<SkeletonState, SkeletonCallbacks, SkeletonEmitters, SkeletonRefs>;
+type Props = FunctionalComponentProps<SkeletonInternalProps, SkeletonCallbacks, SkeletonEmitters, SkeletonRefs>;
 
 export const SkeletonFC: FC<Props> = ({ label, name, show, onLoaded, handleClick, refButton }) => {
 	setTimeout(() => {
