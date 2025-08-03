@@ -22,7 +22,7 @@ export class ClickButtonController<Host extends WebComponentInterface>
 	public watchLabel(value?: LabelPropType): void {
 		const normalized = normalizeLabel(value);
 		if (validateLabel(normalized)) {
-			this.renderProps.label = normalized;
+			this.setRenderProp('label', normalized);
 		}
 	}
 

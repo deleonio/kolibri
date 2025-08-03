@@ -15,7 +15,7 @@ type Props = CountProp & NameProp & ShowProp;
 	shadow: true,
 })
 export class KolSkeleton implements WebComponentInterface<Props, SkeletonEmitters, SkeletonMethods, SkeletonListeners> {
-	private controller = new SkeletonController<KolSkeleton>(this);
+	private controller = new SkeletonController<KolSkeleton>(this, { label: 'Label' });
 
 	@Prop()
 	public _count!: CountPropType;
@@ -70,7 +70,7 @@ export class KolSkeleton implements WebComponentInterface<Props, SkeletonEmitter
 	public componentWillLoad(): void {
 		this.controller.componentWillLoad({
 			count: this._count,
-			label: 'Label',
+			label: this.controller.getRenderProps().label,
 			name: this._name,
 			show: this._show,
 		});
