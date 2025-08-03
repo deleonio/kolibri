@@ -65,6 +65,8 @@ export class SkeletonController
 
 	public onKeydown = (event: KeyboardEvent): void => {
 		if (event.key === 'Escape') {
+			// eslint-disable-next-line no-console
+			console.log('Show should be toggled');
 			this.setProp('show', false);
 		}
 	};
