@@ -14,7 +14,12 @@ export class SkeletonController<Host extends WebComponentInterface<Record<never,
 	extends BaseController<Host, SkeletonRenderProps>
 	implements ControllerInterface<SkeletonRenderProps, SkeletonCallbacks, SkeletonRefs, SkeletonMethods, SkeletonListeners>
 {
-	private readonly clickButtonController = new ClickButtonController<Host>(this.component);
+	private readonly clickButtonController: ClickButtonController<Host>;
+
+	public constructor(component: Host) {
+		super(component, { count: 0, label: '', name: '', show: false });
+		this.clickButtonController = new ClickButtonController<Host>(this.component);
+	}
 
 	public componentWillLoad(props: SkeletonRenderProps): void {
 		const { count, label, name, show } = props;
@@ -27,36 +32,36 @@ export class SkeletonController<Host extends WebComponentInterface<Record<never,
 	public watchCount(value?: CountPropType): void {
 		const normalized = normalizeCount(value);
 		if (validateCount(normalized)) {
-			this.setRenderProps('count', normalized);
+			this.renderProps.count = normalized;
 		}
 	}
 
 	public watchLabel(value?: LabelPropType): void {
 		this.clickButtonController.watchLabel(value);
-		this.setRenderProps('label', this.clickButtonController.getRenderProps().label);
+		this.renderProps.label = this.clickButtonController.getRenderProps().label;
 	}
 
 	public watchName(value?: NamePropType): void {
 		const normalized = normalizeName(value);
 		if (validateName(normalized)) {
-			this.setRenderProps('name', normalized);
+			this.renderProps.name = normalized;
 		}
 	}
 
 	public watchShow(value?: ShowPropType): void {
 		const normalized = normalizeShow(value);
 		if (validateShow(normalized)) {
-			this.setRenderProps('show', normalized);
+			this.renderProps.show = normalized;
 		}
 	}
 
 	public toggle(): void {
-		this.setRenderProps('show', !this.renderProps.show);
+		this.renderProps.show = !this.renderProps.show;
 	}
 
 	public onKeydown = (event: KeyboardEvent): void => {
 		if (event.key === 'Escape') {
-			this.setRenderProps('show', false);
+			this.renderProps.show = false;
 		}
 	};
 

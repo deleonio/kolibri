@@ -10,6 +10,10 @@ export class ClickButtonController<Host extends WebComponentInterface>
 {
 	private buttonRef?: HTMLButtonElement;
 
+	public constructor(component: Host) {
+		super(component, { label: '' });
+	}
+
 	public componentWillLoad(props: ClickButtonRenderProps): void {
 		const { label } = props;
 		this.watchLabel(label);
@@ -18,7 +22,7 @@ export class ClickButtonController<Host extends WebComponentInterface>
 	public watchLabel(value?: LabelPropType): void {
 		const normalized = normalizeLabel(value);
 		if (validateLabel(normalized)) {
-			this.setRenderProps('label', normalized);
+			this.renderProps.label = normalized;
 		}
 	}
 
