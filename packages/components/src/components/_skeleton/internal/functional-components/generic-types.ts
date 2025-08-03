@@ -34,12 +34,11 @@ type ComponentWatchers<Props> = {
 	[K in keyof Props as `watch${Capitalize<string & K>}`]: Callback<Props[K]>;
 };
 
-type RequiredRenderProps<RenderProps> = {
+export type RequiredRenderProps<RenderProps> = {
 	[K in keyof RenderProps]-?: NonNullable<RenderProps[K]>;
 };
 
 export type WebComponentInterface<
-	State,
 	Props = Record<never, never>,
 	Emitters = Record<never, never>,
 	Methods = Record<never, never>,
@@ -48,7 +47,6 @@ export type WebComponentInterface<
 	componentWillLoad(): void;
 } & ComponentProps<Props> &
 	ComponentWatchers<Props> &
-	RequiredRenderProps<State> &
 	WebComponentEmitters<Emitters> &
 	ComponentMethods<Methods> &
 	ComponentListeners<Listeners>;
@@ -84,6 +82,7 @@ export type ControllerInterface<
 	Listeners = Record<never, never>,
 > = {
 	componentWillLoad(props: RequiredRenderProps<RenderProps>): void;
+	getRenderProps(): RequiredRenderProps<RenderProps>;
 } & ComponentWatchers<RenderProps> &
 	ControllerCallbackHandlers<Callbacks> &
 	ControllerRefSetters<Refs> &

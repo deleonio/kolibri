@@ -4,8 +4,8 @@ import { BaseController } from '../base-controller';
 import type { ControllerInterface, WebComponentInterface } from '../generic-types';
 import type { ClickButtonCallbacks, ClickButtonRefs, ClickButtonRenderProps } from './component';
 
-export class ClickButtonController<Host extends WebComponentInterface<ClickButtonRenderProps>>
-	extends BaseController<Host>
+export class ClickButtonController<Host extends WebComponentInterface>
+	extends BaseController<Host, ClickButtonRenderProps>
 	implements ControllerInterface<ClickButtonRenderProps, ClickButtonCallbacks, ClickButtonRefs>
 {
 	private buttonRef?: HTMLButtonElement;
@@ -18,7 +18,7 @@ export class ClickButtonController<Host extends WebComponentInterface<ClickButto
 	public watchLabel(value?: LabelPropType): void {
 		const normalized = normalizeLabel(value);
 		if (validateLabel(normalized)) {
-			this.setRenderPropsOrStates('label', normalized);
+			this.setRenderProps('label', normalized);
 		}
 	}
 

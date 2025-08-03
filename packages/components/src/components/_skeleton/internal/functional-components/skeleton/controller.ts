@@ -10,10 +10,8 @@ import { ClickButtonController } from '../click-button/controller';
 import type { ControllerInterface, WebComponentInterface } from '../generic-types';
 import type { SkeletonCallbacks, SkeletonEmitters, SkeletonListeners, SkeletonMethods, SkeletonRefs, SkeletonRenderProps } from './component';
 
-export class SkeletonController<
-		Host extends WebComponentInterface<SkeletonRenderProps, Record<never, never>, SkeletonEmitters, SkeletonMethods, SkeletonListeners>,
-	>
-	extends BaseController<Host>
+export class SkeletonController<Host extends WebComponentInterface<Record<never, never>, SkeletonEmitters, SkeletonMethods, SkeletonListeners>>
+	extends BaseController<Host, SkeletonRenderProps>
 	implements ControllerInterface<SkeletonRenderProps, SkeletonCallbacks, SkeletonRefs, SkeletonMethods, SkeletonListeners>
 {
 	private readonly clickButtonController = new ClickButtonController<Host>(this.component);
@@ -29,35 +27,36 @@ export class SkeletonController<
 	public watchCount(value?: CountPropType): void {
 		const normalized = normalizeCount(value);
 		if (validateCount(normalized)) {
-			this.setRenderPropsOrStates('count', normalized);
+			this.setRenderProps('count', normalized);
 		}
 	}
 
 	public watchLabel(value?: LabelPropType): void {
 		this.clickButtonController.watchLabel(value);
+		this.setRenderProps('label', this.clickButtonController.getRenderProps().label);
 	}
 
 	public watchName(value?: NamePropType): void {
 		const normalized = normalizeName(value);
 		if (validateName(normalized)) {
-			this.setRenderPropsOrStates('name', normalized);
+			this.setRenderProps('name', normalized);
 		}
 	}
 
 	public watchShow(value?: ShowPropType): void {
 		const normalized = normalizeShow(value);
 		if (validateShow(normalized)) {
-			this.setRenderPropsOrStates('show', normalized);
+			this.setRenderProps('show', normalized);
 		}
 	}
 
 	public toggle(): void {
-		this.setRenderPropsOrStates('show', !this.component.show);
+		this.setRenderProps('show', !this.renderProps.show);
 	}
 
 	public onKeydown = (event: KeyboardEvent): void => {
 		if (event.key === 'Escape') {
-			this.setRenderPropsOrStates('show', false);
+			this.setRenderProps('show', false);
 		}
 	};
 
