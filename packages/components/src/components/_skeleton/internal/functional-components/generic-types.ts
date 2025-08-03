@@ -82,7 +82,7 @@ export type ControllerInterface<
 	Listeners = Record<never, never>,
 > = {
 	componentWillLoad(props: RequiredRenderProps<RenderProps>): void;
-	getRenderProps(): RequiredRenderProps<RenderProps>;
+	getProps(): RequiredRenderProps<RenderProps>;
 } & ComponentWatchers<RenderProps> &
 	ControllerCallbackHandlers<Callbacks> &
 	ControllerRefSetters<Refs> &

@@ -7,19 +7,21 @@ import type { ShowPropType } from '../../schema/props/show';
 import { normalizeShow, validateShow } from '../../schema/props/show';
 import { BaseController } from '../base-controller';
 import { ClickButtonController } from '../click-button/controller';
-import type { ControllerInterface, WebComponentInterface } from '../generic-types';
-import type { SkeletonCallbacks, SkeletonEmitters, SkeletonListeners, SkeletonMethods, SkeletonRefs, SkeletonRenderProps } from './component';
+import type { ControllerInterface } from '../generic-types';
+import type { SkeletonCallbacks, SkeletonListeners, SkeletonMethods, SkeletonRefs, SkeletonRenderProps } from './component';
 
-export class SkeletonController<Host extends WebComponentInterface<Record<never, never>, SkeletonEmitters, SkeletonMethods, SkeletonListeners>>
-	extends BaseController<Host, SkeletonRenderProps>
+export class SkeletonController
+	extends BaseController<SkeletonRenderProps>
 	implements ControllerInterface<SkeletonRenderProps, SkeletonCallbacks, SkeletonRefs, SkeletonMethods, SkeletonListeners>
 {
-	private readonly clickButtonController: ClickButtonController<Host>;
+	private readonly clickButtonController: ClickButtonController = new ClickButtonController();
 
-	public constructor(component: Host, renderProps: Partial<SkeletonRenderProps> = {}) {
-		super(component, { count: 0, label: '', name: '', show: false, ...renderProps });
-		this.clickButtonController = new ClickButtonController<Host>(this.component, {
-			label: this.getRenderProps().label,
+	public constructor() {
+		super({
+			count: 0,
+			label: '',
+			name: '',
+			show: false,
 		});
 	}
 
@@ -34,36 +36,36 @@ export class SkeletonController<Host extends WebComponentInterface<Record<never,
 	public watchCount(value?: CountPropType): void {
 		const normalized = normalizeCount(value);
 		if (validateCount(normalized)) {
-			this.setRenderProp('count', normalized);
+			this.setProp('count', normalized);
 		}
 	}
 
 	public watchLabel(value?: LabelPropType): void {
 		this.clickButtonController.watchLabel(value);
-		this.setRenderProp('label', this.clickButtonController.getRenderProps().label);
+		this.setProp('label', this.clickButtonController.getProps().label);
 	}
 
 	public watchName(value?: NamePropType): void {
 		const normalized = normalizeName(value);
 		if (validateName(normalized)) {
-			this.setRenderProp('name', normalized);
+			this.setProp('name', normalized);
 		}
 	}
 
 	public watchShow(value?: ShowPropType): void {
 		const normalized = normalizeShow(value);
 		if (validateShow(normalized)) {
-			this.setRenderProp('show', normalized);
+			this.setProp('show', normalized);
 		}
 	}
 
 	public toggle(): void {
-		this.setRenderProp('show', !this.getRenderProps().show);
+		this.setProp('show', !this.getProps().show);
 	}
 
 	public onKeydown = (event: KeyboardEvent): void => {
 		if (event.key === 'Escape') {
-			this.setRenderProp('show', false);
+			this.setProp('show', false);
 		}
 	};
 
