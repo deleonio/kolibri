@@ -10,8 +10,8 @@ export class ClickButtonController<Host extends WebComponentInterface>
 {
 	private buttonRef?: HTMLButtonElement;
 
-	public constructor(component: Host) {
-		super(component, { label: '' });
+	public constructor(component: Host, renderProps: Partial<ClickButtonRenderProps> = {}) {
+		super(component, { label: '', ...renderProps });
 	}
 
 	public componentWillLoad(props: ClickButtonRenderProps): void {

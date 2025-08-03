@@ -18,7 +18,9 @@ export class SkeletonController<Host extends WebComponentInterface<Record<never,
 
 	public constructor(component: Host, renderProps: Partial<SkeletonRenderProps> = {}) {
 		super(component, { count: 0, label: '', name: '', show: false, ...renderProps });
-		this.clickButtonController = new ClickButtonController<Host>(this.component);
+		this.clickButtonController = new ClickButtonController<Host>(this.component, {
+			label: this.getRenderProps().label,
+		});
 	}
 
 	public componentWillLoad(props: SkeletonRenderProps): void {

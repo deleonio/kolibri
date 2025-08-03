@@ -1,14 +1,10 @@
 import type { RequiredRenderProps } from './generic-types';
 
 export abstract class BaseController<Host, RenderProps> {
-	private renderProps: RequiredRenderProps<RenderProps>;
-
 	public constructor(
 		protected readonly component: Host,
-		renderProps: RequiredRenderProps<RenderProps>,
-	) {
-		this.renderProps = renderProps;
-	}
+		private readonly renderProps: RequiredRenderProps<RenderProps>,
+	) {}
 
 	protected setState<K extends keyof Host>(prop: K, value: Host[K]): void {
 		this.component[prop] = value;
