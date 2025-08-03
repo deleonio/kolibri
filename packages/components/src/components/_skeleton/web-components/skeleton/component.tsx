@@ -4,15 +4,17 @@ import type { WebComponentInterface } from '../../internal/functional-components
 import type { SkeletonEmitters, SkeletonListeners, SkeletonMethods } from '../../internal/functional-components/skeleton/component';
 import { SkeletonFC } from '../../internal/functional-components/skeleton/component';
 import { SkeletonController } from '../../internal/functional-components/skeleton/controller';
-import type { CountPropType } from '../../internal/schema/props/count';
-import type { NamePropType } from '../../internal/schema/props/name';
-import type { ShowPropType } from '../../internal/schema/props/show';
+import type { CountProp, CountPropType } from '../../internal/schema/props/count';
+import type { NameProp, NamePropType } from '../../internal/schema/props/name';
+import type { ShowProp, ShowPropType } from '../../internal/schema/props/show';
+
+type Props = CountProp & NameProp & ShowProp;
 
 @Component({
 	tag: 'kol-skeleton',
 	shadow: true,
 })
-export class KolSkeleton implements WebComponentInterface<SkeletonProps, SkeletonEmitters, SkeletonMethods, SkeletonListeners> {
+export class KolSkeleton implements WebComponentInterface<Props, SkeletonEmitters, SkeletonMethods, SkeletonListeners> {
 	private readonly controller = new SkeletonController();
 
 	@Prop()
