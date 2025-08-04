@@ -17,6 +17,12 @@ Primary goals:
 - enable replacement or extension of layers without cascading changes
 - enforce consistent validation and type-safety boundaries
 
+### Usage Example
+
+```html
+<kol-skeleton _count="42" _name="Example"></kol-skeleton>
+```
+
 ## 2. Architecture Constraints
 
 - **Stencil** is used for authoring web components.
@@ -41,10 +47,10 @@ flowchart LR
 
 The blueprint enforces unidirectional data flow and delegates responsibilities to isolated layers:
 
-- Web components expose a stable public API and mirror underscored props to private fields.
-- Controllers own business logic, normalization and validation.
-- Functional components render pure JSX based on provided props.
-- Schema helpers define canonical prop types and validation rules close to the data model.
+- **Controller** – encapsulates business logic and state transitions. It coordinates prop watchers, updates render props and can compose other controllers for additional behaviour.
+- **Functional component** – pure, stateless renderer that receives the current state snapshot together with callbacks, emitters and refs. It never mutates data and communicates through events.
+- **Schema helpers** – prop type declarations plus `normalize*/validate*` helpers that keep domain rules close to the data model.
+- **Web component** – public API surface. Incoming `@Prop` values are exposed with a leading `_` (e.g. `_count`). `@Watch` decorators must observe the underscored props to normalise and validate external values before delegating to the controller. Render props are accessed via `controller.getRenderProps()` instead of mirroring them locally.
 
 ### Props Pattern
 
@@ -71,6 +77,21 @@ public watchCount(value?: CountPropType): void {
 ```
 
 See the [controller](./internal/functional-components/skeleton/controller.ts) for the corresponding validation logic.
+
+### Controller Initialization
+
+Web components must initialise controllers by passing the current render props to ensure proper state setup:
+
+```ts
+public componentWillLoad(): void {
+  this.controller.componentWillLoad({
+    count: this._count,
+    name: this._name,
+  });
+}
+```
+
+This ensures controllers receive the complete current state before any external prop changes occur.
 
 ## 5. Building Block View
 
@@ -128,11 +149,15 @@ The skeleton ships as part of the `@public-ui/components` package. During build 
 
 ## 8. Cross-cutting Concepts
 
+- **Composition over inheritance**: Controllers compose behaviour rather than relying on inheritance.
+- **Declarative rendering**: Functional components are pure and stateless.
 - **Decoupling**: Each layer only knows its direct neighbours. Controllers can be reused or replaced without altering renderers or schemas.
-- **Template Method Pattern**: The WebComponent defines the overall component lifecycle and structure (template), while the Controller implements the specific business logic steps. The WebComponent provides itself as a reference to the Controller, allowing the Controller to modify the component's state during the execution of the template.
 - **Event-driven communication**: User interaction is emitted as DOM events rather than calling functions across layers.
-- **Type safety**: Generics enforce compile-time contracts between components and controllers.
 - **Props Pattern**: Functional components exclusively receive Props that contain either normalized/validated external data or internal component state. Props must always be initialized to prevent rendering with undefined values. This guarantees that rendering logic never operates on raw, unvalidated inputs and maintains data integrity throughout the component lifecycle.
+- **State ownership**: Web components own state, controllers manage transitions and functional components consume state.
+- **Template Method Pattern**: The WebComponent defines the overall component lifecycle and structure (template), while the Controller implements the specific business logic steps. The WebComponent provides itself as a reference to the Controller, allowing the Controller to modify the component's state during the execution of the template.
+- **Type safety**: Generics enforce compile-time contracts between components and controllers.
+- **Watcher placement**: Attach `@Watch` only to underscored public props; internal state fields remain undecorated.
 
 ## 9. Design Decisions
 
