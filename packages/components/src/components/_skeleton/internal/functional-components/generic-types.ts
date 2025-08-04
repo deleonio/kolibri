@@ -91,7 +91,3 @@ export type ControllerInterface<
 	ControllerRefSetters<Refs> &
 	ControllerMethods<Methods> &
 	ControllerListeners<Listeners>;
-
-export type ControllerFactories<Controllers> = {
-	[K in keyof Controllers as `create${Capitalize<string & K>}Controller`]: (component: WebComponentInterface) => Controllers[K];
-};

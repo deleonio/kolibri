@@ -12,9 +12,7 @@ describe('SkeletonController', () => {
 			setButtonRef: jest.fn(),
 			componentWillLoad: jest.fn(),
 		} as unknown as ClickButtonController;
-		const controller = new SkeletonController(component, {
-			createClickButtonController: () => clickButtonController,
-		});
+		const controller = new SkeletonController(component, clickButtonController);
 
 		controller.focusButton();
 
