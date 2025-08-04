@@ -31,13 +31,11 @@ if (validateValue(normalized)) {
 
 ## Initialization Contract
 
-Controllers expect complete render props during initialization to establish consistent state:
+Controllers expect the current values of render props during initialization to establish consistent state. Internal state fields are handled separately:
 
 ```typescript
 this.controller.componentWillLoad({
-	count: this.count, // Current render prop values
-	label: this.label, // with guaranteed defaults
-	name: this.name, // from component initialization
-	show: this.show,
+	count: this._count, // Current render prop values
+	name: this._name, // from component initialization
 });
 ```
