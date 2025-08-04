@@ -10,6 +10,7 @@ import type {
 } from '../../internal/functional-components/skeleton/component';
 import { SkeletonFC } from '../../internal/functional-components/skeleton/component';
 import { SkeletonController } from '../../internal/functional-components/skeleton/controller';
+import { ClickButtonController } from '../../internal/functional-components/click-button/controller';
 import type { CountPropType } from '../../internal/schema/props/count';
 import type { LabelPropType } from '../../internal/schema/props/label';
 import type { NamePropType } from '../../internal/schema/props/name';
@@ -20,7 +21,9 @@ import type { ShowPropType } from '../../internal/schema/props/show';
 	shadow: true,
 })
 export class KolSkeleton implements WebComponentInterface<SkeletonRenderProps, SkeletonRenderStates, SkeletonEmitters, SkeletonMethods, SkeletonListeners> {
-	private readonly controller = new SkeletonController(this);
+	private readonly controller = new SkeletonController(this, {
+		createClickButtonController: (component) => new ClickButtonController(component),
+	});
 
 	@Prop()
 	public _count!: CountPropType;
