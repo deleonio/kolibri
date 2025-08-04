@@ -70,14 +70,15 @@ type ControllerMethods<Methods> = {
 };
 
 export type ControllerInterface<
-	Props,
+	State,
+	Props extends Partial<State> = State,
 	Callbacks = Record<never, never>,
 	Refs = Record<never, never>,
 	Methods = Record<never, never>,
 	Listeners = Record<never, never>,
 > = {
-	componentWillLoad(props: RequiredRenderProps<Props>): void;
-	getProps(): RequiredRenderProps<Props>;
+	componentWillLoad(props: RequiredRenderProps<State>): void;
+	getProps(): RequiredRenderProps<State>;
 } & ComponentWatchers<Props> &
 	ControllerCallbackHandlers<Callbacks> &
 	ControllerRefSetters<Refs> &

@@ -3,16 +3,16 @@ import { normalizeCount, validateCount } from '../../schema/props/count';
 import type { LabelPropType } from '../../schema/props/label';
 import type { NamePropType } from '../../schema/props/name';
 import { normalizeName, validateName } from '../../schema/props/name';
-import type { ShowPropType } from '../../schema/props/show';
-import { normalizeShow, validateShow } from '../../schema/props/show';
+import type { ShowStateType } from '../../schema/states/show';
+import { normalizeShow, validateShow } from '../../schema/states/show';
 import { BaseController } from '../base-controller';
 import { ClickButtonController } from '../click-button/controller';
 import type { ControllerInterface } from '../generic-types';
-import type { SkeletonCallbacks, SkeletonListeners, SkeletonMethods, SkeletonRefs, SkeletonRenderProps } from './component';
+import type { SkeletonCallbacks, SkeletonListeners, SkeletonMethods, SkeletonProps, SkeletonRefs, SkeletonState } from './component';
 
 export class SkeletonController
-	extends BaseController<SkeletonRenderProps>
-	implements ControllerInterface<SkeletonRenderProps, SkeletonCallbacks, SkeletonRefs, SkeletonMethods, SkeletonListeners>
+	extends BaseController<SkeletonState>
+	implements ControllerInterface<SkeletonState, SkeletonProps, SkeletonCallbacks, SkeletonRefs, SkeletonMethods, SkeletonListeners>
 {
 	private readonly clickButtonController: ClickButtonController = new ClickButtonController();
 
@@ -25,7 +25,7 @@ export class SkeletonController
 		});
 	}
 
-	public componentWillLoad(props: SkeletonRenderProps): void {
+	public componentWillLoad(props: SkeletonState): void {
 		const { count, label, name, show } = props;
 		this.watchCount(count);
 		this.watchLabel(label);
@@ -52,7 +52,7 @@ export class SkeletonController
 		}
 	}
 
-	public watchShow(value?: ShowPropType): void {
+	public watchShow(value?: ShowStateType): void {
 		const normalized = normalizeShow(value);
 		if (validateShow(normalized)) {
 			this.setProp('show', normalized);

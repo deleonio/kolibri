@@ -6,9 +6,8 @@ import { SkeletonFC } from '../../internal/functional-components/skeleton/compon
 import { SkeletonController } from '../../internal/functional-components/skeleton/controller';
 import type { CountProp, CountPropType } from '../../internal/schema/props/count';
 import type { NameProp, NamePropType } from '../../internal/schema/props/name';
-import type { ShowProp, ShowPropType } from '../../internal/schema/props/show';
 
-type Props = CountProp & NameProp & ShowProp;
+type Props = CountProp & NameProp;
 
 @Component({
 	tag: 'kol-skeleton',
@@ -31,14 +30,6 @@ export class KolSkeleton implements WebComponentInterface<Props, SkeletonEmitter
 	@Watch('_name')
 	public watchName(value?: NamePropType): void {
 		this.controller.watchName(value);
-	}
-
-	@Prop()
-	public _show?: ShowPropType;
-
-	@Watch('_show')
-	public watchShow(value?: ShowPropType): void {
-		this.controller.watchShow(value);
 	}
 
 	@Method()
@@ -72,7 +63,7 @@ export class KolSkeleton implements WebComponentInterface<Props, SkeletonEmitter
 			count: this._count,
 			label: 'Label',
 			name: this._name,
-			show: this._show,
+			show: false,
 		});
 	}
 

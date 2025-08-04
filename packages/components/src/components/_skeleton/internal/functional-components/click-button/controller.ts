@@ -6,7 +6,7 @@ import type { ClickButtonCallbacks, ClickButtonRefs, ClickButtonRenderProps } fr
 
 export class ClickButtonController
 	extends BaseController<ClickButtonRenderProps>
-	implements ControllerInterface<ClickButtonRenderProps, ClickButtonCallbacks, ClickButtonRefs>
+	implements ControllerInterface<ClickButtonRenderProps, ClickButtonRenderProps, ClickButtonCallbacks, ClickButtonRefs>
 {
 	private buttonRef?: HTMLButtonElement;
 

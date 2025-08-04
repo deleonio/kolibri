@@ -3,7 +3,7 @@ import { h } from '@stencil/core';
 import type { CountProp } from '../../schema/props/count';
 import type { LabelProp } from '../../schema/props/label';
 import type { NameProp } from '../../schema/props/name';
-import type { ShowProp } from '../../schema/props/show';
+import type { ShowState } from '../../schema/states/show';
 import { ClickButtonFC } from '../click-button/component';
 import type { FunctionalComponentProps } from '../generic-types';
 
@@ -38,9 +38,10 @@ export type SkeletonListeners = {
 	keydown: KeyboardEvent;
 };
 
-export type SkeletonRenderProps = CountProp & LabelProp & NameProp & ShowProp;
+export type SkeletonProps = CountProp & NameProp;
+export type SkeletonState = SkeletonProps & LabelProp & ShowState;
 
-type Props = FunctionalComponentProps<SkeletonRenderProps, SkeletonCallbacks, SkeletonEmitters, SkeletonRefs>;
+type Props = FunctionalComponentProps<SkeletonState, SkeletonCallbacks, SkeletonEmitters, SkeletonRefs>;
 
 export const SkeletonFC: FC<Props> = ({ count, label, name, show, onLoaded, handleClick, refButton }) => {
 	setTimeout(() => {

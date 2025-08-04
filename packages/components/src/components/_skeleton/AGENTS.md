@@ -13,7 +13,7 @@ This skeleton demonstrates **Separation of Concerns** through layered architectu
 
 ## Data Flow
 
-1. External consumers set public props (`_count`, `_name`, `_show`, ...).
+1. External consumers set public props (`_count`, `_name`, ...).
 2. Prop watchers on the underscored fields invoke schema helpers to normalise and validate values.
 3. The controller updates internal state or render props.
 4. The functional component renders based on that state and emits events back to the outside.
@@ -56,7 +56,7 @@ Functional components receive complete state snapshots and render declaratively,
 
 ### Watcher Placement
 
-Attach `@Watch` only to the underscored public props (`_count`, `_name`, `_show`, ...). Internal state fields like `count`, `name`, `show` or `label` stay undecorated because watchers do not trigger on plain class properties.
+Attach `@Watch` only to the underscored public props (`_count`, `_name`, ...). Internal state fields like `count`, `name`, `show` or `label` stay undecorated because watchers do not trigger on plain class properties.
 
 ### Controller Initialization Pattern
 
@@ -68,7 +68,7 @@ public componentWillLoad(): void {
     count: this._count,
     label: 'Label',
     name: this._name,
-    show: this._show,
+    show: false,
   });
 }
 ```
@@ -92,7 +92,7 @@ Rendering logic lives in **pure functions** that receive immutable props. This e
 ## Usage Example
 
 ```html
-<kol-skeleton _count="42" _name="Example" _show="true"></kol-skeleton>
+<kol-skeleton _count="42" _name="Example"></kol-skeleton>
 ```
 
 The component demonstrates how web standards (Custom Elements, Shadow DOM) can be enhanced with modern TypeScript patterns to create maintainable, type-safe UI components.
