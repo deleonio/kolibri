@@ -60,34 +60,3 @@ export type FunctionalComponentProps<
 	Emitters = Record<never, never>,
 	Refs = Record<never, never>,
 > = NotNullableFields<Props> & NotNullableFields<States> & ComponentCallbacks<Callbacks> & ComponentRefs<Refs> & FunctionalComponentEmitters<Emitters>;
-
-type ControllerCallbackHandlers<Callbacks> = {
-	[K in keyof Callbacks as `handle${Capitalize<string & K>}`]: (element?: Callbacks[K]) => void;
-};
-
-type ControllerRefSetters<Refs> = {
-	[K in keyof Refs as `set${Capitalize<string & K>}Ref`]: (element?: Refs[K]) => void;
-};
-
-type ControllerListeners<Listeners> = {
-	[K in keyof Listeners as `on${Capitalize<string & K>}`]: (event: Listeners[K]) => void;
-};
-
-type ControllerMethods<Methods> = {
-	[K in keyof Methods]: Methods[K];
-};
-
-export type ControllerInterface<
-	Props = Record<never, never>,
-	Callbacks = Record<never, never>,
-	Refs = Record<never, never>,
-	Methods = Record<never, never>,
-	Listeners = Record<never, never>,
-> = {
-	componentWillLoad(props: NotNullableFields<Props>): void;
-	getProps(): NotNullableFields<Props>;
-} & ComponentWatchers<Props> &
-	ControllerCallbackHandlers<Callbacks> &
-	ControllerRefSetters<Refs> &
-	ControllerMethods<Methods> &
-	ControllerListeners<Listeners>;

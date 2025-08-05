@@ -20,22 +20,30 @@ import type { ShowPropType } from '../../internal/schema/props/show';
 	shadow: true,
 })
 export class KolSkeleton implements WebComponentInterface<SkeletonRenderProps, SkeletonRenderStates, SkeletonEmitters, SkeletonMethods, SkeletonListeners> {
-	private readonly controller = new SkeletonController(this);
+	private readonly controller = new SkeletonController();
+
+	public buttonRef?: HTMLButtonElement;
 
 	@Prop()
 	public _count!: CountPropType;
 
+	@State()
+	public count: CountPropType = 0;
+
 	@Watch('_count')
 	public watchCount(value?: CountPropType): void {
-		this.controller.watchCount(value);
+		this.controller.watchCount(this, value);
 	}
 
 	@Prop()
 	public _name!: NamePropType;
 
+	@State()
+	public name: NamePropType = '';
+
 	@Watch('_name')
 	public watchName(value?: NamePropType): void {
-		this.controller.watchName(value);
+		this.controller.watchName(this, value);
 	}
 
 	@State()
@@ -46,49 +54,43 @@ export class KolSkeleton implements WebComponentInterface<SkeletonRenderProps, S
 
 	@Method()
 	public focusButton(): Promise<void> {
-		this.controller.focusButton();
+		this.controller.focusButton(this);
 		return Promise.resolve();
 	}
 
 	@Listen('keydown')
 	public handleKeyDown(event: KeyboardEvent): void {
-		if (event.key === 'Enter' || event.key === ' ') {
-			this.controller.handleClick();
-		}
+		this.controller.onComponentKeydown(this, event);
 	}
 
 	@Event() public loaded!: EventEmitter<number>;
 
 	@Method()
 	public toggle(): Promise<void> {
-		this.controller.toggle();
+		this.controller.toggle(this);
 		return Promise.resolve();
 	}
 
 	@Listen('keydown', { target: 'window' })
 	public onKeydown(event: KeyboardEvent): void {
-		this.controller.onKeydown(event);
+		this.controller.onKeydown(this, event);
 	}
 
 	public componentWillLoad(): void {
-		this.controller.componentWillLoad({
-			count: this._count,
-			name: this._name,
-		});
+		this.controller.componentWillLoad(this);
 	}
 
 	public render(): JSX.Element {
-		const { count, name } = this.controller.getProps();
 		return (
 			<Host>
 				<SkeletonFC
-					count={count}
+					count={this.count}
 					label={this.label}
-					name={name}
-					handleClick={this.controller.handleClick}
+					name={this.name}
+					handleClick={() => this.controller.handleClick(this)}
 					onLoaded={this.loaded}
 					show={this.show}
-					refButton={this.controller.setButtonRef}
+					refButton={(element) => this.controller.setButtonRef(this, element)}
 				/>
 			</Host>
 		);

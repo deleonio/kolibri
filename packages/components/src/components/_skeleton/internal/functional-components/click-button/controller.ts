@@ -1,43 +1,34 @@
-import type { LabelPropType } from '../../schema/props/label';
+import type { WebComponentInterface } from '../generic-types';
+import type { ClickButtonRenderStates } from './component';
+import type { LabelProp, LabelPropType } from '../../schema/props/label';
 import { normalizeLabel, validateLabel } from '../../schema/props/label';
-import { BaseController } from '../base-controller';
-import type { ControllerInterface, WebComponentInterface } from '../generic-types';
-import type { ClickButtonCallbacks, ClickButtonRefs, ClickButtonRenderProps, ClickButtonRenderStates } from './component';
 
-export class ClickButtonController
-	extends BaseController<ClickButtonRenderProps, ClickButtonRenderStates>
-	implements ControllerInterface<ClickButtonRenderProps, ClickButtonCallbacks, ClickButtonRefs>
-{
-	private buttonRef?: HTMLButtonElement;
+type ClickButtonComponent = WebComponentInterface<LabelProp, ClickButtonRenderStates & LabelProp> & {
+	buttonRef?: HTMLButtonElement;
+};
 
-	public constructor(controller: WebComponentInterface<Record<never, never>, ClickButtonRenderStates>) {
-		super(controller, {
-			label: '',
-		});
+export class ClickButtonController {
+	public componentWillLoad(component: ClickButtonComponent): void {
+		this.watchLabel(component, component._label);
 	}
 
-	public componentWillLoad(props: ClickButtonRenderProps): void {
-		const { label } = props;
-		this.watchLabel(label);
-	}
-
-	public watchLabel(value?: LabelPropType): void {
-		const normalized = normalizeLabel(value);
+	public watchLabel(component: ClickButtonComponent, value?: LabelPropType): void {
+		const normalized = normalizeLabel(value) as LabelPropType;
 		if (validateLabel(normalized)) {
-			this.setProp('label', normalized);
+			component.label = normalized;
 		}
 	}
 
-	public handleClick = (): void => {
+	public handleClick(component: ClickButtonComponent): void {
 		// eslint-disable-next-line no-console
-		console.log(this, this.buttonRef, 'button clicked');
-	};
+		console.log(this, component.buttonRef, 'button clicked');
+	}
 
-	public focusButton = (): void => {
-		this.buttonRef?.focus();
-	};
+	public focusButton(component: ClickButtonComponent): void {
+		component.buttonRef?.focus();
+	}
 
-	public setButtonRef = (element?: HTMLButtonElement): void => {
-		this.buttonRef = element;
-	};
+	public setButtonRef(component: ClickButtonComponent, element?: HTMLButtonElement): void {
+		component.buttonRef = element;
+	}
 }
