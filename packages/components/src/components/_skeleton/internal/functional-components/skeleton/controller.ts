@@ -12,16 +12,16 @@ export class SkeletonController
 	extends BaseController<SkeletonRenderProps, SkeletonRenderStates>
 	implements ControllerInterface<SkeletonRenderProps, SkeletonCallbacks, SkeletonRefs, SkeletonMethods, SkeletonListeners>
 {
-	private readonly clickButtonController: ClickButtonController;
-
 	public label: LabelPropType = 'Label';
 
-	public constructor(component: WebComponentInterface<Record<never, never>, SkeletonRenderStates>, clickButtonController: ClickButtonController) {
+	public constructor(
+		component: WebComponentInterface<Record<never, never>, SkeletonRenderStates>,
+		private readonly clickButtonController: ClickButtonController,
+	) {
 		super(component, {
 			count: 0,
 			name: '',
 		});
-		this.clickButtonController = clickButtonController;
 	}
 
 	public componentWillLoad(props: SkeletonRenderProps): void {
