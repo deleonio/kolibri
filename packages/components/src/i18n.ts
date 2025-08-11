@@ -1,6 +1,6 @@
 import type { ComponentKeys, ResourcePrefix } from './core/i18n';
 import { getI18nInstance, initializeI18n } from './core/i18n';
-import { runtimeMode } from './schema';
+import { isTestMode } from './schema';
 
 type Options = {
 	count?: number;
@@ -14,6 +14,6 @@ export let translate = (key: TranslationKey, options?: Options) => {
 	return i18n.translate(key, options);
 };
 
-if (runtimeMode === 'test') {
+if (isTestMode()) {
 	translate = (key): string => key;
 }

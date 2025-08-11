@@ -1,11 +1,15 @@
 const MODES = ['development', 'production', 'test'] as const;
 export type Mode = (typeof MODES)[number];
 
-export let runtimeMode: Mode = 'production';
-try {
-	runtimeMode = (process.env['NODE_ENV'] as Mode) || 'production';
-} catch (e) {
-	runtimeMode = 'production';
+
+
+export const getRuntimeMode = (): Mode => {
+  try {
+    const runtimeMode: Mode = process.env['NODE_ENV'] as Mode;
+    return MODES.contains(runtimeMode) ? runtimeMode : 'production';
+  } catch (e) {
+    return 'production';
+  }
 }
 
 /**

@@ -15,14 +15,14 @@ export const setDocument = (value: Document): void => {
 	DOCUMENT = value;
 };
 
-import { runtimeMode } from './reuse';
+import { getRuntimeMode } from './reuse';
 
 let EXPERIMENTAL_MODE: boolean = false;
 let COLOR_CONTRAST_ANALYSIS: boolean = false;
 
-export const isDevMode = (): boolean => runtimeMode === 'development';
-export const isTestMode = (): boolean => runtimeMode === 'test';
-export const isProdMode = (): boolean => runtimeMode === 'production';
+export const isDevMode = (): boolean => getRuntimeMode() === 'development';
+export const isTestMode = (): boolean => getRuntimeMode() === 'test';
+export const isProdMode = (): boolean => getRuntimeMode() === 'production';
 
 export const getExperimentalMode = (): boolean => EXPERIMENTAL_MODE === true;
 export const setExperimentalMode = (mode: boolean): void => {

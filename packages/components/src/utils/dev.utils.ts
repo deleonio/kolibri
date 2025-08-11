@@ -1,4 +1,4 @@
-import { Log, getDocument, runtimeMode, setColorContrastAnalysis, setExperimentalMode } from '../schema';
+import { Log, getDocument, isTestMode, setColorContrastAnalysis, setExperimentalMode } from '../schema';
 
 import { getWindow } from '../schema';
 import { Env } from '@stencil/core';
@@ -65,7 +65,7 @@ Email: kolibri@itzbund.de
 
 let nonce = (): string => Math.floor(Math.random() * 16777215).toString(16);
 
-if (runtimeMode === 'test') {
+if (isTestMode()) {
 	nonce = (): string => 'nonce';
 }
 
