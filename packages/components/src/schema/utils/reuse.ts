@@ -1,17 +1,3 @@
-const MODES = ['development', 'production', 'test'] as const;
-export type Mode = (typeof MODES)[number];
-
-
-
-export const getRuntimeMode = (): Mode => {
-  try {
-    const runtimeMode: Mode = process.env['NODE_ENV'] as Mode;
-    return MODES.contains(runtimeMode) ? runtimeMode : 'production';
-  } catch (e) {
-    return 'production';
-  }
-}
-
 /**
  * This function is used to handle the slot content by
  * moving a DOM element to a defined slot element.

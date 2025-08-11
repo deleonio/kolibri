@@ -15,7 +15,17 @@ export const setDocument = (value: Document): void => {
 	DOCUMENT = value;
 };
 
-import { getRuntimeMode } from './reuse';
+const MODES = ['development', 'production', 'test'] as const;
+export type Mode = (typeof MODES)[number];
+
+const getRuntimeMode = (): Mode => {
+	try {
+		const runtimeMode: Mode = process.env['NODE_ENV'] as Mode;
+		return MODES.includes(runtimeMode) ? runtimeMode : 'production';
+	} catch (e) {
+		return 'production';
+	}
+};
 
 let EXPERIMENTAL_MODE: boolean = false;
 let COLOR_CONTRAST_ANALYSIS: boolean = false;
@@ -72,7 +82,7 @@ export class Logger {
 		/**
 		 * Should remove within the pull request would be finished.
 		 */
-		console.log('🔍 Environment Debug - NODE_ENV (Lib):', runtimeMode);
+		console.log('🔍 Environment Debug - NODE_ENV (Lib):', getRuntimeMode());
 
 		if (this.devMode()) {
 			this.info('Development mode active - Enhanced debugging features available');
