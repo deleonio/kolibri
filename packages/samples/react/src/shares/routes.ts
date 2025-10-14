@@ -47,6 +47,7 @@ import { VERSION_ROUTES } from '../components/version/routes';
 import { Routes } from './types';
 import { TREE_ROUTES } from '../components/tree/routes';
 import { COMBOBOX_ROUTES } from '../components/combobox/routes';
+import { MULTI_SELECT_ROUTES } from '../components/multi-select/routes';
 import { SINGLE_SELECT_ROUTES } from '../components/single-select/routes';
 
 export const ROUTES: Routes = {
@@ -81,6 +82,7 @@ export const ROUTES: Routes = {
 	...LINK_BUTTON_ROUTES,
 	...LINK_ROUTES,
 	...MODAL_ROUTES,
+	...MULTI_SELECT_ROUTES,
 	...NAV_ROUTES,
 	...PAGINATION_ROUTES,
 	...POPOVER_BUTTON_ROUTES,
