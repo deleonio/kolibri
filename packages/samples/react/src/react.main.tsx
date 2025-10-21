@@ -1,3 +1,4 @@
+import { KERN_V2 } from '@kern-ux-annex/theme-kolibri';
 import { setTagNameTransformer } from '@public-ui/react-v19';
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -12,6 +13,7 @@ import { App } from './App';
 import type { Generic } from 'adopted-style-sheets';
 
 type Theme = Generic.Theming.RegisterPatch<string, string, string>;
+type PatchTheme = (name: string, patches: Record<string, string>, options?: { append?: boolean }) => void;
 
 const ENABLE_I18N_OVERWRITING =
 	process.env.ENABLE_I18N_OVERWRITING === 'true' || new URL('https://x' + location.hash.substring(1)).searchParams.has('enableI18nOverwriting');
@@ -40,7 +42,7 @@ const getThemes = async () => {
 	}
 
 	/* List of regular sample app themes */
-	return [DEFAULT, ECL_EC, ECL_EU] as Theme[];
+	return [DEFAULT, ECL_EC, ECL_EU, KERN_V2] as Theme[];
 };
 
 void (async () => {
@@ -90,25 +92,30 @@ void (async () => {
 		 * You should patch the theme after the components and your default theme are registered.
 		 */
 		if (ENABLE_THEME_PATCHING) {
-			KoliBriDevHelper.patchTheme(
-				'default',
-				{
-					'KOL-BUTTON': `
-						button {
-							border: 1px solid red;
-						}`,
-					'KOL-SPIN': `
-						.bg-spin-2 {
-							background-color: red;
-						}
-						.bg-spin-3 {
-							background-color: gold;
-						}`,
-				},
-				{
-					append: true,
-				},
-			);
+			const { patchTheme } = KoliBriDevHelper as { patchTheme?: PatchTheme };
+			if (typeof patchTheme === 'function') {
+				patchTheme(
+					'default',
+					{
+						'KOL-BUTTON': `
+							button {
+								border: 1px solid red;
+							}
+						`,
+						'KOL-SPIN': `
+							.bg-spin-2 {
+								background-color: red;
+							}
+							.bg-spin-3 {
+								background-color: gold;
+							}
+						`,
+					},
+					{
+						append: true,
+					},
+				);
+			}
 		}
 	} catch (error) {
 		console.warn('Theme registration failed:', error);
