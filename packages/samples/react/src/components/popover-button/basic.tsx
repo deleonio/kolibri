@@ -1,11 +1,34 @@
 import { KolHeading, KolPopoverButton, KolToolbar } from '@public-ui/react-v19';
 import type { FC } from 'react';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useToasterService } from '../../hooks/useToasterService';
 import { SampleDescription } from '../SampleDescription';
 
 export const PopoverButtonBasic: FC = () => {
 	const { dummyClickEventHandler } = useToasterService();
+	const dropdownRef = useRef<HTMLKolPopoverButtonElement | null>(null);
+
+	useEffect(() => {
+		let isActive = true;
+
+		const openPopover = async () => {
+			const popoverHost = dropdownRef.current;
+			await popoverHost?.componentOnReady?.();
+			if (!isActive) {
+				return;
+			}
+
+			const popover = popoverHost?.shadowRoot?.querySelector('[popover]') as (HTMLElement & { showPopover?: () => void }) | null;
+			popover?.showPopover?.();
+		};
+
+		void openPopover();
+
+		return () => {
+			isActive = false;
+			dropdownRef.current?.hidePopover?.();
+		};
+	}, []);
 
 	const dummyEventHandler = {
 		onClick: dummyClickEventHandler,
@@ -41,7 +64,7 @@ export const PopoverButtonBasic: FC = () => {
 			<div className="flex flex-col gap-4">
 				<KolHeading _label="Vertical toolbar with action buttons" _level={2}></KolHeading>
 
-				<KolPopoverButton _label={'Actions'} _variant="primary" _icons={{ right: 'codicon codicon-chevron-down' }}>
+				<KolPopoverButton ref={dropdownRef} _label={'Actions'} _variant="primary" _icons={{ right: 'codicon codicon-chevron-down' }}>
 					<KolToolbar _label="Action toolbar" _items={TOOLBAR_ITEMS} _orientation="vertical" />
 				</KolPopoverButton>
 
