@@ -572,6 +572,14 @@ ROUTES.set('pagination/basic', {
 		},
 	},
 });
+ROUTES.set('popover-button/basic', {
+	snapshot: {
+		waitForTimeout: 250,
+		zoom: {
+			skip:true,
+		},
+	},
+});
 ROUTES.set('progress/basic', {
 	snapshot: {
 		zoom: {
