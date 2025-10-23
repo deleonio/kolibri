@@ -1,6 +1,6 @@
 import { SelectOption } from '@public-ui/components';
 
-export const THEMES = ['default', 'ecl-ec', 'ecl-eu', 'unstyled'] as const;
+export const THEMES = ['default', 'ecl-ec', 'ecl-eu', 'kern-v2', 'unstyled'] as const;
 export type Theme = (typeof THEMES)[number];
 export type ThemeAndUnstyled = Theme | 'unstyled';
 
@@ -19,10 +19,6 @@ export type Store = {
 
 export const THEME_OPTIONS: SelectOption<ThemeAndUnstyled>[] = [
 	{
-		label: 'Unstyled (Uncolored)',
-		value: 'unstyled',
-	},
-	{
 		label: 'Default (Tested)',
 		value: 'default',
 	},
@@ -33,5 +29,13 @@ export const THEME_OPTIONS: SelectOption<ThemeAndUnstyled>[] = [
 	{
 		label: 'European Union (in progress)',
 		value: 'ecl-eu',
+	},
+	{
+		label: 'KERN-UX Standard',
+		value: 'kern-v2',
+	},
+	{
+		label: 'Unstyled (Uncolored)',
+		value: 'unstyled',
 	},
 ];
