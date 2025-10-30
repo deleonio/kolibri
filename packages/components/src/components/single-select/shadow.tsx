@@ -26,7 +26,7 @@ import type {
 } from '../../schema';
 
 import clsx from 'clsx';
-import { KolIconTag } from '../../core/component-names';
+import { KolButtonWcTag, KolIconTag } from '../../core/component-names';
 import { getRenderStates } from '../../functional-component-wrappers/_helpers/getRenderStates';
 import KolFormFieldStateWrapperFc, { type FormFieldStateWrapperProps } from '../../functional-component-wrappers/FormFieldStateWrapper/FormFieldStateWrapper';
 import KolInputContainerFc from '../../functional-component-wrappers/InputContainerStateWrapper/InputContainerStateWrapper';
@@ -34,7 +34,6 @@ import type { InputStateWrapperProps } from '../../functional-component-wrappers
 import KolInputStateWrapperFc from '../../functional-component-wrappers/InputStateWrapper/InputStateWrapper';
 import CustomSuggestionsOptionFc from '../../functional-components/CustomSuggestionsOption/CustomSuggestionsOption';
 import CustomSuggestionsOptionsGroupFc from '../../functional-components/CustomSuggestionsOptionsGroup';
-import CustomSuggestionsToggleFc from '../../functional-components/CustomSuggestionsToggle';
 import { translate } from '../../i18n';
 import type { EventDetail } from '../../schema/interfaces/EventDetail';
 import { nonce } from '../../utils/dev.utils';
@@ -58,6 +57,7 @@ export class KolSingleSelect implements SingleSelectAPI {
 	private refOptions: HTMLLIElement[] = [];
 	private readonly translateDeleteSelection = translate('kol-delete-selection');
 	private readonly translateNoResultsMessage = translate('kol-no-results-message');
+	private readonly translateDropdown = translate('kol-dropdown');
 	private oldValue?: StencilUnknown;
 
 	/**
@@ -305,21 +305,32 @@ export class KolSingleSelect implements SingleSelectAPI {
 						<KolInputStateWrapperFc {...this.getInputProps()} />
 
 						{this._inputValue && !this.state._hideClearButton && (
-							<KolIconTag
+							<KolButtonWcTag
 								_icons="codicon codicon-close"
-								data-testid="single-select-delete"
 								_label={this.translateDeleteSelection}
-								onClick={() => {
-									this.clearSelection();
-									this.refInput?.focus();
-								}}
+								_hideLabel
+								_buttonVariant="ghost"
+								_disabled={isDisabled}
+								data-testid="single-select-delete"
 								class={clsx('kol-single-select__delete', {
 									'kol-single-select__delete--disabled': isDisabled,
 								})}
+								_on={{
+									onClick: () => {
+										this.clearSelection();
+										this.refInput?.focus();
+									},
+								}}
 							/>
 						)}
 
-						<CustomSuggestionsToggleFc onClick={this.toggleListbox.bind(this)} disabled={isDisabled} />
+						<KolIconTag
+							class={clsx('kol-custom-suggestions-toggle', {
+								'kol-custom-suggestions-toggle--disabled': isDisabled,
+							})}
+							_icons="codicon codicon-triangle-down"
+							_label={this.translateDropdown}
+						/>
 					</div>
 					{this._isOpen && !isDisabled && (
 						<CustomSuggestionsOptionsGroupFc

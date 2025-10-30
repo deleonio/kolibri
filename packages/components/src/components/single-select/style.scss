@@ -22,10 +22,14 @@
 
 	.kol-single-select {
 		&__delete {
-			cursor: pointer;
+			.kol-button {
+				cursor: pointer;
+			}
 
 			&--disabled {
-				cursor: not-allowed;
+				.kol-button {
+					cursor: not-allowed;
+				}
 			}
 		}
 
