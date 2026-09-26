@@ -48,9 +48,9 @@
 		"build": "unbuild"
 	},
 	"devDependencies": {
-		"@babel/types": "7.29.7",
+		"@babel/types": "7.29.8",
 		"@public-ui/components": "workspace:*",
-		"minimatch": "10.2.5",
+		"minimatch": "10.2.6",
 		"svelte": "5.55.7",
 		"typescript": "5.9.3",
 		"unbuild": "3.6.1"
