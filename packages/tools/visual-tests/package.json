@@ -37,16 +37,16 @@
 		"portfinder": "1.0.38"
 	},
 	"devDependencies": {
-		"@babel/eslint-parser": "7.29.7",
+		"@babel/eslint-parser": "7.29.9",
 		"@babel/plugin-syntax-import-attributes": "7.29.7",
 		"@babel/preset-env": "7.29.7",
-		"@playwright/test": "1.60.0",
+		"@playwright/test": "1.63.0",
 		"eslint": "8.57.1",
 		"knip": "5.88.1",
-		"prettier": "3.8.4"
+		"prettier": "3.9.9"
 	},
 	"peerDependencies": {
-		"@playwright/test": "1.60.0"
+		"@playwright/test": "1.63.0"
 	},
 	"files": [
 		"playwright.config.js",
